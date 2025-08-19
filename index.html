@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Interactive Website</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons for UI (deferred to not block rendering) -->
+    <script src="https://unpkg.com/feather-icons" defer></script>
+
+    <!-- Firebase Libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-firestore-compat.js"></script>
+
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* A light gray background */
+        }
+        /* Animation class for elements to fade in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Timeline styles for Journey page */
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2.5rem;
+            padding-left: 2.5rem;
+            border-left: 2px solid #e5e7eb;
+        }
+        .timeline-item:last-child {
+            border-left: 2px solid transparent;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: -0.5rem;
+            top: 0;
+            height: 1rem;
+            width: 1rem;
+            background-color: #4f46e5;
+            border-radius: 9999px;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="nav-link flex items-center space-x-2 text-2xl font-bold text-gray-900">
+                <svg class="h-8 w-8 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9a3 3 0 013-3v0a3 3 0 013 3v0a3 3 0 01-3 3v0a3 3 0 01-3-3z" />
+                </svg>
+                <span>LUMINI</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-gray-600 hover:text-indigo-600 transition duration-300">Home</a>
+                <!-- Dropdown Menu -->
+                <div class="relative">
+                    <button id="pages-dropdown-button" class="flex items-center text-gray-600 hover:text-indigo-600 transition duration-300">
+                        Pages <i data-feather="chevron-down" class="w-4 h-4 ml-1"></i>
+                    </button>
+                    <div id="pages-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 hidden">
+                        <a href="#journey" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Journey</a>
+                        <a href="#team" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Team</a>
+                        <a href="#contact" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-indigo-600 hover:bg-gray-100 focus:outline-none">
+                <i data-feather="menu" class="w-6 h-6"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#home" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Home</a>
+            <a href="#journey" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Journey</a>
+            <a href="#team" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Team</a>
+            <a href="#contact" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Page: Home -->
+        <div id="home" class="page">
+            <!-- Hero Section -->
+            <section id="hero" class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white bg-cover bg-center" 
+                     style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/5966251/pexels-photo-5966251.jpeg');">
+                <div class="relative z-10 text-center px-4 fade-in">
+                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Bringing Glory To Olden Days</h1>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-md">A Journey Where Old is Reinvented and Polished</p>
+                    <a href="#features" class="bg-indigo-600/80 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-600 transition duration-300 shadow-xl transform hover:scale-105">Explore</a>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="fade-in">
+                            <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Project+Image" 
+                                 loading="lazy"
+                                 alt="Students collaborating" class="rounded-lg shadow-2xl w-full h-auto">
+                        </div>
+                        <div class="fade-in">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Welcome to Our Project</h2>
+                            <p class="text-gray-600 mb-4 leading-relaxed">
+                                For our Tech Trek project, we chose to reinvent the telegraph — one of the earliest communication devices that changed human history. The telegraph used electrical pulses and Morse code to send messages across long distances, laying the foundation for global connectivity.
+                            </p>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                We believe in a holistic approach to learning, combining rigorous academics with practical, hands-on experience. Join our vibrant community and embark on a journey of discovery.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Section -->
+            <section id="features" class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold">Why we chose this project</h2>
+                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto"></p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="smartphone" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Efficiency</h3>
+                            <p class="text-gray-600">The telegraph could make communication easier without the use of cellphones.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="heart" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Accessibility</h3>
+                            <p class="text-gray-600">Silent alerts are perfect for accessibility, such as for hearing-impaired users, or for new forms of personal expression.</p>
+                        </div>
+                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                                <i data-feather="alert-triangle" class="w-8 h-8"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Emergency Use</h3>
+                            <p class="text-gray-600">It's a great tool for emergency communication in areas without internet or cellular service.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery" class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-12 fade-in">
+                        <h2 class="text-3xl md:text-4xl font-bold">Gallery</h2>
+                        <p class="text-gray-600 mt-4">How the Telegraph used to work.</p>
+                    </div>
+                    <div class="relative fade-in">
+                        <div id="media-display-container" class="w-full h-[500px] bg-black rounded-lg shadow-2xl mb-4 flex items-center justify-center"></div>
+                        <div id="thumbnail-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <img src="https://placehold.co/300x200/c7d2fe/3730a3?text=Telegraph+Video" alt="Telegraph" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-indigo-600" data-type="video" data-src="https://w1.savevids.net/downloads/4aa47788-4565-404e-8f59-29df029f44ad/World%20s%20last%20telegram%20service%20set%20to%20be%20silenced%20in%20India.mp4">
+                            <img src="https://images.pexels.com/photos/910368/pexels-photo-910368.jpeg" alt="Gallery Image 2" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://images.pexels.com/photos/910368/pexels-photo-910368.jpeg">
+                            <img src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg" alt="Gallery Image 3" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg">
+                            <img src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg" alt="Gallery Image 4" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://images.pexels.com/photos/207691/pexels-photo-207691.jpeg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Page: Journey -->
+        <div id="journey" class="page hidden">
+            <section class="py-20 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold">Our Project Journey</h2>
+                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">From an old invention to a modern solution, here's a look at our process, learnings, and challenges.</p>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto">
+                        <!-- Introduction -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Introduction</h3>
+                            <p class="text-gray-600">Our project focused on taking an old invention and reinventing it with modern technology. The goal was to preserve the essence of the original invention while enhancing its functionality, efficiency, and usability through the use of modern tools and methods.</p>
+                        </div>
+                        <!-- Learning Process -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Learning Process</h3>
+                            <p class="text-gray-600 mb-4">Throughout this journey, we explored and learned multiple platforms that supported our project development:</p>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li><strong>Tinkercad:</strong> Helped us understand 3D modeling, prototyping, and visualizing our design.</li>
+                                <li><strong>Wokwi:</strong> Allowed us to simulate electronic circuits in detail and test our ideas virtually before implementation.</li>
+                                <li><strong>Circuit Building:</strong> We developed the fundamental skills to design and assemble circuits, which was crucial for bringing our concept to life.</li>
+                            </ul>
+                        </div>
+                        <!-- Research -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Research</h3>
+                            <p class="text-gray-600">In addition to technical learning, we spent time researching old inventions and their underlying ideologies. This research not only inspired us but also gave us valuable insights into how inventors approached problem-solving in the past. By combining those ideologies with modern technologies, we worked on designing a product that feels both innovative and practical.</p>
+                        </div>
+                        <!-- Challenges Faced -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Challenges Faced</h3>
+                            <p class="text-gray-600 mb-4">Our journey was not without difficulties:</p>
+                             <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li><strong>Time Management:</strong> Balancing multiple tasks with tight deadlines proved challenging.</li>
+                                <li><strong>Workload:</strong> Handling academic responsibilities alongside the project required careful planning.</li>
+                                <li><strong>Circuit Building:</strong> Since none of us had prior experience, building and testing circuits was a steep learning curve.</li>
+                                <li><strong>Using Simulation Tools:</strong> Platforms like Wokwi were initially hard to navigate, but with persistence we adapted and improved.</li>
+                            </ul>
+                        </div>
+                        <!-- Progress & Achievements -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Progress and Achievements</h3>
+                            <p class="text-gray-600">Despite the obstacles, we have steadily moved closer to completing our project. Each milestone achieved has given us a sense of satisfaction and motivation. We are proud of the skills we have developed, from technical expertise to problem-solving and teamwork.</p>
+                        </div>
+                        <!-- Conclusion -->
+                        <div class="timeline-item fade-in">
+                            <div class="timeline-dot"></div>
+                            <h3 class="text-2xl font-bold mb-2">Conclusion</h3>
+                            <p class="text-gray-600">This project has been a valuable journey of learning, experimentation, and perseverance. While we started with little knowledge, we have grown confident in our ability to reinvent an old invention using modern technology. We remain determined to complete and refine our project, with the ultimate aim of not only succeeding in this challenge but also contributing a meaningful innovation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Page: Our Team -->
+        <div id="team" class="page hidden">
+            <section class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold">Meet the Team</h2>
+                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">The minds behind the project, dedicated to bringing innovation to life.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                        <!-- Team Member 1 -->
+                        <div class="text-center fade-in">
+                            <img src="https://placehold.co/300x300/e0e7ff/3730a3?text=Team+Member" alt="Team Member 1" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
+                            <h3 class="text-xl font-bold">Full Name</h3>
+                            <p class="text-indigo-600 font-semibold mb-2">Role / Title</p>
+                            <p class="text-gray-600">A brief introduction about the team member. Talk about their skills, contribution, and passion for the project.</p>
+                        </div>
+                        <!-- Team Member 2 -->
+                        <div class="text-center fade-in">
+                            <img src="https://placehold.co/300x300/e0e7ff/3730a3?text=Team+Member" alt="Team Member 2" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
+                            <h3 class="text-xl font-bold">Full Name</h3>
+                            <p class="text-indigo-600 font-semibold mb-2">Role / Title</p>
+                            <p class="text-gray-600">A brief introduction about the team member. Talk about their skills, contribution, and passion for the project.</p>
+                        </div>
+                        <!-- Team Member 3 -->
+                        <div class="text-center fade-in">
+                           <img src="https://placehold.co/300x300/e0e7ff/3730a3?text=Team+Member" alt="Team Member 3" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
+                            <h3 class="text-xl font-bold">Full Name</h3>
+                            <p class="text-indigo-600 font-semibold mb-2">Role / Title</p>
+                            <p class="text-gray-600">A brief introduction about the team member. Talk about their skills, contribution, and passion for the project.</p>
+                        </div>
+                        <!-- Team Member 4 -->
+                        <div class="text-center fade-in">
+                            <img src="https://placehold.co/300x300/e0e7ff/3730a3?text=Team+Member" alt="Team Member 4" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
+                            <h3 class="text-xl font-bold">Full Name</h3>
+                            <p class="text-indigo-600 font-semibold mb-2">Role / Title</p>
+                            <p class="text-gray-600">A brief introduction about the team member. Talk about their skills, contribution, and passion for the project.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Page: Contact -->
+        <div id="contact" class="page hidden">
+             <section class="py-20">
+                <div class="container mx-auto px-6 max-w-2xl text-center fade-in">
+                     <h2 class="text-4xl md:text-5xl font-bold">Get in Touch</h2>
+                     <p class="text-gray-600 mt-4 mx-auto">We're here to answer any questions you may have. Post your question below.</p>
+                     
+                     <!-- Contact Form -->
+                     <form id="contact-form" class="mt-12 text-left">
+                         <div class="mb-6">
+                             <label for="question" class="block text-sm font-medium text-gray-700 mb-2">Your Question</label>
+                             <textarea id="question" name="question" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" placeholder="Ask us anything..."></textarea>
+                         </div>
+                         <div class="text-center">
+                            <button type="submit" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105">Submit Question</button>
+                         </div>
+                     </form>
+
+                     <!-- Stored Questions Display -->
+                     <div class="mt-16 text-left">
+                         <h3 class="text-2xl font-bold mb-4">Submitted Questions</h3>
+                         <div id="questions-container" class="space-y-4">
+                             <!-- Questions will be loaded here by JavaScript -->
+                             <p class="text-gray-500">No questions submitted yet.</p>
+                         </div>
+                     </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">LUMINI</h3>
+                    <p class="text-gray-400">Pioneering the future of education through technology and collaboration.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#home" class="nav-link text-gray-400 hover:text-white">Home</a></li>
+                        <li class="mb-2"><a href="#journey" class="nav-link text-gray-400 hover:text-white">Our Journey</a></li>
+                        <li class="mb-2"><a href="#team" class="nav-link text-gray-400 hover:text-white">Our Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram" class="w-6 h-6"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="linkedin" class="w-6 h-6"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-500">
+                <p>&copy; 2024 LUMINI Institution. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Firebase Configuration ---
+            // PASTE YOUR FIREBASE CONFIG OBJECT HERE
+            
+            const firebaseConfig = {
+                apiKey: "AIzaSyDtV1VuCnNCDeuHwGX4ZUCG0WMJM82-hBY",
+                authDomain: "luminix-bcc28.firebaseapp.com",
+                projectId: "luminix-bcc28",
+                storageBucket: "luminix-bcc28.firebasestorage.app",
+                messagingSenderId: "217255412785",
+                appId: "1:217255412785:web:dccb64a43aa83c6b234110"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            const db = firebase.firestore();
+
+
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            }
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // --- Header Dropdown Logic ---
+            const dropdownButton = document.getElementById('pages-dropdown-button');
+            const dropdownMenu = document.getElementById('pages-dropdown');
+            dropdownButton.addEventListener('click', () => {
+                dropdownMenu.classList.toggle('hidden');
+            });
+            window.addEventListener('click', function(e) {
+                if (!dropdownButton.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    dropdownMenu.classList.add('hidden');
+                }
+            });
+
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                });
+            }, appearOptions);
+            faders.forEach(fader => appearOnScroll.observe(fader));
+
+            const mediaDisplayContainer = document.getElementById('media-display-container');
+            const thumbnails = document.querySelectorAll('.gallery-thumbnail');
+            function updateMedia(thumbnail) {
+                if (!thumbnail) return;
+                const dataType = thumbnail.dataset.type;
+                const dataSrc = thumbnail.dataset.src;
+                mediaDisplayContainer.innerHTML = '';
+                if (dataType === 'video') {
+                    const video = document.createElement('video');
+                    video.src = dataSrc;
+                    video.controls = true;
+                    video.autoplay = true;
+                    video.muted = true;
+                    video.loop = true;
+                    video.className = 'w-full h-full object-cover rounded-lg';
+                    mediaDisplayContainer.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = dataSrc;
+                    img.alt = thumbnail.alt;
+                    img.className = 'w-full h-full object-cover rounded-lg';
+                    mediaDisplayContainer.appendChild(img);
+                }
+                thumbnails.forEach(t => t.classList.remove('border-indigo-600'));
+                thumbnail.classList.add('border-indigo-600');
+            }
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    updateMedia(this);
+                });
+            });
+            if (thumbnails.length > 0) {
+                updateMedia(thumbnails[0]);
+            }
+
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.toggle('hidden', page.id !== pageId);
+                });
+                window.scrollTo(0, 0);
+                document.querySelectorAll(`#${pageId} .fade-in`).forEach(fader => appearOnScroll.observe(fader));
+                if (pageId === 'contact') {
+                    displayQuestions();
+                }
+            }
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('href').substring(1);
+                    showPage(pageId);
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    if (dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
+                        dropdownMenu.classList.add('hidden');
+                    }
+                });
+            });
+            showPage('home');
+
+            // --- Contact Form Logic with Firebase ---
+            const contactForm = document.getElementById('contact-form');
+            const questionsContainer = document.getElementById('questions-container');
+
+            async function displayQuestions() {
+                questionsContainer.innerHTML = '<p class="text-gray-500">Loading questions...</p>';
+                const snapshot = await db.collection('questions').orderBy('timestamp', 'desc').get();
+                questionsContainer.innerHTML = '';
+                if (snapshot.empty) {
+                    questionsContainer.innerHTML = '<p class="text-gray-500">No questions submitted yet.</p>';
+                    return;
+                }
+                snapshot.forEach(doc => {
+                    const question = doc.data();
+                    const questionElement = document.createElement('div');
+                    questionElement.className = 'bg-gray-100 p-4 rounded-lg';
+                    questionElement.textContent = question.text;
+                    questionsContainer.appendChild(questionElement);
+                });
+            }
+
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const questionText = document.getElementById('question').value;
+                if (questionText.trim() === '') return;
+
+                await db.collection('questions').add({
+                    text: questionText,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                document.getElementById('question').value = '';
+                displayQuestions();
+            });
+        });
+    </script>
+</body>
+</html>
