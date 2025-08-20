@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Interactive Website</title>
+    <title>Lumini</title>
     
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -90,6 +90,7 @@
                     <div id="pages-dropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-20 hidden">
                         <a href="#journey" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Journey</a>
                         <a href="#team" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Team</a>
+                        <a href="#documentation" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Documentation</a>
                         <a href="#contact" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Contact</a>
                     </div>
                 </div>
@@ -105,6 +106,7 @@
             <a href="#home" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Home</a>
             <a href="#journey" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Journey</a>
             <a href="#team" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Team</a>
+            <a href="#documentation" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Documentation</a>
             <a href="#contact" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
         </div>
     </header>
@@ -190,7 +192,7 @@
                         <div id="media-display-container" class="w-full h-[500px] bg-black rounded-lg shadow-2xl mb-4 flex items-center justify-center"></div>
                         <div id="thumbnail-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <img src="https://placehold.co/300x200/c7d2fe/3730a3?text=Telegraph+Video" alt="Telegraph" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-indigo-600" data-type="video" data-src="https://i.imgur.com/iL5vVmr.mp4">
-                            <img src="https://i.ibb.co/rGyBgnJ3/Screenshot-2025-08-19-at-7-50-54-AM.png" alt="Gallery Image 2" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/rGyBgnJ3/Screenshot-2025-08-19-at-7-50-54-AM.png">
+                            <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Gallery Image 2" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png">
                             <img src="https://i.ibb.co/BHL5RkFb/schematics.png" alt="Gallery Image 3" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/BHL5RkFb/schematics.png">
                             <img src="https://i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png" alt="Gallery Image 4" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png">
                         </div>
@@ -294,10 +296,135 @@
                         </div>
                         <!-- Team Member 4 -->
                         <div class="text-center fade-in">
-                            <img src="https://placehold.co/300x300/e0e7ff/3730a3?text=Team+Member" alt="Team Member 4" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
+                            <img src="https://i.ibb.co/RT8QNhrH/Photo-on-8-20-25-at-4-29-AM-2.jpg" alt="Team Member 4" class="w-48 h-48 mx-auto rounded-full shadow-lg mb-4">
                             <h3 class="text-xl font-bold">Full Name</h3>
-                            <p class="text-indigo-600 font-semibold mb-2">Role / Title</p>
-                            <p class="text-gray-600">A brief introduction about the team member. Talk about their skills, contribution, and passion for the project.</p>
+                            <p class="text-indigo-600 font-semibold mb-2">Circuit/Schematics</p>
+                            <p class="text-gray-600">My name is Tandin Wangyel and I study in the ninth grade at The Royal Academy. I have my interests in playing sports, music, and in space and tech. For this project, I have mostly helped with the circuit and coding.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Page: Documentation -->
+        <div id="documentation" class="page hidden">
+            <section class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold">Project Documentation</h2>
+                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">A technical overview of the Smart Telegraph project, including components, wiring, and build steps.</p>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto space-y-12">
+                        <!-- Circuit Design -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="cpu" class="w-6 h-6 mr-3 text-indigo-600"></i>Circuit Design</h3>
+                            <p class="text-gray-700 mb-4">We have designed a simple circuit for our Smart Telegraph. Our circuit design involves the following materials:</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                <li>ESP32</li>
+                                <li>OLED Display</li>
+                                <li>Button x3</li>
+                                <li>Buzzer</li>
+                                <li>Wires</li>
+                            </ul>
+                             <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Circuit Diagram" class="rounded-lg shadow-md w-full mb-6">
+                            <h4 class="text-xl font-semibold mb-2">Detailed Function of the Materials:</h4>
+                            <ul class="space-y-4 text-gray-700">
+                                <li><strong>ESP32:</strong> We have decided to use ESP32 as our microcontroller. It helps our project work through the help of the Built-in Wi-Fi and Bluetooth and it uses low-power.</li>
+                                <li><strong>OLED Display:</strong> The OLED display is a screen that will be used for displaying the letters formed by the morsecodes entered. It can display texts and graphics and is known for its low-power consumption, contrast, and vibrant colours.</li>
+                                <li><strong>Buttons:</strong> The buttons will be used for entering the dots, dashes, and space. These dots, dashes, and space make up our letters using morsecode.</li>
+                                <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Making of the Circuit -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making of the Design</h3>
+                            <p class="text-gray-700 mb-4">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                <li>ESP32</li>
+                                <li>OLED Display</li>
+                                <li>Buttons x3</li>
+                                <li>Buzzer</li>
+                            </ul>
+                            <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full mb-6">
+                            <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
+                        </div>
+
+                        <!-- Quick View -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>Two identical handheld units.</li>
+                                <li>Morse Key (1 button) to tap dots/dashes.</li>
+                                <li>Buzzer + LED for beep/blink feedback.</li>
+                                <li>OLED screen that shows decoded text.</li>
+                                <li>Units talk wirelessly (ESP-NOW on ESP32)—no router needed.</li>
+                                <li>You can demo “old vs new”: tap Morse → receiver shows live text.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Bill of Materials -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="list" class="w-6 h-6 mr-3 text-indigo-600"></i>Bill of Materials (per unit)</h3>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li>ESP32 DevKit (DOIT or WROOM-32) ×1</li>
+                                <li>0.96" I²C OLED (128×64, SSD1306) ×1</li>
+                                <li>Momentary pushbutton (normally open) ×1</li>
+                                <li>220 Ω resistor ×1 (for LED)</li>
+                                <li>Red LED ×1</li>
+                                <li>Active buzzer (3.3–5 V) ×1</li>
+                                <li>10 kΩ resistor ×1 (pull‑down for button)</li>
+                                <li>Breadboard + jumper wires or perfboard</li>
+                                <li>Power: USB power bank / 5 V phone charger</li>
+                                <li>Optional: small slide switch (power), 3D‑printed case</li>
+                            </ul>
+                        </div>
+
+                        <!-- Wiring -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="git-pull-request" class="w-6 h-6 mr-3 text-indigo-600"></i>Wiring (per unit)</h3>
+                            <p class="text-gray-500 mb-4">(You can change pins in code if needed.)</p>
+                            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                <li><strong>Button:</strong> GPIO 14 (to pin) + 10 kΩ to GND; other side of button to 3V3</li>
+                                <li><strong>LED:</strong> GPIO 26 through 220 Ω to LED anode; LED cathode to GND</li>
+                                <li><strong>Buzzer:</strong> GPIO 27 to + buzzer; buzzer – to GND</li>
+                                <li><strong>OLED I²C:</strong> SDA = GPIO 21, SCL = GPIO 22, VCC → 3V3, GND → GND</li>
+                            </ul>
+                        </div>
+
+                        <!-- Morse Timing & Enclosure -->
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="clock" class="w-6 h-6 mr-3 text-indigo-600"></i>Morse Timing</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>Dit (•) length = 120 ms (≈10–12 WPM)</li>
+                                    <li>Dash (—) ≈ 3× dit</li>
+                                    <li>Gap between symbols = 1× dit</li>
+                                    <li>Gap between letters = 3× dit</li>
+                                    <li>Gap between words = 7× dit</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>Enclosure</h3>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                    <li>Top panel cutouts: OLED (28×14 mm), LED (3 mm)</li>
+                                    <li>Internal pillars (M2.5 standoffs)</li>
+                                    <li>Dimensions: 110×65×30 mm</li>
+                                    <li>Front label: “Smart Telegraph — Unit A/B”</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Build Steps -->
+                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="tool" class="w-6 h-6 mr-3 text-indigo-600"></i>Build Steps</h3>
+                            <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                                <li>Breadboard one unit and test the OLED, button, LED, and buzzer.</li>
+                                <li>Flash code with ROLE = SENDER (Unit A) and again with ROLE = RECEIVER (Unit B).</li>
+                                <li>Power both—tap on A → text appears on B; B’s buzzer/LED beep per character.</li>
+                                <li>Make a second pass to tidy wiring, move to perfboard, or mount in a case.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -372,8 +499,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // --- Firebase Configuration ---
-            // PASTE YOUR FIREBASE CONFIG OBJECT HERE
-            
             const firebaseConfig = {
                 apiKey: "AIzaSyDtV1VuCnNCDeuHwGX4ZUCG0WMJM82-hBY",
                 authDomain: "luminix-bcc28.firebaseapp.com",
@@ -464,7 +589,7 @@
                 window.scrollTo(0, 0);
                 document.querySelectorAll(`#${pageId} .fade-in`).forEach(fader => appearOnScroll.observe(fader));
                 if (pageId === 'contact') {
-                    displayQuestions();
+                    // No need to call displayQuestions here anymore
                 }
             }
             navLinks.forEach(link => {
@@ -485,10 +610,6 @@
             // --- Contact Form Logic with Firebase ---
             const contactForm = document.getElementById('contact-form');
             
-            async function displayQuestions() {
-                // This function is no longer needed since the display is removed
-            }
-
             contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 const questionText = document.getElementById('question').value;
@@ -500,7 +621,6 @@
                 });
                 
                 document.getElementById('question').value = '';
-                // Optional: show a success message
                 alert('Thank you! Your question has been submitted.');
             });
 
@@ -543,4 +663,4 @@
         });
     </script>
 </body>
-</ht
+</html>
