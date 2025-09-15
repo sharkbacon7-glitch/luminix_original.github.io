@@ -91,6 +91,7 @@
                         <a href="#journey" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Journey</a>
                         <a href="#team" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Our Team</a>
                         <a href="#documentation" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Documentation</a>
+                        <a href="#roadmap" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Roadmap</a>
                         <a href="#contact" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-indigo-50">Contact</a>
                     </div>
                 </div>
@@ -107,6 +108,7 @@
             <a href="#journey" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Journey</a>
             <a href="#team" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Our Team</a>
             <a href="#documentation" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Documentation</a>
+            <a href="#roadmap" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Roadmap</a>
             <a href="#contact" class="nav-link block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
         </div>
     </header>
@@ -437,6 +439,21 @@
                 </div>
             </section>
         </div>
+        
+        <!-- Page: Roadmap -->
+        <div id="roadmap" class="page hidden">
+             <section class="py-20">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16 fade-in">
+                        <h2 class="text-4xl md:text-5xl font-bold">Project Roadmap</h2>
+                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">Our timeline for bringing the Smart Telegraph to life. Track our progress below.</p>
+                    </div>
+                    <div id="roadmap-container" class="max-w-3xl mx-auto space-y-8">
+                        <!-- Roadmap tasks will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <!-- Page: Contact -->
         <div id="contact" class="page hidden">
@@ -532,9 +549,11 @@
             // --- Header Dropdown Logic ---
             const dropdownButton = document.getElementById('pages-dropdown-button');
             const dropdownMenu = document.getElementById('pages-dropdown');
-            dropdownButton.addEventListener('click', () => {
-                dropdownMenu.classList.toggle('hidden');
-            });
+            if(dropdownButton) {
+                dropdownButton.addEventListener('click', () => {
+                    dropdownMenu.classList.toggle('hidden');
+                });
+            }
             window.addEventListener('click', function(e) {
                 if (dropdownButton && !dropdownButton.contains(e.target) && dropdownMenu && !dropdownMenu.contains(e.target)) {
                     dropdownMenu.classList.add('hidden');
@@ -589,15 +608,21 @@
 
             const pages = document.querySelectorAll('.page');
             const navLinks = document.querySelectorAll('.nav-link');
-            function showPage(pageId) {
+            async function showPage(pageId) {
                 pages.forEach(page => {
                     page.classList.toggle('hidden', page.id !== pageId);
                 });
                 window.scrollTo(0, 0);
+
+                if (pageId === 'roadmap') {
+                    await renderRoadmap();
+                }
+
                 document.querySelectorAll(`#${pageId} .fade-in`).forEach(fader => {
-                    fader.classList.remove('visible'); // Reset animation state
+                    fader.classList.remove('visible');
                     appearOnScroll.observe(fader)
                 });
+                
                 if (typeof feather !== 'undefined') {
                     feather.replace();
                 }
@@ -619,7 +644,6 @@
 
             // --- Contact Form Logic with Firebase ---
             const contactForm = document.getElementById('contact-form');
-            
             if(contactForm) {
                 contactForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
@@ -652,7 +676,7 @@
                 setTimeout(() => {
                     modalOverlay.classList.remove('opacity-0');
                     modalBox.classList.remove('opacity-0', 'scale-95');
-                }, 10); // Small delay to allow CSS transitions to work
+                }, 10);
             }
 
             function closeModal() {
@@ -660,7 +684,7 @@
                 modalBox.classList.add('opacity-0', 'scale-95');
                 setTimeout(() => {
                     modalOverlay.classList.add('hidden');
-                }, 300); // Match transition duration
+                }, 300);
             }
 
             socialLinks.forEach(link => {
@@ -669,13 +693,118 @@
                     openModal();
                 });
             });
+            if(closeModalButton) {
+                closeModalButton.addEventListener('click', closeModal);
+            }
+            if(modalOverlay) {
+                modalOverlay.addEventListener('click', function(e) {
+                    if (e.target === modalOverlay) {
+                        closeModal();
+                    }
+                });
+            }
+            
+            // --- Roadmap Logic ---
+            const roadmapContainer = document.getElementById('roadmap-container');
+            const roadmapTasks = [
+                { id: 'circuit_testing', title: 'Circuit Testing', dates: '23 Sep - 10th Oct' },
+                { id: 'website_design', title: 'Website Designing/Building', dates: '10th Oct - 17th Oct' },
+                { id: 'assembling', title: 'Assembling', dates: '17th Oct - 25th Oct' },
+                { id: 'debugging', title: 'Debugging', dates: '25th Oct - 10th Nov' },
+                { id: 'finalize_documentation', title: 'Finalize Documentation', dates: '10th Nov - 20th Nov' },
+            ];
 
-            closeModalButton.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', function(e) {
-                if (e.target === modalOverlay) {
-                    closeModal();
-                }
-            });
+            async function renderRoadmap() {
+                if (!roadmapContainer) return;
+                roadmapContainer.innerHTML = ''; // Clear existing content
+                
+                const progressSnap = await db.collection('roadmap_progress').get();
+                const progressData = {};
+                progressSnap.forEach(doc => {
+                    progressData[doc.id] = doc.data().progress;
+                });
+
+                roadmapTasks.forEach(task => {
+                    const progress = progressData[task.id] || 0;
+                    const taskElement = document.createElement('div');
+                    taskElement.className = 'bg-white p-6 rounded-lg shadow-lg fade-in';
+                    taskElement.innerHTML = `
+                        <div id="task-${task.id}">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-bold text-gray-800">${task.title}</h3>
+                                <p class="text-sm text-gray-500">${task.dates}</p>
+                            </div>
+                            <!-- Progress Display -->
+                            <div class="progress-display">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-indigo-600 h-2.5 rounded-full" style="width: ${progress}%"></div>
+                                </div>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-sm font-medium text-indigo-700">${progress}% Complete</span>
+                                    <button class="edit-progress-btn text-sm text-indigo-600 hover:underline" data-task-id="${task.id}">Edit</button>
+                                </div>
+                            </div>
+                            <!-- Progress Editor (hidden by default) -->
+                            <div class="progress-editor hidden mt-4">
+                                <label class="block text-sm font-medium text-gray-700">Set Progress: <span class="font-bold">${progress}%</span></label>
+                                <input type="range" min="0" max="100" value="${progress}" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                <div class="text-right mt-2">
+                                    <button class="cancel-edit-btn text-sm text-gray-600 hover:underline mr-4" data-task-id="${task.id}">Cancel</button>
+                                    <button class="save-progress-btn bg-indigo-600 text-white px-4 py-1 rounded-md text-sm hover:bg-indigo-700" data-task-id="${task.id}">Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    roadmapContainer.appendChild(taskElement);
+                });
+                
+                addRoadmapEventListeners();
+            }
+            
+            function addRoadmapEventListeners() {
+                document.querySelectorAll('.edit-progress-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const taskId = this.dataset.taskId;
+                        const taskContainer = document.getElementById(`task-${taskId}`);
+                        taskContainer.querySelector('.progress-display').classList.add('hidden');
+                        taskContainer.querySelector('.progress-editor').classList.remove('hidden');
+                    });
+                });
+
+                document.querySelectorAll('.cancel-edit-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const taskId = this.dataset.taskId;
+                        const taskContainer = document.getElementById(`task-${taskId}`);
+                        taskContainer.querySelector('.progress-display').classList.remove('hidden');
+                        taskContainer.querySelector('.progress-editor').classList.add('hidden');
+                    });
+                });
+
+                document.querySelectorAll('.progress-editor input[type="range"]').forEach(slider => {
+                    slider.addEventListener('input', function() {
+                        const label = this.previousElementSibling.querySelector('span');
+                        label.textContent = `${this.value}%`;
+                    });
+                });
+                
+                document.querySelectorAll('.save-progress-btn').forEach(button => {
+                    button.addEventListener('click', async function() {
+                        const taskId = this.dataset.taskId;
+                        const password = prompt("Please enter the password to save changes:");
+                        if (password === 'lumini') {
+                            const taskContainer = document.getElementById(`task-${taskId}`);
+                            const newProgress = taskContainer.querySelector('input[type="range"]').value;
+                            
+                            await db.collection('roadmap_progress').doc(taskId).set({ progress: parseInt(newProgress, 10) });
+                            
+                            alert('Progress saved successfully!');
+                            renderRoadmap(); // Re-render to show updated state
+                        } else if (password !== null) {
+                            alert('Incorrect password. Changes were not saved.');
+                        }
+                    });
+                });
+            }
 
         });
     </script>
