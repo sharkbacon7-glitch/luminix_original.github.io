@@ -352,7 +352,7 @@
                             <nav id="doc-nav" class="sticky top-28">
                                 <ul class="space-y-2">
                                     <li><a href="#doc-circuit-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="cpu" class="w-5 h-5"></i><span>Circuit Design</span></a></li>
-                                    <li><a href="#doc-making-circuit" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Circuit</span></a></li>
+                                    <li><a href="#doc-making-circuit" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Design</span></a></li>
                                     <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
                                     <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
                                     <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
@@ -386,11 +386,62 @@
                                     <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
                                     <li><strong>Power Bank</strong> The power bank will be used to power the esp 32 and the other components. Its main idea is to make the device portable. </li>
                                 </ul>
+
+                                <!-- NEW CONTENT BLOCK 1 -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Final Wokwi Design: Single Button</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        Success! We've finalized our circuit design in Wokwi, streamlining it to use just a single button for all Morse code inputs (dots, dashes, and spaces). This simplifies the hardware significantly and makes the device more efficient.
+                                    </p>
+                                    <img src="https://i.ibb.co/zVHRwTcK/Screenshot-2025-11-10-144747.png" alt="Final Wokwi single button design" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The final, optimized circuit simulation in Wokwi.</p>
+                                </div>
+
+                                <!-- NEW CONTENT BLOCK 2 -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Materials Arrived & Circuit Testing</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        We received all the materials required for our project and immediately started testing our physical circuit. We developed a new code to handle dots, dashes, and spaces from a single button, which saves time and resources. We are now working on the next major step: implementing Wi-Fi communication between two ESP32 units.
+                                    </p>
+                                    <img src="https://i.ibb.co/zM3RJQ6/Screenshot-2025-11-10-145412.png" alt="Team working on physical circuit" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">Working on the physical breadboard and code.</p>
+                                </div>
+
+                                <!-- UPDATED CONTENT BLOCK 3 (Error) -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Troubleshooting: Wi-Fi Method</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        We initially attempted to use the ESP-NOW protocol for direct device-to-device communication. Unfortunately, this led to a critical error as seen in the log, which repeatedly crashed the device.
+                                    </p>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        After several attempts to debug it, we decided to pivot our strategy. We switched to a more traditional Wi-Fi method, connecting both ESP32s to a local Wi-Fi network. This new approach proved to be much more stable and worked, allowing us to successfully achieve transmission between the units.
+                                    </p>
+                                    <img src="https://i.ibb.co/TMXSbLVp/Screenshot-2025-11-09-221145.png" alt="ESP32 boot error log" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The error we faced while trying to use ESP-NOW.</p>
+                                </div>
+
+                                <!-- NEW CONTENT BLOCK 3 -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Milestone: Wi-Fi Transmission Achieved!</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        After a full half-day of focused work, we've successfully established Wi-Fi transmission between both of our telegraph units! This is a major breakthrough, allowing the devices to communicate wirelessly as intended using ESP-NOW.
+                                    </p>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <figure>
+                                            <img src="https://i.ibb.co/7xcG0KnC/Screenshot-2025-11-10-151146.png" alt="ESP32 WiFi transmission success" class="rounded-lg shadow-md w-full">
+                                            <figcaption class="text-sm text-gray-600 italic text-center mt-2">Before receiving message.</figcaption>
+                                        </figure>
+                                        <figure>
+                                            <img src="https://i.ibb.co/qLpb9vyn/Screenshot-2025-11-10-151141.png" alt="ESP32 WiFi transmission received" class="rounded-lg shadow-md w-full">
+                                            <figcaption class="text-sm text-gray-600 italic text-center mt-2">After receiving message.</figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- Section: Making of the Circuit -->
+                            <!-- Section: Making of the Design -->
                             <div id="doc-making-circuit" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
-                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making of the Design</h3>
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
                                 <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
                                 <div class="grid md:grid-cols-2 gap-8 items-center">
                                     <div>
@@ -406,6 +457,16 @@
                                         <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
                                         <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
                                     </div>
+                                </div>
+
+                                <!-- NEW CONTENT BLOCK -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Second Prototype</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        Here is our design which we made in fusion for holding together our circuit.
+                                    </p>
+                                    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical circuit assembly on breadboard" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center mt-2">The first physical prototype of our Smart Telegraph circuit.</p>
                                 </div>
                             </div>
 
@@ -557,6 +618,22 @@
                                     Here's an overview of the website design process, from initial concepts to the final layout, and how we brought the project to life online.
                                 </p>
                                 
+                                <!-- NEW CONTENT BLOCK -->
+                                <div class="mb-8 border-b border-gray-200 pb-8">
+                                    <h4 class="text-xl font-semibold mb-2">
+                                        Our Goals for the Website
+                                    </h4>
+                                    <p class="text-gray-700 leading-relaxed">
+                                        From the beginning, our goal was to create more than just a landing page. We wanted a clean, professional, and easy-to-navigate site that would serve as a central hub for our project. Our main objectives were to:
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2 mt-4">
+                                        <li>Share our team's journey and story with viewers.</li>
+                                        <li>Clearly and thoroughly document our technical work, from circuit design to code.</li>
+                                        <li>Provide a transparent, real-time look at our progress through the interactive roadmap.</li>
+                                        <li>Build a platform that was both informative for visitors and a useful tool for our team.</li>
+                                    </ul>
+                                </div>
+                                
                                 <!-- Entry: Nov 7 -->
                                 <div class="mb-8">
                                     <h4 class="text-xl font-semibold mb-2">
@@ -686,6 +763,29 @@
                         <p class="text-sm text-center mt-6 text-gray-600">
                             Already have an account? <a href="#signin" class="nav-link text-indigo-600 hover:underline">Sign In</a>
                         </p>
+                        
+                        <!-- Divider -->
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-2 bg-white text-gray-500">or</span>
+                            </div>
+                        </div>
+
+                        <!-- Google Sign-In Button -->
+                        <div>
+                            <button id="signup-google-btn" type="button" class="w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-.85 2.53-1.74 3.31v2.77h3.57c2.08-1.92 3.28-4.73 3.28-8.09z" />
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.04v2.85C3.88 21.03 7.7 23 12 23z" />
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.04C1.32 8.38 1 9.85 1 11.5s.32 3.12 2.04 4.43l3.8-2.84z" />
+                                    <path d="M12 5.38c1.63 0 3.09.56 4.23 1.62l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.88 2.97 2.04 5.93l3.8 2.84c.87-2.6 3.3-4.39 6.16-4.39z" />
+                                </svg>
+                                <span>Sign up with Google</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -714,6 +814,29 @@
                         <p class="text-sm text-center mt-6 text-gray-600">
                             Don't have an account? <a href="#signup" class="nav-link text-indigo-600 hover:underline">Sign Up</a>
                         </p>
+                        
+                        <!-- Divider -->
+                        <div class="relative my-6">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-2 bg-white text-gray-500">or</span>
+                            </div>
+                        </div>
+
+                        <!-- Google Sign-In Button -->
+                        <div>
+                            <button id="signin-google-btn" type="button" class="w-full flex justify-center items-center py-3 px-4 border border-gray-300 rounded-full shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-.85 2.53-1.74 3.31v2.77h3.57c2.08-1.92 3.28-4.73 3.28-8.09z" />
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.04v2.85C3.88 21.03 7.7 23 12 23z" />
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.04C1.32 8.38 1 9.85 1 11.5s.32 3.12 2.04 4.43l3.8-2.84z" />
+                                    <path d="M12 5.38c1.63 0 3.09.56 4.23 1.62l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.88 2.97 2.04 5.93l3.8 2.84c.87-2.6 3.3-4.39 6.16-4.39z" />
+                                </svg>
+                                <span>Sign in with Google</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -779,6 +902,7 @@
             firebase.initializeApp(firebaseConfig);
             const db = firebase.firestore();
             const auth = firebase.auth();
+            const googleProvider = new firebase.auth.GoogleAuthProvider();
 
             if (typeof feather !== 'undefined') {
                 feather.replace();
@@ -955,11 +1079,11 @@
                     // User is signed in
                     authLinks.style.display = 'none';
                     userInfo.style.display = 'flex';
-                    userEmailSpan.textContent = user.email;
+                    userEmailSpan.textContent = user.displayName || user.email;
 
                     mobileAuthLinks.style.display = 'none';
                     mobileUserInfo.style.display = 'block';
-                    mobileUserEmailSpan.textContent = user.email;
+                    mobileUserEmailSpan.textContent = user.displayName || user.email;
 
                     if(contactLoggedOut && contactLoggedIn){
                         contactLoggedOut.style.display = 'none';
@@ -1030,6 +1154,35 @@
             document.getElementById('signout-button').addEventListener('click', () => auth.signOut());
             document.getElementById('mobile-signout-button').addEventListener('click', () => auth.signOut());
 
+            // Google Sign-In
+            const signInWithGoogle = () => {
+                auth.signInWithPopup(googleProvider)
+                    .then((result) => {
+                        // The signed-in user info.
+                        const user = result.user;
+                        
+                        // Hide any errors and go home
+                        if(signupError) signupError.textContent = '';
+                        if(signinError) signinError.textContent = '';
+                        showPage('home');
+                    }).catch((error) => {
+                        // Handle Errors here.
+                        const errorMessage = error.message;
+                        if(signupError) signupError.textContent = errorMessage;
+                        if(signinError) signinError.textContent = errorMessage;
+                    });
+            };
+
+            const signupGoogleBtn = document.getElementById('signup-google-btn');
+            if(signupGoogleBtn) {
+                signupGoogleBtn.addEventListener('click', signInWithGoogle);
+            }
+            
+            const signinGoogleBtn = document.getElementById('signin-google-btn');
+            if(signinGoogleBtn) {
+                signinGoogleBtn.addEventListener('click', signInWithGoogle);
+            }
+
 
             // --- Contact Form Logic with Firebase ---
             const contactForm = document.getElementById('contact-form');
@@ -1051,7 +1204,7 @@
                     
                     const userEmailElement = document.createElement('p');
                     userEmailElement.className = 'text-xs font-bold text-indigo-600 mb-1';
-                    userEmailElement.textContent = question.userEmail || 'Anonymous';
+                    userEmailElement.textContent = question.userName || question.userEmail || 'Anonymous';
                     
                     const questionTextElement = document.createElement('p');
                     questionTextElement.textContent = question.text;
@@ -1074,6 +1227,7 @@
                         await db.collection('questions').add({
                             text: questionText,
                             userEmail: user.email,
+                            userName: user.displayName,
                             userId: user.uid,
                             timestamp: firebase.firestore.FieldValue.serverTimestamp()
                         });
