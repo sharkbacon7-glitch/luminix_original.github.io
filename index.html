@@ -349,11 +349,11 @@
                     <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-12">
                         
                         <!-- Sidebar Navigation -->
-                        <aside class="md:w-1/4 lg:w-1/5">
+                        <aside id="doc-sidebar" class="md:w-1/4 lg:w-1/5 fade-in">
                             <nav id="doc-nav" class="sticky top-28">
                                 <ul class="space-y-2">
                                     <li><a href="#doc-circuit-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="cpu" class="w-5 h-5"></i><span>Circuit Design</span></a></li>
-                                    <li><a href="#doc-making-circuit" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Design</span></a></li>
+                                    <li><a href="#doc-making-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Design</span></a></li>
                                     <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
                                     <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
                                     <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
@@ -362,72 +362,91 @@
                         </aside>
 
                         <!-- Content Area -->
-                        <div class="md:w-3/4 lg:w-4/5">
+                        <div class="md:w-3/4 lg:w-4/5 min-w-0">
                             
-                            <!-- Section: Circuit Design -->
-<div id="doc-circuit-design" class="doc-section bg-white p-8 rounded-lg shadow-lg fade-in">
-                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="cpu" class="w-6 h-6 mr-3 text-indigo-600"></i>Circuit Design</h3>
-                                <p class="text-gray-700 mb-4">We have designed a simple circuit for our Smart Telegraph. Our circuit design involves the following materials:</p>
-                                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                                    <li>ESP32</li>
-                                    <li>OLED Display</li>
-                                    <li>Button x3</li>
-                                    <li>Buzzer</li>
-                                    <li>Wires</li>
-                                    <li>Breadboard</li>
-                                    <li>Resistor</li>
-                                    <li>USB Power bank</li>
-                                </ul>
-                                <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Circuit Diagram" class="rounded-lg shadow-md w-full mb-6">
-                                <h4 class="text-xl font-semibold mb-2">Detailed Function of the Materials:</h4>
-                                <ul class="space-y-4 text-gray-700">
-                                    <li><strong>ESP32:</strong> We have decided to use ESP32 as our microcontroller. It helps our project work through the help of the Built-in Wi-Fi and Bluetooth and it uses low-power.</li>
-                                    <li><strong>OLED Display:</strong> The OLED display is a screen that will be used for displaying the letters formed by the morsecodes entered. It can display texts and graphics and is known for its low-power consumption, contrast, and vibrant colours.</li>
-                                    <li><strong>Buttons:</strong> The buttons will be used for entering the dots, dashes, and space. These dots, dashes, and space make up our letters using morsecode.</li>
-                                    <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
-                                    <li><strong>Power Bank</strong> The power bank will be used to power the esp 32 and the other components. Its main idea is to make the device portable. </li>
-                                </ul>
-
+                            <!-- 
+                                =================================
+                                SECTION: Circuit Design
+                                =================================
+                                ** FIX APPLIED: Added 'hidden' class **
+                            -->
+                            <div id="doc-circuit-design" class="doc-section bg-white p-8 rounded-lg shadow-lg fade-in space-y-8 hidden">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="cpu" class="w-6 h-6 mr-3 text-indigo-600"></i>Circuit Design</h3>
+                                    <p class="text-gray-700 mb-4">We have designed a simple circuit for our Smart Telegraph. Our circuit design involves the following materials:</p>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                        <li>ESP32</li>
+                                        <li>OLED Display</li>
+                                        <li>Button x3</li>
+                                        <li>Buzzer</li>
+                                        <li>Wires</li>
+                                        <li>Breadboard</li>
+                                        <li>Resistor</li>
+                                        <li>USB Power bank</li>
+                                    </ul>
+                                    <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Circuit Diagram" class="rounded-lg shadow-md w-full mb-6">
+                                    <h4 class="text-xl font-semibold mb-2">Detailed Function of the Materials:</h4>
+                                    <ul class="space-y-4 text-gray-700">
+                                        <li><strong>ESP32:</strong> We have decided to use ESP32 as our microcontroller. It helps our project work through the help of the Built-in Wi-Fi and Bluetooth and it uses low-power.</li>
+                                        <li><strong>OLED Display:</strong> The OLED display is a screen that will be used for displaying the letters formed by the morsecodes entered. It can display texts and graphics and is known for its low-power consumption, contrast, and vibrant colours.</li>
+                                        <li><strong>Buttons:</strong> The buttons will be used for entering the dots, dashes, and space. These dots, dashes, and space make up our letters using morsecode.</li>
+                                        <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
+                                        <li><strong>Power Bank</strong> The power bank will be used to power the esp 32 and the other components. Its main idea is to make the device portable. </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- New Content Block 1: First Design -->
                                 <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">The first design of our circuit board</h4>
+                                    <h4 class="text-xl font-bold mb-4">The first design of our circuit board</h4>
                                     <img src="https://i.ibb.co/MkB7qHJ8/Screenshot-2025-11-10-170158.png" alt="First circuit design" class="rounded-lg shadow-md w-full mb-4">
-                                    <p class="text-gray-700 leading-relaxed">This is the first design which uses a breadboard, OLED, ESP32, and a button. The initial plan here was to make a single button make both dot and dash. However we could not accomplish this at the time being. No buzzer here as we only thought of displaying the message.</p>
-                                </div>
-    
-                                <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">The second design of our circuit board</h4>
-                                    <img src="https://i.ibb.co/rGBpVLXg/Screenshot-2025-11-10-170359.png" alt="Second circuit design" class="rounded-lg shadow-md w-full mb-4">
-                                    <p class="text-gray-700 leading-relaxed">This is the second design in which we used 3 buttons for dot, dash, and space. We also added a buzzer to make the sound of dots and dashes. At the time, we didn’t know how the breadboard works so it didn’t work quite well.</p>
-                                </div>
-    
-                                <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">The third design of our circuit board</h4>
-                                    <img src="https://i.ibb.co/WNQXkJY1/Screenshot-2025-11-10-171216.png" alt="Third circuit design" class="rounded-lg shadow-md w-full mb-4">
-                                    <p class="text-gray-700 leading-relaxed">The third design is the same as the second, the only difference being we didn’t use the breadboard this time. This helped us actually make the code work, marking our success. It used 3 buttons for dot, dash, and space and worked well. Our next step was to make it function on one button and using the breadboard.</p>
-                                </div>
-
-                                <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">Final Wokwi Design: Single Button</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        Success! We've finalized our circuit design in Wokwi, streamlining it to use just a single button for all Morse code inputs (dots, dashes, and spaces). This simplifies the hardware significantly and makes the device more efficient.
+                                        This is the first design which uses a breadboard, OLED, ESP32, and a button. The initial plan here was to make a single button make both dot and dash. However we could not accomplish this at the time being. No buzzer here as we only thought of displaying the message.
                                     </p>
-                                    <img src="https://i.ibb.co/zVHRwTcK/Screenshot-2025-11-10-144747.png" alt="Final Wokwi single button design" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center">The final, optimized circuit simulation in Wokwi.</p>
                                 </div>
 
+                                <!-- New Content Block 2: Second Design -->
                                 <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">Materials Arrived & Circuit Testing</h4>
+                                    <h4 class="text-xl font-bold mb-4">The second design of our circuit board</h4>
+                                    <img src="https://i.ibb.co/rGBpVLXg/Screenshot-2025-11-10-170359.png" alt="Second circuit design" class="rounded-lg shadow-md w-full mb-4">
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        We received all the materials required for our project and immediately started testing our physical circuit. We developed a new code to handle dots, dashes, and spaces from a single button, which saves time and resources. We are now working on the next major step: implementing Wi-Fi communication between two ESP32 units.
+                                        This is the second design in which we used 3 buttons for dot, dash, and space. We also added a buzzer to make the sound of dots and dashes. At the time, we didn’t know how the breadboard works so it didn’t work quite well.
+                                    </p>
+                                </div>
+                                
+                                <!-- New Content Block 3: Third Design -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-bold mb-4">The Third design of our circuit board</h4>
+                                    <img src="https://i.ibb.co/WNQXkJY1/Screenshot-2025-11-10-171216.png" alt="Third circuit design" class="rounded-lg shadow-md w-full mb-4">
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        The third design is the same as the second, the only difference being we didn’t use the breadboard this time. This helped us actually make the code work, marking our success. It used 3 buttons for dot, dash, and space and worked well. Our next step was to make it function on one button and using the breadboard.
+                                    </p>
+                                </div>
+                                
+                                <!-- New Content Block 4: Final Wokwi -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Success! Final Wokwi Design (One Button)</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        After much testing, we've finalized our circuit design in Wokwi! A key breakthrough was simplifying our input mechanism. We successfully developed code that handles dots, dashes, *and* spaces all from a single button. This refinement not only makes the device more elegant but also saves on components and complexity.
+                                    </p>
+                                    <img src="https://i.ibb.co/zVHRwTcK/Screenshot-2025-11-10-144747.png" alt="Final Wokwi circuit with one button" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The finalized one-button circuit simulation in Wokwi.</p>
+                                </div>
+
+                                <!-- New Content Block 5: Physical Build -->
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-4">Physical Build & Testing</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        With our materials in hand, we began building and testing the physical circuit. Our one-button code worked perfectly on the breadboard.
                                     </p>
                                     <img src="https://i.ibb.co/zM3RJQ6/Screenshot-2025-11-10-145412.png" alt="Team working on physical circuit" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center">Working on the physical breadboard and code.</p>
+                                    <p class="text-sm text-gray-600 italic text-center">Our team working on the physical build and testing the single-button code.</p>
                                 </div>
 
+                                <!-- New Content Block 6 (Error) -->
                                 <div class="border-t border-gray-200 mt-8 pt-6">
                                     <h4 class="text-xl font-semibold mb-4">Troubleshooting: Wi-Fi Method</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        We initially attempted to use the ESP-NOW protocol for direct device-to-device communication. Unfortunately, this led to a critical error as seen in the log, which repeatedly crashed the device.
+                                        Our next step was Wi-Fi. We initially attempted to use the ESP-NOW protocol for direct device-to-device communication. Unfortunately, this led to a critical 'Guru Meditation Error' as seen in the log, which repeatedly crashed the device.
                                     </p>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
                                         After several attempts to debug it, we decided to pivot our strategy. We switched to a more traditional Wi-Fi method, connecting both ESP32s to a local Wi-Fi network. This new approach proved to be much more stable and worked, allowing us to successfully achieve transmission between the units.
@@ -436,56 +455,66 @@
                                     <p class="text-sm text-gray-600 italic text-center">The error we faced while trying to use ESP-NOW.</p>
                                 </div>
 
+                                <!-- New Content Block 7 (Success) -->
                                 <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">Milestone: Wi-Fi Transmission Achieved!</h4>
+                                    <h4 class="text-xl font-semibold mb-4">Achievement: Wi-Fi Transmission!</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        After a full half-day of focused work, we've successfully established Wi-Fi transmission between both of our telegraph units! This is a major breakthrough, allowing the devices to communicate wirelessly as intended using ESP-NOW.
+                                        Success! After pivoting to the traditional Wi-Fi method and a long debugging session, we achieved our goal: wireless transmission between the two ESP32 units. One unit can now send a message, and the other receives it, displaying it on the OLED screen.
                                     </p>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        <figure>
-                                            <img src="https://i.ibb.co/7xcG0KnC/Screenshot-2025-11-10-151146.png" alt="ESP32 WiFi transmission success" class="rounded-lg shadow-md w-full">
-                                            <figcaption class="text-sm text-gray-600 italic text-center mt-2">Before receiving message.</figcaption>
-                                        </figure>
-                                        <figure>
-                                            <img src="https://i.ibb.co/qLpb9vyn/Screenshot-2025-11-10-151141.png" alt="ESP32 WiFi transmission received" class="rounded-lg shadow-md w-full">
-                                            <figcaption class="text-sm text-gray-600 italic text-center mt-2">After receiving message.</figcaption>
-                                        </figure>
+                                        <div>
+                                            <img src="https://i.ibb.co/7xcG0KnC/Screenshot-2025-11-10-151146.png" alt="ESP32 unit before receiving message" class="rounded-lg shadow-md w-full mb-2">
+                                            <p class="text-sm text-gray-600 italic text-center">Unit 1 (Receiver) - Before receiving message.</p>
+                                        </div>
+                                        <div>
+                                            <img src="https://i.ibb.co/qLpb9vyn/Screenshot-2025-11-10-151141.png" alt="ESP32 unit after receiving message" class="rounded-lg shadow-md w-full mb-2">
+                                            <p class="text-sm text-gray-600 italic text-center">Unit 2 (Receiver) - After receiving message.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Section: Making of the Design -->
-                            <div id="doc-making-circuit" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
-                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
-                                <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
-                                <div class="grid md:grid-cols-2 gap-8 items-center">
-                                    <div>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                                            <li>ESP32</li>
-                                            <li>OLED Display</li>
-                                            <li>Buttons x3</li>
-                                            <li>Buzzer</li>
-                                        </ul>
-                                        <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display. \n Ugyen Rigpa Yeshey</p>
-                                    </div>
-                                    <div class="space-y-6">
-                                        <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
-                                        <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
+                            <!-- 
+                                =================================
+                                SECTION: Making of the Design
+                                =================================
+                            -->
+                            <div id="doc-making-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
+                                    <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
+                                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                                        <div>
+                                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                                <li>ESP32</li>
+                                                <li>OLED Display</li>
+                                                <li>Buttons x3</li>
+                                                <li>Buzzer</li>
+                                            </ul>
+                                            <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
+                                        </div>
+                                        <div class="space-y-6">
+                                            <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
+                                            <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
+                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- NEW CONTENT BLOCK -->
+                                
                                 <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">Second Prototype</h4>
+                                    <h4 class="text-xl font-semibold mb-4">Refining the Physical Layout</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        Here is our design which we made in fusion for holding together our circuit.
+                                        With the circuit fully functional, our focus shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
                                     </p>
-                                    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical circuit assembly on breadboard" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center mt-2">The first physical prototype of our Smart Telegraph circuit.</p>
+                                    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical layout of components on breadboard" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
                                 </div>
                             </div>
-
-                            <!-- Section: Learn Morse Code -->
+                            
+                            <!-- 
+                                =================================
+                                SECTION: Learn Morse Code
+                                =================================
+                            -->
                             <div id="doc-morse-code" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
                                 <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="message-circle" class="w-6 h-6 mr-3 text-indigo-600"></i>Learn Morse Code</h3>
                                 <p class="text-gray-700 mb-6">Morse code represents letters, numbers, and punctuation as sequences of short and long signals called "dits" (dots) and "dahs" (dashes). Understanding the timing is key:</p>
@@ -537,8 +566,13 @@
                                 </div>
                             </div>
                             
-                            <!-- Section: Build Summary (grouping smaller cards) -->
-                            <div id="doc-build-summary" class="doc-section hidden space-y-12">
+                            <!-- 
+                                =================================
+                                SECTION: Build Summary
+                                =================================
+                                ** FIX APPLIED: Added 'hidden' class **
+                            -->
+                            <div id="doc-build-summary" class="doc-section space-y-8 hidden">
                                 <!-- Quick View -->
                                 <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
                                     <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
@@ -617,73 +651,40 @@
                             </div>
 
                             <!-- 
-                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
-                            
-                                MODIFIED SECTION BELOW 
-                            
-                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+                                =================================
+                                SECTION: Website Designing
+                                =================================
                             -->
-                            
-                            <!-- Section: Website Designing -->
                             <div id="doc-website-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
                                 <h3 class="text-2xl font-bold mb-4 flex items-center">
                                     <i data-feather="layout" class="w-6 h-6 mr-3 text-indigo-600"></i>Website Designing
                                 </h3>
-                                <p class="text-gray-700 mb-6">
-                                    Here's an overview of the website design process, from initial concepts to the final layout, and how we brought the project to life online.
-                                </p>
                                 
-                                <!-- NEW CONTENT BLOCK -->
-                                <div class="mb-8 border-b border-gray-200 pb-8">
-                                    <h4 class="text-xl font-semibold mb-2">
-                                        Our Goals for the Website
-                                    </h4>
-                                    <p class="text-gray-700 leading-relaxed">
-                                        From the beginning, our goal was to create more than just a landing page. We wanted a clean, professional, and easy-to-navigate site that would serve as a central hub for our project. Our main objectives were to:
-                                    </p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2 mt-4">
-                                        <li>Share our team's journey and story with viewers.</li>
-                                        <li>Clearly and thoroughly document our technical work, from circuit design to code.</li>
-                                        <li>Provide a transparent, real-time look at our progress through the interactive roadmap.</li>
-                                        <li>Build a platform that was both informative for visitors and a useful tool for our team.</li>
-                                    </ul>
-                                </div>
-                                
-                                <!-- Entry: Nov 7 -->
                                 <div class="mb-8">
-                                    <h4 class="text-xl font-semibold mb-2">
-                                        Web designing - 7th November:
-                                    </h4>
+                                    <h4 class="text-xl font-semibold mb-2">Implementing Firebase Google Login</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        Today, a technical issue was encountered where one of the key pages on our website, previously containing the project's roadmaps, has gone missing. The roadmaps served as a crucial tool for our team, enabling us to track project progress and provide transparent updates to external viewers. The absence of this page has temporarily disrupted our ability to display the current status of the project. Tenzing Jangsel had looked into the code to identify the problem, and had changed the API in the database for the backend code, which in turn fixed the problem.
+                                        Our first step for the website was implementing user authentication using Firebase's Google Login system. This would allow users to sign in to ask questions on the contact page. However, we immediately ran into an 'auth/operation-not-allowed' error, which blocked any login attempts.
                                     </p>
-                                    <img src="https://i.ibb.co/FqfXN7qr/Screenshot-2025-11-10-101224.png" alt="Roadmap problem" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center">The problem encountered with the roadmap page.</p>
+                                    <img src="https://i.ibb.co/Y46rg6CM/Screenshot-2025-11-10-163718.png" alt="Firebase auth error" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The initial 'operation not allowed' error from Firebase.</p>
                                 </div>
-                                
-                                <!-- New Entry: Nov 10 (API Fix) -->
-                                <div class="mb-8">
-                                    <h4 class="text-xl font-semibold mb-2">
-                                        Roadmap API Solution
-                                    </h4>
+        
+                                <div class="border-t border-gray-200 mt-8 pt-6 mb-8">
+                                    <h4 class="text-xl font-semibold mb-2">Troubleshooting: Authorizing the Domain</h4>
                                     <p class="text-gray-700 mb-4 leading-relaxed">
-                                        Following the roadmap issue, we investigated and found the root cause: the active Firebase project (the 'firecloud account') had been switched. This mismatch meant the website was trying to read data from the wrong database. The solution involved updating the Firebase API configuration keys within the website's HTML code to point to the correct, active project, which immediately restored the roadmap data.
+                                        After investigating the Firebase console, we discovered the solution. The error was caused by our local development domain (<code>127.0.0.1</code>) not being explicitly authorized to handle authentication requests.
                                     </p>
-                                    <img src="https://i.ibb.co/PsRQ68jW/Screenshot-2025-11-10-101429.png" alt="API fix in code" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center">Updating the Firebase configuration to fix the data link.</p>
+                                    <img src="https://i.ibb.co/PzF8CVL2/Screenshot-2025-11-10-163737.png" alt="Firebase authorized domains setting" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">We had to add our local domain to the 'Authorized domains' list.</p>
                                 </div>
-                                
-                                <!-- Next Update Placeholder -->
-                                <div class="hidden">
-                                    <h4 class="text-xl font-semibold mb-2 text-gray-400">
-                                        <!-- !! USER: Add your next title here !! -->
-                                        Next Update
-                                    </h4>
-                                    <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Your+Next+Image+Here" alt="Website Design Image Placeholder" class="rounded-lg shadow-md w-full mb-4 opacity-50">
-                                    <p class="text-gray-500">
-                                        <!-- !! USER: Add your next description here !! -->
-                                        (Your description for the next update goes here...)
+        
+                                <div class="border-t border-gray-200 mt-8 pt-6">
+                                    <h4 class="text-xl font-semibold mb-2">Success: Login System Works!</h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        By simply adding our development domain to the 'Authorized domains' list in the Firebase Authentication settings, the Google Sign-in popup appeared, and the login system worked perfectly. This was a key step in enabling user interaction on our site.
                                     </p>
+                                    <img src="https://i.ibb.co/ccmMjpxX/Screenshot-2025-11-10-163748.png" alt="Google login popup working" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The Google Sign-in flow now works as expected.</p>
                                 </div>
                             </div>
                             <!-- 
@@ -700,6 +701,7 @@
             </section>
         </div>
         <!-- 
+
         / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
         
             END OF MODIFIED DOCUMENTATION PAGE
@@ -784,33 +786,48 @@
         </div>
 
         <!-- Page: Sign In -->
-        <div id="signin" class="page hidden">
-            <section class="py-20">
+        <div id="signin" class="page">
+            <section class="min-h-screen flex items-center justify-center bg-gray-100">
                 <div class="container mx-auto px-6 max-w-md">
                     <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                        <h2 class="text-3xl font-bold text-center mb-6">Welcome Back</h2>
+                        <img src="https://i.ibb.co/XZVSKkBT/Screenshot-2025-11-10-174930-Photoroom.png" alt="Lumini Logo" class="h-20 w-20 mx-auto mb-6">
+                        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Sign In to Lumini</h2>
+                        
                         <form id="signin-form">
                             <div class="mb-4">
-                                <label for="signin-email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                                <input type="email" id="signin-email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                                <label for="signin-email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="signin-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="you@example.com" required>
                             </div>
                             <div class="mb-6">
-                                <label for="signin-password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                                <input type="password" id="signin-password" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500" required>
+                                <label for="signin-password" class="block text-gray-700 font-medium mb-2">Password</label>
+                                <input type="password" id="signin-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="••••••••" required>
                             </div>
                             <p id="signin-error" class="text-red-500 text-sm mb-4 text-center"></p>
                             <div class="text-center">
-                                <button type="submit" class="w-full bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition duration-300">Sign In</button>
+                                <button type="submit" class="w-full bg-indigo-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-105">
+                                    Sign In
+                                </button>
                             </div>
                         </form>
-                        <p class="text-sm text-center mt-6 text-gray-600">
-                            Don't have an account? <a href="#signup" class="nav-link text-indigo-600 hover:underline">Sign Up</a>
+                        
+                        <div class="flex items-center justify-center my-6">
+                            <span class="border-b w-1/5 lg:w-1/4"></span>
+                            <span class="text-xs text-center text-gray-500 uppercase mx-3">or</span>
+                            <span class="border-b w-1/5 lg:w-1/4"></span>
+                        </div>
+                        
+                        <button id="google-signin-button" class="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 px-8 py-3 rounded-full font-semibold hover:bg-gray-50 transition duration-300 shadow-md transform hover:scale-105">
+                            <svg class="w-5 h-5 mr-3" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691c-1.258 3.053-1.99 6.479-1.99 10.141c0 3.662.732 7.088 1.99 10.141l-5.657 5.657C.138 36.651 0 32.341 0 28s.138-8.651 1.649-12.969l5.657 4.66z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-5.657-5.657C30.01 35.25 27.145 36 24 36c-5.223 0-9.65-3.343-11.303-7.918l-5.657 5.657C9.34 40.023 16.095 44 24 44z"/><path fill="#1E88E5" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.23 4.14-4.082 5.571l5.657 5.657C41.312 34.762 44 30.651 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+                            Sign in with Google
+                        </button>
+                        
+                        <p class="text-center text-gray-600 text-sm mt-6">
+                            Don't have an account? <a href="#signup" class="nav-link text-indigo-600 hover:underline font-medium">Sign Up</a>
                         </p>
                     </div>
                 </div>
             </section>
         </div>
-
     </main>
 
     <!-- Footer -->
@@ -1117,6 +1134,53 @@
                         signinError.textContent = error.message;
                     });
             });
+            // ... your existing signinForm event listener ...
+        signinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = signinForm['signin-email'].value;
+            const password = signinForm['signin-password'].value;
+            auth.signInWithEmailAndPassword(email, password)
+                .then(userCredential => {
+                    signinForm.reset();
+                    signinError.textContent = '';
+                    showPage('home');
+                })
+                .catch(error => {
+                    signinError.textContent = error.message;
+                });
+        });
+
+        // ADD THIS NEW CODE
+        // --- Google Sign-In ---
+        const googleProvider = new firebase.auth.GoogleAuthProvider();
+        
+        const googleSignInButton = document.getElementById('google-signin-button');
+        
+        if (googleSignInButton) {
+            googleSignInButton.addEventListener('click', () => {
+                const signinError = document.getElementById('signin-error');
+                signinError.textContent = ''; // Clear previous errors
+
+                auth.signInWithPopup(googleProvider)
+                    .then((result) => {
+                        // Sign-in successful.
+                        console.log('Signed in with Google:', result.user);
+                        showPage('home'); // Go to home page
+                    })
+                    .catch((error) => {
+                        // Handle Errors here.
+                        console.error('Google Sign-In Error:', error.message);
+                        if(signinError) {
+                            signinError.textContent = error.message;
+                        }
+                    });
+            });
+        }
+        // END OF NEW CODE
+
+        // Sign Out
+        document.getElementById('signout-button').addEventListener('click', () => auth.signOut());
+        // ... rest of your script ...
 
             // Sign Out
             document.getElementById('signout-button').addEventListener('click', () => auth.signOut());
