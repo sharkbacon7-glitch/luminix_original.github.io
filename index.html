@@ -479,36 +479,132 @@
                                 SECTION: Making of the Design
                                 =================================
                             -->
-                            <div id="doc-making-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
-                                <div>
-                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
-                                    <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
-                                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                                        <div>
-                                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                                                <li>ESP32</li>
-                                                <li>OLED Display</li>
-                                                <li>Buttons x3</li>
-                                                <li>Buzzer</li>
-                                            </ul>
-                                            <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
-                                        </div>
-                                        <div class="space-y-6">
-                                            <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
-                                            <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="border-t border-gray-200 mt-8 pt-6">
-                                    <h4 class="text-xl font-semibold mb-4">Refining the Physical Layout</h4>
-                                    <p class="text-gray-700 mb-4 leading-relaxed">
-                                        With the circuit fully functional, our focus shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
-                                    </p>
-                                    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical layout of components on breadboard" class="rounded-lg shadow-md w-full mb-2">
-                                    <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
-                                </div>
-                            </div>
+                            <div id="doc-making-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
+    
+    <h3 class="text-2xl font-bold mb-6 flex items-center">
+        <i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design
+    </h3>
+
+    <div class="flex flex-col md:flex-row gap-6 md:gap-8">
+
+        <div class="flex-shrink-0 md:w-1/4 lg:w-1/5">
+            <nav class="flex flex-row md:flex-col gap-2 border-b-2 md:border-b-0 md:border-r-2 border-gray-100 pb-2 md:pb-0 md:pr-4">
+                
+                <button 
+                    onclick="showDesignTab('physical-layout')" 
+                    id="btn-physical-layout"
+                    class="design-tab-btn w-full text-left p-3 rounded-md font-medium text-sm flex items-center transition-all duration-150 bg-indigo-100 text-indigo-700">
+                    <i data-feather="layout" class="w-4 h-4 mr-2.5"></i>
+                    Physical Layout
+                </button>
+                
+                <button 
+                    onclick="showDesignTab('process')" 
+                    id="btn-process"
+                    class="design-tab-btn w-full text-left p-3 rounded-md font-medium text-sm flex items-center transition-all duration-150 text-gray-600 hover:bg-gray-100 hover:text-gray-900">
+                    <i data-feather="list" class="w-4 h-4 mr-2.5"></i>
+                    Process
+                </button>
+
+            </nav>
+        </div>
+
+        <div class="flex-grow md:w-3/4 lg:w-4/5 min-w-0">
+            
+            <div id="tab-physical-layout" class="design-tab-content space-y-6 fade-in">
+                <h4 class="text-xl font-bold">Physical Layout Planning</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    With the Wokwi simulation proving successful, our attention shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
+                </p>
+                <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical layout of components on breadboard" class="rounded-lg shadow-md w-full mb-2">
+                <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
+            </div>
+
+            <div id="tab-process" class="design-tab-content hidden space-y-8 fade-in">
+                <h4 class="text-xl font-bold">Process</h4>
+                <div class="space-y-6">
+                    
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">1. First we create a sketch of the box.</p>
+                        <img src="https://i.ibb.co/1tLqs85J/Screenshot-2025-11-10-175412.png" alt="Process step 1" class="rounded-lg shadow-md w-full">
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">2. Size</p>
+                        <img src="https://i.ibb.co/3mnvnkG0/Screen-Shot-2025-11-10-at-12-17-22-PM.png" alt="Process step 2" class="rounded-lg shadow-md w-full">
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">3. Then we extrude it using the extrude tool, and extrude it to 40 mm.</p>
+                        <p class="text-sm text-gray-600 mb-2 italic">Extrude means to make a shape (a material such as metal or plastic) by forcing it through a die.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.ibb.co/BVDtBnLD/Screen-Shot-2025-11-10-at-12-17-19-PM.png" alt="Process step 3a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/C5zVC6zg/Screen-Shot-2025-11-10-at-5-08-13-PM.png" alt="Process step 3b" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">4. Next we need to create a hole in the box, so we create a sketch on the box and extrude it downwards.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.ibb.co/1G6y8Nb3/Screen-Shot-2025-11-10-at-6-04-58-PM.png" alt="Process step 4a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/QvKyn04x/Screen-Shot-2025-11-10-at-6-07-02-PM.png" alt="Process step 4b" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">5. It should look like this after extrusion.</p>
+                        <img src="https://i.ibb.co/4wyTHCFX/Screen-Shot-2025-11-10-at-6-08-51-PM.png" alt="Process step 5" class="rounded-lg shadow-md w-full">
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">6. Next we need to create a top to hold the oled and button so create another sketch with the same measurements as the first box and also Extrude it.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <img src="https://i.ibb.co/cK9fn8m2/Screen-Shot-2025-11-10-at-6-10-58-PM.png" alt="Process step 6a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/C3GdZBty/Screen-Shot-2025-11-10-at-6-13-58-PM.png" alt="Process step 6b" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/mCYgfpYT/Screen-Shot-2025-11-10-at-6-14-23-PM.png" alt="Process step 6c" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">7. We need to create a lid-like structure so we create a sketch on the lid we have just created.</p>
+                         <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.ibb.co/NdVNdFsX/Screen-Shot-2025-11-10-at-6-18-58-PM.png" alt="Process step 7a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/fPGwTFC/Screen-Shot-2025-11-10-at-6-24-47-PM.png" alt="Process step 7b" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">8. We create a hole on the lid for the oled, do the same thing to make a hole extrude it inward.</p>
+                         <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.ibb.co/7tjPzXdY/Screen-Shot-2025-11-10-at-6-26-25-PM.png" alt="Process step 8a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/8ngQxT7M/Screen-Shot-2025-11-10-at-6-26-58-PM.png" alt="Process step 8b" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">9. It should look like this, next we create a hole for the button.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <img src="https://i.ibb.co/0H2HHMk/Screen-Shot-2025-11-10-at-6-29-02-PM.png" alt="Process step 9a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/QFvdRTGT/Screen-Shot-2025-11-10-at-6-29-43-PM.png" alt="Process step 9b" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/4ZL2hvb4/Screen-Shot-2025-11-10-at-6-31-05-PM.png" alt="Process step 9c" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">10. Next we create a hole for a buzzer. So we use the hole tool.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.ibb.co/1fH56xHX/Screen-Shot-2025-11-10-at-6-34-48-PM.png" alt="Process step 10a" class="rounded-lg shadow-md w-full">
+                            <img src="https://i.ibb.co/3mM8w0Q4/Screen-Shot-2025-11-10-at-6-35-16-PM.png" alt="Process step 10b" class="rounded-lg shadow-md w-full">
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">11. End product!!!</p>
+                        <img src="https://i.ibb.co/VWSkp4Zj/Screen-Shot-2025-11-10-at-6-36-51-PM.png" alt="Process step 11" class="rounded-lg shadow-md w-full">
+                    </div>
+
+                </div>
+            </div> </div> </div> </div>
                             
                             <!-- 
                                 =================================
@@ -872,6 +968,48 @@
     </div>
 
     <script>
+        // Function to handle tabs within the "Making the Design" section
+        function showDesignTab(tabId) {
+            try {
+                // Hide all content tabs
+                document.querySelectorAll('#doc-making-design .design-tab-content').forEach(tab => {
+                    tab.classList.add('hidden');
+                });
+
+                // Deactivate all tab buttons
+                document.querySelectorAll('#doc-making-design .design-tab-btn').forEach(btn => {
+                    btn.classList.remove('bg-indigo-100', 'text-indigo-700');
+                    btn.classList.add('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                });
+
+                // Show the selected content tab
+                const selectedTab = document.getElementById(`tab-${tabId}`);
+                if (selectedTab) {
+                    selectedTab.classList.remove('hidden');
+                }
+
+                // Activate the selected tab button
+                const selectedButton = document.getElementById(`btn-${tabId}`);
+                if (selectedButton) {
+                    selectedButton.classList.add('bg-indigo-100', 'text-indigo-700');
+                    selectedButton.classList.remove('text-gray-600', 'hover:bg-gray-100', 'hover:text-gray-900');
+                }
+                
+                // Re-run feather icons if feather is loaded (this is a safer check)
+                if (typeof feather !== 'undefined') {
+                    feather.replace();
+                }
+            } catch (error) {
+                console.error('Error switching design tab:', error);
+            }
+        }
+        
+        // This line makes the function available to the "onclick" in your HTML
+        window.showDesignTab = showDesignTab;
+
+        // PASTE THE CODE BLOCK ABOVE THIS LINE:
+
+
         document.addEventListener('DOMContentLoaded', function() {
             // --- Firebase Configuration ---
             const firebaseConfig = {
