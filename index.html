@@ -328,193 +328,292 @@
             </section>
         </div>
         
-        <!-- Page: Documentation -->
+        <!-- 
+        / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+        
+            MODIFIED DOCUMENTATION PAGE SECTION
+            New structure: Sidebar + Content Area
+        
+        / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+        -->
         <div id="documentation" class="page hidden">
             <section class="py-20">
                 <div class="container mx-auto px-6">
                     <div class="text-center mb-16 fade-in">
                         <h2 class="text-4xl md:text-5xl font-bold">Project Documentation</h2>
-                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">A technical overview of the Smart Telegraph project, including components, wiring, and build steps.</p>
+                        <p class="text-gray-600 mt-4 max-w-3xl mx-auto">A technical overview of the Smart Telegraph project, from circuit design to website implementation.</p>
                     </div>
 
-                    <div class="max-w-4xl mx-auto space-y-12">
-                        <!-- Circuit Design -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="cpu" class="w-6 h-6 mr-3 text-indigo-600"></i>Circuit Design</h3>
-                            <p class="text-gray-700 mb-4">We have designed a simple circuit for our Smart Telegraph. Our circuit design involves the following materials:</p>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                                <li>ESP32</li>
-                                <li>OLED Display</li>
-                                <li>Button x3</li>
-                                <li>Buzzer</li>
-                                <li>Wires</li>
-                                <li>Breadboard</li>
-                                <li>Resistor</li>
-                                <li>USB Power bank</li>
-                            </ul>
-                             <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Circuit Diagram" class="rounded-lg shadow-md w-full mb-6">
-                            <h4 class="text-xl font-semibold mb-2">Detailed Function of the Materials:</h4>
-                            <ul class="space-y-4 text-gray-700">
-                                <li><strong>ESP32:</strong> We have decided to use ESP32 as our microcontroller. It helps our project work through the help of the Built-in Wi-Fi and Bluetooth and it uses low-power.</li>
-                                <li><strong>OLED Display:</strong> The OLED display is a screen that will be used for displaying the letters formed by the morsecodes entered. It can display texts and graphics and is known for its low-power consumption, contrast, and vibrant colours.</li>
-                                <li><strong>Buttons:</strong> The buttons will be used for entering the dots, dashes, and space. These dots, dashes, and space make up our letters using morsecode.</li>
-                                <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
-                                <li><strong>Power Bank</strong> The power bank will be used to power the esp 32 and the other components. Its main idea is to make the device portable. </li>
-                            </ul>
-                        </div>
+                    <!-- New Documentation Layout: Sidebar + Content -->
+                    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-12">
+                        
+                        <!-- Sidebar Navigation -->
+                        <aside class="md:w-1/4 lg:w-1/5">
+                            <nav id="doc-nav" class="sticky top-28">
+                                <ul class="space-y-2">
+                                    <li><a href="#doc-circuit-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="cpu" class="w-5 h-5"></i><span>Circuit Design</span></a></li>
+                                    <li><a href="#doc-making-circuit" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Circuit</span></a></li>
+                                    <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
+                                    <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
+                                    <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
+                                </ul>
+                            </nav>
+                        </aside>
 
-                        <!-- Making of the Circuit -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making of the Design</h3>
-                            <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
-                            <div class="grid md:grid-cols-2 gap-8 items-center">
-                                <div>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                                        <li>ESP32</li>
-                                        <li>OLED Display</li>
-                                        <li>Buttons x3</li>
-                                        <li>Buzzer</li>
+                        <!-- Content Area -->
+                        <div class="md:w-3/4 lg:w-4/5">
+                            
+                            <!-- Section: Circuit Design -->
+                            <div id="doc-circuit-design" class="doc-section bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="cpu" class="w-6 h-6 mr-3 text-indigo-600"></i>Circuit Design</h3>
+                                <p class="text-gray-700 mb-4">We have designed a simple circuit for our Smart Telegraph. Our circuit design involves the following materials:</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                    <li>ESP32</li>
+                                    <li>OLED Display</li>
+                                    <li>Button x3</li>
+                                    <li>Buzzer</li>
+                                    <li>Wires</li>
+                                    <li>Breadboard</li>
+                                    <li>Resistor</li>
+                                    <li>USB Power bank</li>
+                                </ul>
+                                <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Circuit Diagram" class="rounded-lg shadow-md w-full mb-6">
+                                <h4 class="text-xl font-semibold mb-2">Detailed Function of the Materials:</h4>
+                                <ul class="space-y-4 text-gray-700">
+                                    <li><strong>ESP32:</strong> We have decided to use ESP32 as our microcontroller. It helps our project work through the help of the Built-in Wi-Fi and Bluetooth and it uses low-power.</li>
+                                    <li><strong>OLED Display:</strong> The OLED display is a screen that will be used for displaying the letters formed by the morsecodes entered. It can display texts and graphics and is known for its low-power consumption, contrast, and vibrant colours.</li>
+                                    <li><strong>Buttons:</strong> The buttons will be used for entering the dots, dashes, and space. These dots, dashes, and space make up our letters using morsecode.</li>
+                                    <li><strong>Buzzer:</strong> The buzzer will be used for making the sounds of the dot, dash, and space. The dot makes a short beep sound, whereas the dash will make a sound that is longer than what the dot makes. As for the space, there will be no sound.</li>
+                                    <li><strong>Power Bank</strong> The power bank will be used to power the esp 32 and the other components. Its main idea is to make the device portable. </li>
+                                </ul>
+                            </div>
+
+                            <!-- Section: Making of the Circuit -->
+                            <div id="doc-making-circuit" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making of the Design</h3>
+                                <p class="text-gray-700 mb-6">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
+                                <div class="grid md:grid-cols-2 gap-8 items-center">
+                                    <div>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                                            <li>ESP32</li>
+                                            <li>OLED Display</li>
+                                            <li>Buttons x3</li>
+                                            <li>Buzzer</li>
+                                        </ul>
+                                        <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
+                                    </div>
+                                    <div class="space-y-6">
+                                        <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
+                                        <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Section: Learn Morse Code -->
+                            <div id="doc-morse-code" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="message-circle" class="w-6 h-6 mr-3 text-indigo-600"></i>Learn Morse Code</h3>
+                                <p class="text-gray-700 mb-6">Morse code represents letters, numbers, and punctuation as sequences of short and long signals called "dits" (dots) and "dahs" (dashes). Understanding the timing is key:</p>
+                                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-8">
+                                    <li>A <strong>dah</strong> is three times as long as a <strong>dit</strong>.</li>
+                                    <li>The space between parts of the same letter is one <strong>dit</strong>.</li>
+                                    <li>The space between letters is three <strong>dits</strong>.</li>
+                                    <li>The space between words is seven <strong>dits</strong>.</li>
+                                </ul>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-x-4 gap-y-6 text-center">
+                                    <div><p class="font-bold text-lg">A</p><p class="text-gray-600 text-2xl tracking-widest">·−</p></div>
+                                    <div><p class="font-bold text-lg">B</p><p class="text-gray-600 text-2xl tracking-widest">−···</p></div>
+                                    <div><p class="font-bold text-lg">C</p><p class="text-gray-600 text-2xl tracking-widest">−·−·</p></div>
+                                    <div><p class="font-bold text-lg">D</p><p class="text-gray-600 text-2xl tracking-widest">−··</p></div>
+                                    <div><p class="font-bold text-lg">E</p><p class="text-gray-600 text-2xl tracking-widest">·</p></div>
+                                    <div><p class="font-bold text-lg">F</p><p class="text-gray-600 text-2xl tracking-widest">··−·</p></div>
+                                    <div><p class="font-bold text-lg">G</p><p class="text-gray-600 text-2xl tracking-widest">−−·</p></div>
+                                    <div><p class="font-bold text-lg">H</p><p class="text-gray-600 text-2xl tracking-widest">····</p></div>
+                                    <div><p class="font-bold text-lg">I</p><p class="text-gray-600 text-2xl tracking-widest">··</p></div>
+                                    <div><p class="font-bold text-lg">J</p><p class="text-gray-600 text-2xl tracking-widest">·−−−</p></div>
+                                    <div><p class="font-bold text-lg">K</p><p class="text-gray-600 text-2xl tracking-widest">−·−</p></div>
+                                    <div><p class="font-bold text-lg">L</p><p class="text-gray-600 text-2xl tracking-widest">·−··</p></div>
+                                    <div><p class="font-bold text-lg">M</p><p class="text-gray-600 text-2xl tracking-widest">−−</p></div>
+                                    <div><p class="font-bold text-lg">N</p><p class="text-gray-600 text-2xl tracking-widest">−·</p></div>
+                                    <div><p class="font-bold text-lg">O</p><p class="text-gray-600 text-2xl tracking-widest">−−−</p></div>
+                                    <div><p class="font-bold text-lg">P</p><p class="text-gray-600 text-2xl tracking-widest">·−−·</p></div>
+                                    <div><p class="font-bold text-lg">Q</p><p class="text-gray-600 text-2xl tracking-widest">−−·−</p></div>
+                                    <div><p class="font-bold text-lg">R</p><p class="text-gray-600 text-2xl tracking-widest">·−·</p></div>
+                                    <div><p class="font-bold text-lg">S</p><p class="text-gray-600 text-2xl tracking-widest">···</p></div>
+                                    <div><p class="font-bold text-lg">T</p><p class="text-gray-600 text-2xl tracking-widest">−</p></div>
+                                    <div><p class="font-bold text-lg">U</p><p class="text-gray-600 text-2xl tracking-widest">··−</p></div>
+                                    <div><p class="font-bold text-lg">V</p><p class="text-gray-600 text-2xl tracking-widest">···−</p></div>
+                                    <div><p class="font-bold text-lg">W</p><p class="text-gray-600 text-2xl tracking-widest">·−−</p></div>
+                                    <div><p class="font-bold text-lg">X</p><p class="text-gray-600 text-2xl tracking-widest">−··−</p></div>
+                                    <div><p class="font-bold text-lg">Y</p><p class="text-gray-600 text-2xl tracking-widest">−·−−</p></div>
+                                    <div><p class="font-bold text-lg">Z</p><p class="text-gray-600 text-2xl tracking-widest">−−··</p></div>
+                                </div>
+                                <div class="border-t border-gray-200 mt-8 pt-6 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-x-4 gap-y-6 text-center">
+                                    <div><p class="font-bold text-lg">0</p><p class="text-gray-600 text-2xl tracking-widest">−−−−−</p></div>
+                                    <div><p class="font-bold text-lg">1</p><p class="text-gray-600 text-2xl tracking-widest">·−−−−</p></div>
+                                    <div><p class="font-bold text-lg">2</p><p class="text-gray-600 text-2xl tracking-widest">··−−−</p></div>
+                                    <div><p class="font-bold text-lg">3</p><p class="text-gray-600 text-2xl tracking-widest">···−−</p></div>
+                                    <div><p class="font-bold text-lg">4</p><p class="text-gray-600 text-2xl tracking-widest">····−</p></div>
+                                    <div><p class="font-bold text-lg">5</p><p class="text-gray-600 text-2xl tracking-widest">·····</p></div>
+                                    <div><p class="font-bold text-lg">6</p><p class="text-gray-600 text-2xl tracking-widest">−····</p></div>
+                                    <div><p class="font-bold text-lg">7</p><p class="text-gray-600 text-2xl tracking-widest">−−···</p></div>
+                                    <div><p class="font-bold text-lg">8</p><p class="text-gray-600 text-2xl tracking-widest">−−−··</p></div>
+                                    <div><p class="font-bold text-lg">9</p><p class="text-gray-600 text-2xl tracking-widest">−−−−·</p></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Section: Build Summary (grouping smaller cards) -->
+                            <div id="doc-build-summary" class="doc-section hidden space-y-12">
+                                <!-- Quick View -->
+                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        <li>Two identical handheld units.</li>
+                                        <li>Morse Key (1 button) to tap dots/dashes.</li>
+                                        <li>Buzzer + LED for beep/blink feedback.</li>
+                                        <li>OLED screen that shows decoded text.</li>
+                                        <li>Units talk wirelessly (ESP-NOW on ESP32)—no router needed.</li>
+                                        <li>You can demo “old vs new”: tap Morse → receiver shows live text.</li>
                                     </ul>
-                                    <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
                                 </div>
-                                <div class="space-y-6">
-                                    <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
-                                    <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
+
+                                <!-- Bill of Materials -->
+                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="list" class="w-6 h-6 mr-3 text-indigo-600"></i>Bill of Materials (per unit)</h3>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        <li>ESP32 DevKit (DOIT or WROOM-32) ×1</li>
+                                        <li>0.96" I²C OLED (128×64, SSD1306) ×1</li>
+                                        <li>Momentary pushbutton (normally open) ×1</li>
+                                        <li>220 Ω resistor ×1 (for LED)</li>
+                                        <li>Red LED ×1</li>
+                                        <li>Active buzzer (3.3–5 V) ×1</li>
+                                        <li>10 kΩ resistor ×1 (pull‑down for button)</li>
+                                        <li>Breadboard + jumper wires or perfboard</li>
+                                        <li>Power: USB power bank / 5 V phone charger</li>
+                                        <li>Optional: small slide switch (power), 3D‑printed case</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Wiring -->
+                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="git-pull-request" class="w-6 h-6 mr-3 text-indigo-600"></i>Wiring (per unit)</h3>
+                                    <p class="text-gray-500 mb-4">(You can change pins in code if needed.)</p>
+                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                        <li><strong>Button:</strong> GPIO 14 (to pin) + 10 kΩ to GND; other side of button to 3V3</li>
+                                        <li><strong>LED:</strong> GPIO 26 through 220 Ω to LED anode; LED cathode to GND</li>
+                                        <li><strong>Buzzer:</strong> GPIO 27 to + buzzer; buzzer – to GND</li>
+                                        <li><strong>OLED I²C:</strong> SDA = GPIO 21, SCL = GPIO 22, VCC → 3V3, GND → GND</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Morse Timing & Enclosure -->
+                                <div class="grid md:grid-cols-2 gap-8">
+                                    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="clock" class="w-6 h-6 mr-3 text-indigo-600"></i>Morse Timing</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                            <li>Dit (•) length = 120 ms (≈10–12 WPM)</li>
+                                            <li>Dash (—) ≈ 3× dit</li>
+                                            <li>Gap between symbols = 1× dit</li>
+                                            <li>Gap between letters = 3× dit</li>
+                                            <li>Gap between words = 7× dit</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>Enclosure</h3>
+                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                                            <li>Top panel cutouts: OLED (28×14 mm), LED (3 mm)</li>
+                                            <li>Internal pillars (M2.5 standoffs)</li>
+                                            <li>Dimensions: 110×65×30 mm</li>
+                                            <li>Front label: “Smart Telegraph — Unit A/B”</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Build Steps -->
+                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="tool" class="w-6 h-6 mr-3 text-indigo-600"></i>Build Steps</h3>
+                                    <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                                        <li>Breadboard one unit and test the OLED, button, LED, and buzzer.</li>
+                                        <li>Flash code with ROLE = SENDER (Unit A) and again with ROLE = RECEIVER (Unit B).</li>
+                                        <li>Power both—tap on A → text appears on B; B’s buzzer/LED beep per character.</li>
+                                        <li>Make a second pass to tidy wiring, move to perfboard, or mount in a case.</li>
+                                    </ol>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Learn Morse Code -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="message-circle" class="w-6 h-6 mr-3 text-indigo-600"></i>Learn Morse Code</h3>
-                            <p class="text-gray-700 mb-6">Morse code represents letters, numbers, and punctuation as sequences of short and long signals called "dits" (dots) and "dahs" (dashes). Understanding the timing is key:</p>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-8">
-                                <li>A <strong>dah</strong> is three times as long as a <strong>dit</strong>.</li>
-                                <li>The space between parts of the same letter is one <strong>dit</strong>.</li>
-                                <li>The space between letters is three <strong>dits</strong>.</li>
-                                <li>The space between words is seven <strong>dits</strong>.</li>
-                            </ul>
-                            <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-x-4 gap-y-6 text-center">
-                                <div><p class="font-bold text-lg">A</p><p class="text-gray-600 text-2xl tracking-widest">·−</p></div>
-                                <div><p class="font-bold text-lg">B</p><p class="text-gray-600 text-2xl tracking-widest">−···</p></div>
-                                <div><p class="font-bold text-lg">C</p><p class="text-gray-600 text-2xl tracking-widest">−·−·</p></div>
-                                <div><p class="font-bold text-lg">D</p><p class="text-gray-600 text-2xl tracking-widest">−··</p></div>
-                                <div><p class="font-bold text-lg">E</p><p class="text-gray-600 text-2xl tracking-widest">·</p></div>
-                                <div><p class="font-bold text-lg">F</p><p class="text-gray-600 text-2xl tracking-widest">··−·</p></div>
-                                <div><p class="font-bold text-lg">G</p><p class="text-gray-600 text-2xl tracking-widest">−−·</p></div>
-                                <div><p class="font-bold text-lg">H</p><p class="text-gray-600 text-2xl tracking-widest">····</p></div>
-                                <div><p class="font-bold text-lg">I</p><p class="text-gray-600 text-2xl tracking-widest">··</p></div>
-                                <div><p class="font-bold text-lg">J</p><p class="text-gray-600 text-2xl tracking-widest">·−−−</p></div>
-                                <div><p class="font-bold text-lg">K</p><p class="text-gray-600 text-2xl tracking-widest">−·−</p></div>
-                                <div><p class="font-bold text-lg">L</p><p class="text-gray-600 text-2xl tracking-widest">·−··</p></div>
-                                <div><p class="font-bold text-lg">M</p><p class="text-gray-600 text-2xl tracking-widest">−−</p></div>
-                                <div><p class="font-bold text-lg">N</p><p class="text-gray-600 text-2xl tracking-widest">−·</p></div>
-                                <div><p class="font-bold text-lg">O</p><p class="text-gray-600 text-2xl tracking-widest">−−−</p></div>
-                                <div><p class="font-bold text-lg">P</p><p class="text-gray-600 text-2xl tracking-widest">·−−·</p></div>
-                                <div><p class="font-bold text-lg">Q</p><p class="text-gray-600 text-2xl tracking-widest">−−·−</p></div>
-                                <div><p class="font-bold text-lg">R</p><p class="text-gray-600 text-2xl tracking-widest">·−·</p></div>
-                                <div><p class="font-bold text-lg">S</p><p class="text-gray-600 text-2xl tracking-widest">···</p></div>
-                                <div><p class="font-bold text-lg">T</p><p class="text-gray-600 text-2xl tracking-widest">−</p></div>
-                                <div><p class="font-bold text-lg">U</p><p class="text-gray-600 text-2xl tracking-widest">··−</p></div>
-                                <div><p class="font-bold text-lg">V</p><p class="text-gray-600 text-2xl tracking-widest">···−</p></div>
-                                <div><p class="font-bold text-lg">W</p><p class="text-gray-600 text-2xl tracking-widest">·−−</p></div>
-                                <div><p class="font-bold text-lg">X</p><p class="text-gray-600 text-2xl tracking-widest">−··−</p></div>
-                                <div><p class="font-bold text-lg">Y</p><p class="text-gray-600 text-2xl tracking-widest">−·−−</p></div>
-                                <div><p class="font-bold text-lg">Z</p><p class="text-gray-600 text-2xl tracking-widest">−−··</p></div>
+                            <!-- 
+                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+                            
+                                MODIFIED SECTION BELOW 
+                            
+                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+                            -->
+                            
+                            <!-- Section: Website Designing -->
+                            <div id="doc-website-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in">
+                                <h3 class="text-2xl font-bold mb-4 flex items-center">
+                                    <i data-feather="layout" class="w-6 h-6 mr-3 text-indigo-600"></i>Website Designing
+                                </h3>
+                                <p class="text-gray-700 mb-6">
+                                    Here's an overview of the website design process, from initial concepts to the final layout, and how we brought the project to life online.
+                                </p>
+                                
+                                <!-- Entry: Nov 7 -->
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-semibold mb-2">
+                                        Web designing - 7th November:
+                                    </h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        Today, a technical issue was encountered where one of the key pages on our website, previously containing the project's roadmaps, has gone missing. The roadmaps served as a crucial tool for our team, enabling us to track project progress and provide transparent updates to external viewers. The absence of this page has temporarily disrupted our ability to display the current status of the project. Tenzing Jangsel had looked into the code to identify the problem, and had changed the API in the database for the backend code, which in turn fixed the problem.
+                                    </p>
+                                    <img src="https://i.ibb.co/FqfXN7qr/Screenshot-2025-11-10-101224.png" alt="Roadmap problem" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">The problem encountered with the roadmap page.</p>
+                                </div>
+                                
+                                <!-- New Entry: Nov 10 (API Fix) -->
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-semibold mb-2">
+                                        Roadmap API Solution
+                                    </h4>
+                                    <p class="text-gray-700 mb-4 leading-relaxed">
+                                        Following the roadmap issue, we investigated and found the root cause: the active Firebase project (the 'firecloud account') had been switched. This mismatch meant the website was trying to read data from the wrong database. The solution involved updating the Firebase API configuration keys within the website's HTML code to point to the correct, active project, which immediately restored the roadmap data.
+                                    </p>
+                                    <img src="https://i.ibb.co/PsRQ68jW/Screenshot-2025-11-10-101429.png" alt="API fix in code" class="rounded-lg shadow-md w-full mb-2">
+                                    <p class="text-sm text-gray-600 italic text-center">Updating the Firebase configuration to fix the data link.</p>
+                                </div>
+                                
+                                <!-- Next Update Placeholder -->
+                                <div class="hidden">
+                                    <h4 class="text-xl font-semibold mb-2 text-gray-400">
+                                        <!-- !! USER: Add your next title here !! -->
+                                        Next Update
+                                    </h4>
+                                    <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Your+Next+Image+Here" alt="Website Design Image Placeholder" class="rounded-lg shadow-md w-full mb-4 opacity-50">
+                                    <p class="text-gray-500">
+                                        <!-- !! USER: Add your next description here !! -->
+                                        (Your description for the next update goes here...)
+                                    </p>
+                                </div>
                             </div>
-                             <div class="border-t border-gray-200 mt-8 pt-6 grid grid-cols-2 sm:grid-cols-5 md:grid-cols-10 gap-x-4 gap-y-6 text-center">
-                                <div><p class="font-bold text-lg">0</p><p class="text-gray-600 text-2xl tracking-widest">−−−−−</p></div>
-                                <div><p class="font-bold text-lg">1</p><p class="text-gray-600 text-2xl tracking-widest">·−−−−</p></div>
-                                <div><p class="font-bold text-lg">2</p><p class="text-gray-600 text-2xl tracking-widest">··−−−</p></div>
-                                <div><p class="font-bold text-lg">3</p><p class="text-gray-600 text-2xl tracking-widest">···−−</p></div>
-                                <div><p class="font-bold text-lg">4</p><p class="text-gray-600 text-2xl tracking-widest">····−</p></div>
-                                <div><p class="font-bold text-lg">5</p><p class="text-gray-600 text-2xl tracking-widest">·····</p></div>
-                                <div><p class="font-bold text-lg">6</p><p class="text-gray-600 text-2xl tracking-widest">−····</p></div>
-                                <div><p class="font-bold text-lg">7</p><p class="text-gray-600 text-2xl tracking-widest">−−···</p></div>
-                                <div><p class="font-bold text-lg">8</p><p class="text-gray-600 text-2xl tracking-widest">−−−··</p></div>
-                                <div><p class="font-bold text-lg">9</p><p class="text-gray-600 text-2xl tracking-widest">−−−−·</p></div>
-                            </div>
-                        </div>
+                            <!-- 
+                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+                            
+                                END OF MODIFIED SECTION 
+                            
+                            / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+                            -->
 
-                        <!-- Quick View -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>Two identical handheld units.</li>
-                                <li>Morse Key (1 button) to tap dots/dashes.</li>
-                                <li>Buzzer + LED for beep/blink feedback.</li>
-                                <li>OLED screen that shows decoded text.</li>
-                                <li>Units talk wirelessly (ESP-NOW on ESP32)—no router needed.</li>
-                                <li>You can demo “old vs new”: tap Morse → receiver shows live text.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Bill of Materials -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="list" class="w-6 h-6 mr-3 text-indigo-600"></i>Bill of Materials (per unit)</h3>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>ESP32 DevKit (DOIT or WROOM-32) ×1</li>
-                                <li>0.96" I²C OLED (128×64, SSD1306) ×1</li>
-                                <li>Momentary pushbutton (normally open) ×1</li>
-                                <li>220 Ω resistor ×1 (for LED)</li>
-                                <li>Red LED ×1</li>
-                                <li>Active buzzer (3.3–5 V) ×1</li>
-                                <li>10 kΩ resistor ×1 (pull‑down for button)</li>
-                                <li>Breadboard + jumper wires or perfboard</li>
-                                <li>Power: USB power bank / 5 V phone charger</li>
-                                <li>Optional: small slide switch (power), 3D‑printed case</li>
-                            </ul>
-                        </div>
-
-                        <!-- Wiring -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="git-pull-request" class="w-6 h-6 mr-3 text-indigo-600"></i>Wiring (per unit)</h3>
-                            <p class="text-gray-500 mb-4">(You can change pins in code if needed.)</p>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li><strong>Button:</strong> GPIO 14 (to pin) + 10 kΩ to GND; other side of button to 3V3</li>
-                                <li><strong>LED:</strong> GPIO 26 through 220 Ω to LED anode; LED cathode to GND</li>
-                                <li><strong>Buzzer:</strong> GPIO 27 to + buzzer; buzzer – to GND</li>
-                                <li><strong>OLED I²C:</strong> SDA = GPIO 21, SCL = GPIO 22, VCC → 3V3, GND → GND</li>
-                            </ul>
-                        </div>
-
-                        <!-- Morse Timing & Enclosure -->
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="clock" class="w-6 h-6 mr-3 text-indigo-600"></i>Morse Timing</h3>
-                                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                    <li>Dit (•) length = 120 ms (≈10–12 WPM)</li>
-                                    <li>Dash (—) ≈ 3× dit</li>
-                                    <li>Gap between symbols = 1× dit</li>
-                                    <li>Gap between letters = 3× dit</li>
-                                    <li>Gap between words = 7× dit</li>
-                                </ul>
-                            </div>
-                            <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>Enclosure</h3>
-                                <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                    <li>Top panel cutouts: OLED (28×14 mm), LED (3 mm)</li>
-                                    <li>Internal pillars (M2.5 standoffs)</li>
-                                    <li>Dimensions: 110×65×30 mm</li>
-                                    <li>Front label: “Smart Telegraph — Unit A/B”</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Build Steps -->
-                        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="tool" class="w-6 h-6 mr-3 text-indigo-600"></i>Build Steps</h3>
-                            <ol class="list-decimal list-inside text-gray-700 space-y-2">
-                                <li>Breadboard one unit and test the OLED, button, LED, and buzzer.</li>
-                                <li>Flash code with ROLE = SENDER (Unit A) and again with ROLE = RECEIVER (Unit B).</li>
-                                <li>Power both—tap on A → text appears on B; B’s buzzer/LED beep per character.</li>
-                                <li>Make a second pass to tidy wiring, move to perfboard, or mount in a case.</li>
-                            </ol>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
+        <!-- 
+        / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+        
+            END OF MODIFIED DOCUMENTATION PAGE
+        
+        / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
+        -->
         
         <!-- Page: Roadmap -->
         <div id="roadmap" class="page hidden">
@@ -705,6 +804,7 @@
                 }
             });
 
+            // --- Fade-in on Scroll ---
             const faders = document.querySelectorAll('.fade-in');
             const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
             const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -716,6 +816,7 @@
             }, appearOptions);
             faders.forEach(fader => appearOnScroll.observe(fader));
 
+            // --- Gallery Logic ---
             const mediaDisplayContainer = document.getElementById('media-display-container');
             const thumbnails = document.querySelectorAll('.gallery-thumbnail');
             function updateMedia(thumbnail) {
@@ -751,6 +852,7 @@
                 updateMedia(thumbnails[0]);
             }
 
+            // --- Page Navigation Logic ---
             const pages = document.querySelectorAll('.page');
             const navLinks = document.querySelectorAll('.nav-link');
             async function showPage(pageId) {
@@ -765,7 +867,12 @@
                 if (pageId === 'contact') {
                     await displayQuestions();
                 }
+                // NEW: When documentation page is shown, default to the first tab
+                if (pageId === 'documentation') {
+                    showDocSection('doc-circuit-design');
+                }
 
+                // Re-trigger fade-in animations for the new page
                 document.querySelectorAll(`#${pageId} .fade-in`).forEach(fader => {
                     fader.classList.remove('visible');
                     appearOnScroll.observe(fader)
@@ -786,6 +893,50 @@
                     if (dropdownMenu && !dropdownMenu.classList.contains('hidden')) {
                         dropdownMenu.classList.add('hidden');
                     }
+                });
+            });
+            
+            // --- Documentation Tab Logic ---
+            const docNavLinks = document.querySelectorAll('.doc-nav-link');
+            const docSections = document.querySelectorAll('.doc-section');
+
+            function showDocSection(sectionId) {
+                // Hide all sections
+                docSections.forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show the target section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                    // Re-trigger fade-in for this section's content
+                    targetSection.querySelectorAll('.fade-in').forEach(fader => {
+                        fader.classList.remove('visible');
+                        appearOnScroll.observe(fader);
+                    });
+                }
+
+                // Update active link styling
+                docNavLinks.forEach(link => {
+                    link.classList.remove('bg-indigo-100', 'text-indigo-700', 'font-bold');
+                    link.classList.add('text-gray-600', 'hover:bg-gray-100');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('bg-indigo-100', 'text-indigo-700', 'font-bold');
+                        link.classList.remove('text-gray-600', 'hover:bg-gray-100');
+                    }
+                });
+                
+                if (typeof feather !== 'undefined') {
+                    feather.replace(); // Refresh icons
+                }
+            }
+
+            docNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('href').substring(1);
+                    showDocSection(sectionId);
                 });
             });
             
@@ -1062,25 +1213,38 @@
                 document.querySelectorAll('.save-progress-btn').forEach(button => {
                     button.addEventListener('click', async function() {
                         const taskId = this.dataset.taskId;
+                        // Use a simple prompt for password.
+                        // NOTE: In a real-world app, use Firebase Auth rules for security.
                         const password = prompt("Please enter the password to save changes:");
+                        
+                        // Check if password is correct
                         if (password === 'lumini') {
                             const taskContainer = document.getElementById(`task-${taskId}`);
                             const newProgress = taskContainer.querySelector('input[type="range"]').value;
                             
-                            await db.collection('roadmap_progress').doc(taskId).set({ progress: parseInt(newProgress, 10) });
-                            
-                            alert('Progress saved successfully!');
-                            renderRoadmap(); // Re-render to show updated state
-                        } else if (password !== null) {
+                            try {
+                                // Save to Firestore
+                                await db.collection('roadmap_progress').doc(taskId).set({ progress: parseInt(newProgress, 10) });
+                                
+                                // Show success message (custom modal would be better)
+                                alert('Progress saved successfully!');
+                                renderRoadmap(); // Re-render to show updated state
+                                
+                            } catch (error) {
+                                console.error("Error saving progress: ", error);
+                                alert('Error saving progress. Please try again.');
+                            }
+
+                        } else if (password !== null) { // Only show error if they entered something
                             alert('Incorrect password. Changes were not saved.');
                         }
                     });
                 });
             }
 
+            // Initial page load
             showPage('home');
         });
     </script>
 </body>
 </html>
-
