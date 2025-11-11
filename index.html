@@ -6,7 +6,8 @@
     <title>Lumini</title>
     <link rel="icon" href="https://i.ibb.co/XZVSKkBT/Screenshot-2025-11-10-174930-Photoroom.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/arduino-light.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -139,91 +140,131 @@
     <main>
 
         <!-- Page: Home -->
-        <div id="home" class="page">
-            <!-- Hero Section -->
-            <section id="hero" class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white bg-cover bg-center" 
-                     style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/5966251/pexels-photo-5966251.jpeg');">
-                <div class="relative z-10 text-center px-4 fade-in">
-                    <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Bringing Glory To Olden Days</h1>
-                    <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-md">A Journey Where Old is Reinvented and Polished</p>
-                    <a href="#features" class="bg-indigo-600/80 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-600 transition duration-300 shadow-xl transform hover:scale-105">Explore</a>
-                </div>
-            </section>
-
-            <!-- About Section -->
-            <section id="about" class="py-20 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <div class="fade-in">
-                            <img src="https://i.ibb.co/CD8g2g1/TELEGRAPH.png" 
-                                 loading="lazy"
-                                 alt="Students collaborating" class="rounded-lg shadow-2xl w-full h-auto">
-                        </div>
-                        <div class="fade-in">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-4">Welcome to Our Project</h2>
-                            <p class="text-gray-600 mb-4 leading-relaxed">
-                                For our Tech Trek project, we chose to reinvent the telegraph — one of the earliest communication devices that changed human history. The telegraph used electrical pulses and Morse code to send messages across long distances, laying the foundation for global connectivity.
-                            </p>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                We believe in a holistic approach to learning, combining rigorous academics with practical, hands-on experience. Join our vibrant community and embark on a journey of discovery.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Features Section -->
-            <section id="features" class="py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-12 fade-in">
-                        <h2 class="text-3xl md:text-4xl font-bold">Why we chose this project</h2>
-                        <p class="text-gray-600 mt-4 max-w-2xl mx-auto"></p>
-                    </div>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
-                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                                <i data-feather="smartphone" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Efficiency</h3>
-                            <p class="text-gray-600">The telegraph could make communication easier without the use of cellphones.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
-                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                                <i data-feather="heart" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Accessibility</h3>
-                            <p class="text-gray-600">Silent alerts are perfect for accessibility, such as for hearing-impaired users, or for new forms of personal expression.</p>
-                        </div>
-                        <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
-                            <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
-                                <i data-feather="alert-triangle" class="w-8 h-8"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Emergency Use</h3>
-                            <p class="text-gray-600">It's a great tool for emergency communication in areas without internet or cellular service.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Gallery Section -->
-            <section id="gallery" class="py-20 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-12 fade-in">
-                        <h2 class="text-3xl md:text-4xl font-bold">Gallery</h2>
-                        <p class="text-gray-600 mt-4">How the Telegraph used to work.</p>
-                    </div>
-                    <div class="relative fade-in">
-                        <div id="media-display-container" class="w-full h-[500px] bg-black rounded-lg shadow-2xl mb-4 flex items-center justify-center"></div>
-                        <div id="thumbnail-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <img src="https://placehold.co/300x200/c7d2fe/3730a3?text=Telegraph+Video" alt="Telegraph" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-indigo-600" data-type="video" data-src="https://i.imgur.com/iL5vVmr.mp4">
-                            <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Gallery Image 2" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png">
-                            <img src="https://i.ibb.co/BHL5RkFb/schematics.png" alt="Gallery Image 3" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/BHL5RkFb/schematics.png">
-                            <img src="https://i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png" alt="Gallery Image 4" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png">
-                        </div>
-                    </div>
-                </div>
-            </section>
+<div id="home" class="page">
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white bg-cover bg-center" 
+             style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.pexels.com/photos/5966251/pexels-photo-5966251.jpeg');">
+        <div class="relative z-10 text-center px-4 fade-in">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Bringing Glory To Olden Days</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-md">A Journey Where Old is Reinvented and Polished</p>
+            <a href="#features" class="bg-indigo-600/80 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-indigo-600 transition duration-300 shadow-xl transform hover:scale-105">Explore</a>
         </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <img src="https://i.ibb.co/CD8g2g1/TELEGRAPH.png" 
+                         loading="lazy"
+                         alt="Students collaborating" class="rounded-lg shadow-2xl w-full h-auto">
+                </div>
+                <div class="fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Welcome to Our Project</h2>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        For our Tech Trek project, we chose to reinvent the telegraph — one of the earliest communication devices that changed human history. The telegraph used electrical pulses and Morse code to send messages across long distances, laying the foundation for global connectivity.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        We believe in a holistic approach to learning, combining rigorous academics with practical, hands-on experience. Join our vibrant community and embark on a journey of discovery.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold">Why we chose this project</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto"></p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="smartphone" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Efficiency</h3>
+                    <p class="text-gray-600">The telegraph could make communication easier without the use of cellphones.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="heart" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Accessibility</h3>
+                    <p class="text-gray-600">Silent alerts are perfect for accessibility, such as for hearing-impaired users, or for new forms of personal expression.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center fade-in transform hover:-translate-y-2 transition duration-300">
+                    <div class="bg-indigo-100 text-indigo-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="alert-triangle" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Emergency Use</h3>
+                    <p class="text-gray-600">It's a great tool for emergency communication in areas without internet or cellular service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+      =======================================================
+           NEW "PAST MEETS FUTURE" SECTION ADDED HERE
+      =======================================================
+    -->
+    <section class="bg-gray-900 text-white">
+        <div class="container mx-auto px-6 py-20 md:py-32">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+    
+                <!-- Column 1: Text Content -->
+                <div class="md:w-1/2 text-center md:text-left fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold">
+                        Past Meets Future
+                    </h2>
+                    <p class="mt-6 text-lg md:text-xl text-gray-300 max-w-lg mx-auto md:mx-0">
+                        Our project is a direct bridge between history and modern innovation. We didn't just rebuild the telegraph; we gave it new life.
+                    </p>
+                    <p class="mt-4 text-lg md:text-xl text-gray-300 max-w-lg mx-auto md:mx-0">
+                        This isn't just about nostalgia. It's about proving that a simple, reliable idea, when combined with modern technology, can become a powerful, low-cost, and resilient communication tool for today.
+                    </p>
+                    <div class="mt-10">
+
+                        
+                    </div>
+                </div>
+
+                <!-- Column 2: Image -->
+                <div class="md:w-1/2 mt-12 md:mt-0 fade-in">
+                    <img src="https://i.ibb.co/4ZmnTRL7/Untitled-design-1-Photoroom.png" 
+                         alt="An old 19th-century telegraph machine blending into a modern 3D-printed LUMINI device" 
+                         class="w-full h-auto">
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    <!-- ======================================================= -->
+    <!--             END: NEWLY ADDED SECTION                -->
+    <!-- ======================================================= -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold">Gallery</h2>
+                <p class="text-gray-600 mt-4">How the Telegraph used to work.</p>
+            </div>
+            <div class="relative fade-in">
+                <div id="media-display-container" class="w-full h-[500px] bg-black rounded-lg shadow-2xl mb-4 flex items-center justify-center"></div>
+                <div id="thumbnail-container" class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <img src="https://placehold.co/300x200/c7d2fe/3730a3?text=Telegraph+Video" alt="Telegraph" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-indigo-600" data-type="video" data-src="https://i.imgur.com/iL5vVmr.mp4">
+                    <img src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png" alt="Gallery Image 2" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/SDmkpwLf/Screenshot-2025-08-20-213850.png">
+                    <img src="https://i.ibb.co/BHL5RkFb/schematics.png" alt="Gallery Image 3" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https://i.ibb.co/BHL5RkFb/schematics.png">
+                    <img src="https://i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png" alt="Gallery Image 4" class="gallery-thumbnail cursor-pointer rounded-md shadow-md hover:opacity-75 border-4 border-transparent" data-type="image" data-src="https.i.ibb.co/BH98f7MW/Chat-GPT-Image-Aug-19-2025-09-07-31-AM.png">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
         <!-- Page: Journey -->
         <div id="journey" class="page hidden">
@@ -358,7 +399,12 @@
             <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
             <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
             <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
-            
+            <li>
+    <a href="#doc-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100">
+        <i data-feather="code" class="w-5 h-5"></i>
+        <span>Source Code</span>
+    </a>
+</li>
             <li><a href="#doc-history" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="archive" class="w-5 h-5"></i><span>History</span></a></li>
             </ul>
     </nav>
@@ -399,6 +445,8 @@
                     <i data-feather="map-pin" class="w-4 h-4 mr-2.5"></i>
                     Pinouts
                 </button>
+
+                
 
             </nav>
         </div>
@@ -540,6 +588,7 @@
                     <p class="text-sm font-medium text-gray-600 mb-2 pt-4">Pinout Image:</p>
                     <img src="https://i.ibb.co/3y1Y6PfM/Screenshot-2025-11-11-074827.png" alt="Final design pinout table" class="rounded-lg shadow-md w-full">
                 </div>
+                
 
             </div> </div> </div> </div>
 
@@ -615,14 +664,19 @@
 
         <div class="flex-grow md:w-3/4 lg:w-4/5 min-w-0">
             
-            <div id="tab-physical-layout" class="design-tab-content space-y-6 fade-in">
-                <h4 class="text-xl font-bold">Physical Layout Planning</h4>
-                <p class="text-gray-700 leading-relaxed">
-                    With the Wokwi simulation proving successful, our attention shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
-                </p>
-                <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" alt="Physical layout of components on breadboard" class="rounded-lg shadow-md w-full mb-2">
-                <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
-            </div>
+<div id="tab-physical-layout" class="design-tab-content space-y-6 fade-in">
+    <h4 class="text-xl font-bold">Physical Layout Planning</h4>
+    <p class="text-gray-700 leading-relaxed">
+        With the Wokwi simulation proving successful, our attention shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
+    </p>
+    
+    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" 
+         alt="Physical layout of components on breadboard" 
+         class="rounded-lg shadow-md w-full mb-2 cursor-pointer" 
+         onclick="showDesignTab('process')">
+    
+    <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
+</div>
 
             <div id="tab-process" class="design-tab-content hidden space-y-8 fade-in">
                 <h4 class="text-xl font-bold">Process</h4>
@@ -931,7 +985,7 @@
                     <div>
                         <p class="font-bold text-lg">Surprised</p>
                         <p class="text-gray-500 text-sm">(EMOJI_SURPRISED)</p>
-                        <p class="text-gray-600 text-2xl tracking-widest">---...</p>
+                        <p class="text-gray-600 text-2xl tracking-widest">---..-</p>
                     </div>
                     <div>
                         <p class="font-bold text-lg">Skull</p>
@@ -1165,6 +1219,684 @@ For our socials, we have created a LinkedIn account, and an Instagram account
     </div>
     
 </div>
+
+<!-- ======================================================= -->
+<!--             START: SOURCE CODE SECTION                -->
+<!-- ======================================================= -->
+<!-- ======================================================= -->
+<!--             START: SOURCE CODE SECTION                -->
+<!-- ======================================================= -->
+<div id="doc-code" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
+
+    <!-- Section Header -->
+    <h3 class="text-2xl font-bold flex items-center">
+        <i data-feather="code" class="w-6 h-6 mr-3 text-indigo-600"></i>
+        Source Code & Replicate
+    </h3>
+
+    <!-- Bill of Materials -->
+    <div class="space-y-4">
+        <h4 class="text-xl font-bold text-gray-800">Bill of Materials (BOM)</h4>
+        <p class="text-gray-700">To build this project, you only need 4 core components:</p>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li><strong>1x</strong> ESP32 Microcontroller</li>
+            <li><strong>1x</strong> SSD1306 0.96" I2C OLED Display (128x64)</li>
+            <li><strong>1x</strong> Piezo Buzzer (Passive or Active)</li>
+            <li><strong>1x</strong> Push Button (Tactile Switch)</li>
+        </ul>
+    </div>
+
+    <!-- Code Block Section -->
+    <div class="border-t border-gray-200 pt-8 space-y-4">
+        <h4 class="text-xl font-bold text-gray-800">Arduino Code (.ino)</h4>
+        
+        <!-- Copy Button -->
+        <div class="flex justify-end">
+            <button onclick="copyArduinoCode()" id="copy-code-btn" class="bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg flex items-center gap-2 transition-all duration-150 hover:bg-gray-300">
+                <i data-feather="copy" class="w-4 h-4"></i>
+                <span>Copy Code</span>
+            </button>
+        </div>
+
+        <!-- 
+          The Code Block 
+          FIX: Added 'overflow-x: auto;' to the style to enable horizontal scrolling.
+        -->
+        <pre class="rounded-lg" style="max-height: 600px; overflow-x: auto;">
+<code id="arduino-code" class="language-cpp">
+/*
+ * Sketch: Morse_Transceiver_MQTT_v17
+ * (Version 17 - Added Laugh, Angry, Surprised, Skull)
+ *
+ * This version adds four new emoji animations to the
+ * existing v13 base, which already includes prosigns.
+ */
+
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;WiFi.h&gt;
+#include &lt;PubSubClient.h&gt;
+
+
+// ---
+// --- 1. ! REQUIRED: EDIT THIS SECTION ! ---
+// ---
+const char* WIFI_SSID = "DGI";
+const char* WIFI_PASSWORD = "dgi@2024!";
+// ---
+// --- 2. ! REQUIRED: MAKE THIS TOPIC UNIQUE ! ---
+// ---
+const char* MQTT_TOPIC = "morse/tj-project-final/999"; // &lt;-- Use a new, unique topic
+// ---
+
+// --- MQTT Definitions ---
+const char* MQTT_BROKER = "broker.hivemq.com";
+const int   MQTT_PORT = 1883;
+String clientID = "MorseESP32-";
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+
+// --- Pin Definitions ---
+const int MORSE_BUTTON_PIN = 32; // The ONE red button
+const int BUZZER_PIN = 26;
+
+// OLED Display (I2C)
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+#define OLED_RESET    -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &amp;Wire, OLED_RESET);
+// --- Morse Code Definitions ---
+std::map&lt;std::string, String&gt; morseMap;
+String currentMorse = "";
+String translatedMessage = "";
+// --- Timing (One-Button) ---
+unsigned long buttonPressTime = 0;
+unsigned long lastReleaseTime = 0;
+unsigned long lastDebounceTime = 0;
+const long debounceTime = 50;
+const long dashThreshold = 250;
+const long letterTimeout = 1000;
+const long wordTimeout = 2000;
+const long resetTimeout = 5000;
+
+// --- Button State ---
+int buttonState = HIGH;
+int lastButtonState = HIGH;
+bool letterCommitted = false;
+bool wordCommitted = false;
+
+// --- Buzzer ---
+const int buzzerFrequency = 800;
+const int notifyFrequency = 1200;
+
+// --- Receiving Messages ---
+String receivedMessage = "";
+volatile bool newMessage = false;
+bool messageIsDisplaying = false; // Used for TEXT messages only
+unsigned long messageDisplayStartTime = 0;
+const long messageDisplayTime = 5000;
+// Function Prototypes
+void initializeMorseMap();
+void translateAndClear();
+void updateDisplay();
+bool sendMessage();
+void setup_wifi();
+void mqtt_callback(char* topic, byte* payload, unsigned int length);
+void reconnect_mqtt();
+void playWinkAnimation();
+void playHeartAnimation();
+// --- NEW PROTOTYPES ---
+void playLaughAnimation();
+void playAngryAnimation();
+void playSurprisedAnimation();
+void playSkullAnimation();
+
+// ---
+// --- WiFi &amp; MQTT Functions (Unchanged)
+// ---
+
+void setup_wifi() {
+  delay(10);
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(WIFI_SSID);
+
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setCursor(0,0);
+  display.println("Connecting to WiFi");
+  display.println(WIFI_SSID);
+  display.display();
+  
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+
+  int retries = 0;
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+    display.print(".");
+    display.display();
+    if (retries++ &gt; 20) {
+      Serial.println("\nFailed to connect to WiFi!");
+      display.clearDisplay();
+      display.setCursor(0,0);
+      display.println("WIFI FAILED!");
+      display.println("Check credentials.");
+      display.display();
+      while(true);
+    }
+  }
+
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
+void mqtt_callback(char* topic, byte* payload, unsigned int length) {
+  char buffer[length + 1];
+  memcpy(buffer, payload, length);
+  buffer[length] = '\0';
+  String fullMessage = String(buffer);
+
+  Serial.print("Full msg received: "); Serial.println(fullMessage);
+
+  int colonIndex = fullMessage.indexOf(':');
+  if (colonIndex == -1) {
+    Serial.println("Ignoring malformed message (no colon).");
+    return;
+  }
+
+  String senderID = fullMessage.substring(0, colonIndex);
+  String messageContent = fullMessage.substring(colonIndex + 1);
+  if (senderID == clientID) {
+    Serial.println("This is my own message (echo). Ignoring.");
+    return;
+  }
+
+  receivedMessage = messageContent;
+  newMessage = true;
+  
+  Serial.print("Message from OTHER: "); Serial.println(receivedMessage);
+}
+
+void reconnect_mqtt() {
+  while (!mqttClient.connected()) {
+    Serial.print("Attempting MQTT connection...");
+    display.clearDisplay();
+    display.setCursor(0,0);
+    display.setTextSize(1);
+    display.println("Connecting to MQTT");
+    display.println(MQTT_BROKER);
+    display.display();
+    
+    if (mqttClient.connect(clientID.c_str())) {
+      Serial.println("CONNECTED!");
+      display.println("CONNECTED!");
+      display.display();
+      delay(500);
+      
+      Serial.print("Subscribing to topic: ");
+      Serial.println(MQTT_TOPIC);
+      if(mqttClient.subscribe(MQTT_TOPIC)) {
+        Serial.println("Subscription successful!");
+      } else {
+        Serial.println("Subscription FAILED!");
+      }
+      
+      updateDisplay();
+    } else {
+      Serial.print("FAILED, rc=");
+      Serial.print(mqttClient.state());
+      Serial.println(" try again in 5 seconds");
+      
+      display.println("FAILED!");
+      display.display();
+      delay(5000);
+    }
+  }
+}
+
+// ---
+// --- Main Setup &amp; Loop (Unchanged)
+// ---
+
+void setup() {
+  Serial.begin(115200);
+
+  clientID += String(random(0xffff), HEX);
+  Serial.print("My client ID is: ");
+  Serial.println(clientID);
+
+  pinMode(MORSE_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(BUZZER_PIN, OUTPUT);
+
+  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    Serial.println(F("SSD1306 allocation failed"));
+    for(;;);
+  }
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
+  display.setCursor(0,0);
+  display.println("Morse Transceiver");
+  display.println("v17 (More GIFs!)");
+  display.display();
+  delay(1000);
+
+  setup_wifi();
+  
+  mqttClient.setServer(MQTT_BROKER, MQTT_PORT);
+  mqttClient.setCallback(mqtt_callback);
+
+  initializeMorseMap();
+  updateDisplay();
+  lastReleaseTime = millis();
+}
+
+void loop() {
+  if (!mqttClient.connected()) {
+    reconnect_mqtt();
+  }
+  mqttClient.loop();
+  if (messageIsDisplaying &amp;&amp; (millis() - messageDisplayStartTime &gt; messageDisplayTime)) {
+    messageIsDisplaying = false;
+    updateDisplay();
+    lastReleaseTime = millis();
+  }
+
+  if (newMessage) {
+    newMessage = false;
+    
+    Serial.println("Playing notification sound!");
+    tone(BUZZER_PIN, notifyFrequency, 100);
+    delay(150);
+    tone(BUZZER_PIN, notifyFrequency, 100);
+
+    currentMorse = "";
+    translatedMessage = "";
+    
+    if (receivedMessage == "EMOJI_WINK") {
+      Serial.println("Received EMOJI_WINK, playing animation...");
+      playWinkAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+      
+    } else if (receivedMessage == "EMOJI_HEART") {
+      Serial.println("Received EMOJI_HEART, playing animation...");
+      playHeartAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+    
+    // --- NEW: CATCH THE NEW EMOJI KEYWORDS ---
+    } else if (receivedMessage == "EMOJI_LAUGH") {
+      Serial.println("Received EMOJI_LAUGH, playing animation...");
+      playLaughAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+      
+    } else if (receivedMessage == "EMOJI_ANGRY") {
+      Serial.println("Received EMOJI_ANGRY, playing animation...");
+      playAngryAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+      
+    } else if (receivedMessage == "EMOJI_SURPRISED") {
+      Serial.println("Received EMOJI_SURPRISED, playing animation...");
+      playSurprisedAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+      
+    } else if (receivedMessage == "EMOJI_SKULL") {
+      Serial.println("Received EMOJI_SKULL, playing animation...");
+      playSkullAnimation();
+      updateDisplay();
+      lastReleaseTime = millis();
+      
+    // --- END NEW ---
+      
+    } else {
+      Serial.println("Received text, displaying for 5s...");
+      display.clearDisplay();
+      display.setCursor(0, 0);
+      display.setTextSize(1);
+      display.println("MSG RECEIVED:");
+      display.setTextSize(2);
+      display.setTextWrap(true);
+      display.println(receivedMessage);
+      display.display();
+      
+      messageIsDisplaying = true;
+      messageDisplayStartTime = millis();
+    }
+  }
+
+  if (!messageIsDisplaying) {
+    int reading = digitalRead(MORSE_BUTTON_PIN);
+    if (reading != lastButtonState) {
+      lastDebounceTime = millis();
+    }
+    lastButtonState = reading;
+    if ((millis() - lastDebounceTime) &gt; debounceTime) {
+      if (reading != buttonState) {
+        buttonState = reading;
+        if (buttonState == LOW) {
+          Serial.println("Red Morse Button (32) PRESSED");
+          buttonPressTime = millis();
+          letterCommitted = false;
+          wordCommitted = false;
+          tone(BUZZER_PIN, buzzerFrequency);
+        } else {
+          noTone(BUZZER_PIN);
+          unsigned long pressDuration = millis() - buttonPressTime;
+          if (pressDuration &gt;= dashThreshold) {
+            currentMorse += "-";
+          } else {
+            currentMorse += ".";
+          }
+          updateDisplay();
+          lastReleaseTime = millis();
+        }
+      }
+    }
+
+    if (buttonState == HIGH) {
+      unsigned long timeSinceRelease = millis() - lastReleaseTime;
+      if (timeSinceRelease &gt; resetTimeout &amp;&amp; translatedMessage.length() &gt; 0) {
+        Serial.println("Reset Timeout (5s)");
+        translatedMessage = "";
+        currentMorse = "";
+        updateDisplay();
+        letterCommitted = true;
+        wordCommitted = true;
+      }
+      else if (timeSinceRelease &gt; wordTimeout &amp;&amp; !wordCommitted) {
+        if (currentMorse.length() &gt; 0) {
+          translateAndClear();
+        }
+        if (translatedMessage.length() &gt; 0) {
+          Serial.println("Word Timeout (2s)... ADDING SPACE AND SENDING");
+          if (translatedMessage.endsWith(" ") || translatedMessage.endsWith(String(char(0)))) {
+             // Do nothing
+          } else {
+             translatedMessage += " ";
+          }
+          
+          bool sentOK = sendMessage();
+          if (sentOK) {
+            display.setCursor(0, 56);
+            display.print("...SENT!");
+          } else {
+            display.setCursor(0, 56);
+            display.print("...FAIL!");
+          }
+          display.display();
+          delay(500);
+        }
+        updateDisplay();
+        wordCommitted = true;
+        letterCommitted = true;
+      }
+      else if (timeSinceRelease &gt; letterTimeout &amp;&amp; !letterCommitted) {
+        if (currentMorse.length() &gt; 0) {
+          Serial.println("Letter Timeout (1s)");
+          translateAndClear();
+          updateDisplay();
+        }
+        letterCommitted = true;
+      }
+    }
+  }
+}
+
+// ---
+// --- NEW: IMPROVED ANIMATION FUNCTIONS ---
+// ---
+
+void playWinkAnimation() {
+  int y = 20; // Centered Y
+  for (int i = 0; i &lt; 4; i++) {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(33, y); // Centered X for "(o o)"
+    display.print("(o o)");
+    display.display();
+    delay(300);
+    
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(33, y); // Centered X for "(- -)"
+    display.print("(- -)");
+    display.display();
+    delay(200);
+  }
+  delay(500); // Hold last frame
+}
+
+void playHeartAnimation() {
+  for (int i = 0; i &lt; 4; i++) {
+    // --- Frame 1: Small Heart ---
+    display.clearDisplay();
+    display.fillCircle(58, 28, 5, SSD1306_WHITE); // Left lobe
+    display.fillCircle(70, 28, 5, SSD1306_WHITE); // Right lobe
+    display.fillTriangle(53, 30, 75, 30, 64, 42, SSD1306_WHITE); // Point
+    display.display();
+    delay(250);
+    // --- Frame 2: Big Heart ---
+    display.clearDisplay();
+    display.fillCircle(55, 25, 8, SSD1306_WHITE); // Left lobe
+    display.fillCircle(73, 25, 8, SSD1306_WHITE); // Right lobe
+    display.fillTriangle(47, 30, 81, 30, 64, 48, SSD1306_WHITE); // Point
+    display.display();
+    delay(250);
+  }
+}
+
+// --- NEW ANIMATION FUNCTIONS ---
+
+void playLaughAnimation() {
+  int y = 20; // Centered Y
+  for (int i = 0; i &lt; 5; i++) {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(33, y);
+    display.print("(&gt; &lt;)");
+    display.display();
+    delay(200);
+    
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(33, y);
+    display.print("(v v)");
+    display.display();
+    delay(200);
+  }
+  delay(500);
+}
+
+void playAngryAnimation() {
+  int y = 20; // Centered Y
+  for (int i = 0; i &lt; 6; i++) {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(30, y);
+    display.print("(&gt;_&lt;)");
+    display.display();
+    delay(150);
+    
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(30, y+2); // Vibrate down
+    display.print("(&gt;O&lt;)");
+    display.display();
+    delay(150);
+  }
+  delay(500);
+}
+
+void playSurprisedAnimation() {
+  int y = 20; // Centered Y
+  for (int i = 0; i &lt; 3; i++) {
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(30, y);
+    display.print("(o_o)");
+    display.display();
+    delay(400);
+    
+    display.clearDisplay();
+    display.setTextSize(3);
+    display.setCursor(30, y);
+    display.print("(O_O)");
+    display.display();
+    delay(300);
+  }
+  delay(500);
+}
+
+void playSkullAnimation() {
+  for (int i = 0; i &lt; 5; i++) {
+    // --- Frame 1: Mouth Closed ---
+    display.clearDisplay();
+    display.fillRoundRect(50, 15, 28, 22, 6, SSD1306_WHITE); // Cranium
+    display.fillRect(52, 37, 24, 8, SSD1306_WHITE);          // Jaw
+    display.fillCircle(57, 26, 5, SSD1306_BLACK);           // Left eye
+    display.fillCircle(71, 26, 5, SSD1306_BLACK);           // Right eye
+    display.fillTriangle(62, 32, 66, 32, 64, 37, SSD1306_BLACK); // Nose
+    display.display();
+    delay(200);
+
+    // --- Frame 2: Mouth Open ---
+    display.clearDisplay();
+    display.fillRoundRect(50, 15, 28, 22, 6, SSD1306_WHITE); // Cranium
+    display.fillRect(52, 42, 24, 8, SSD1306_WHITE);          // Jaw (moved down)
+    display.fillCircle(57, 26, 5, SSD1306_BLACK);           // Left eye
+    display.fillCircle(71, 26, 5, SSD1306_BLACK);           // Right eye
+    display.fillTriangle(62, 32, 66, 32, 64, 37, SSD1306_BLACK); // Nose
+    display.display();
+    delay(200);
+  }
+}
+
+// --- END NEW ANIMATIONS ---
+
+bool sendMessage() {
+  if (translatedMessage.length() == 0) {
+    Serial.println("Message is empty, not sending.");
+    return false;
+  }
+
+  String messageToSend = clientID + ":" + translatedMessage;
+
+  Serial.print("Publishing message: ");
+  Serial.println(messageToSend);
+  if (mqttClient.publish(MQTT_TOPIC, messageToSend.c_str())) {
+    Serial.println("Publish SUCCESS");
+    return true;
+  } else {
+    Serial.println("Publish FAILED!");
+    return false;
+  }
+}
+
+void initializeMorseMap() {
+    morseMap[".-"] = "A"; morseMap["-..."] = "B"; morseMap["-.-."] = "C";
+    morseMap["-.."] = "D";
+    morseMap["."] = "E"; morseMap["..-."] = "F";
+    morseMap["--."] = "G"; morseMap["...."] = "H"; morseMap[".."] = "I";
+    morseMap[".---"] = "J";
+    morseMap["-.-"] = "K"; morseMap[".-.."] = "L";
+    morseMap["--"] = "M"; morseMap["-."] = "N"; morseMap["---"] = "O";
+    morseMap[".--."] = "P";
+    morseMap["--.-"] = "Q"; morseMap[".-."] = "R";
+    morseMap["..."] = "S"; morseMap["-"] = "T"; morseMap["..-"] = "U";
+    morseMap["...-"] = "V";
+    morseMap[".--"] = "W"; morseMap["-..-"] = "X";
+    morseMap["-.--"] = "Y"; morseMap["--.."] = "Z";
+    morseMap["-----"] = "0"; morseMap[".----"] = "1";
+    morseMap["..---"] = "2";
+    morseMap["...--"] = "3"; morseMap["....-"] = "4"; morseMap["....."] = "5";
+    morseMap["-...."] = "6"; morseMap["--..."] = "7";
+    morseMap["---.."] = "8"; morseMap["----."] = "9"; 
+    
+    morseMap["-.-.-"] = "OK"; morseMap["----"] = "YES";
+    morseMap["...-."] = "NO"; morseMap[".--.--"] = "HELP";
+    morseMap["..--.-"] = "WAIT"; 
+    morseMap["-...--"] = "DONE"; morseMap["---..."] = "COME"; morseMap["--...-"] = "GO";
+    morseMap[".-..--"] = "READY";
+    
+    // --- EMOJI KEYWORDS (Original) ---
+    Serial.println("Loading custom emoji codes...");
+    morseMap[".-.-."] = "EMOJI_WINK";
+    morseMap[".-..-."] = "EMOJI_HEART";
+
+    // --- NEW EMOJI CODES ---
+    morseMap["...-.."] = "EMOJI_LAUGH";     // (S, L)
+    morseMap["-..-"] = "EMOJI_ANGRY";     // (X)
+    morseMap["---..."] = "EMOJI_SURPRISED"; // (O, S) - NOTE: This is shared with COME
+    morseMap["...-.-"] = "EMOJI_SKULL";     // (S, K)
+}
+
+void translateAndClear() {
+  if (currentMorse.length() &gt; 0) {
+    std::string currentMorseStd = currentMorse.c_str();
+    if (morseMap.count(currentMorseStd)) {
+      translatedMessage += morseMap[currentMorseStd];
+      if (morseMap[currentMorseStd].startsWith("EMOJI_")) {
+        translatedMessage += String(char(0));
+      }
+      
+    } else {
+      translatedMessage += "?";
+    }
+    currentMorse = "";
+  }
+}
+
+void updateDisplay() {
+  display.clearDisplay();
+  display.setCursor(0, 0);
+
+  display.setTextSize(2);
+  display.print("&gt;");
+  display.println(currentMorse);
+
+  display.setTextSize(1);
+  display.println("");
+  display.setCursor(0, 24);
+  display.println("Message:");
+  
+  String displayMessage = translatedMessage;
+  displayMessage.replace("EMOJI_WINK", "[WINK]");
+  displayMessage.replace("EMOJI_HEART", "[&lt;3]");
+
+  // --- NEW: Add text previews for the new emojis ---
+  displayMessage.replace("EMOJI_LAUGH", "[HAHA]");
+  displayMessage.replace("EMOJI_ANGRY", "[ANGRY]");
+  displayMessage.replace("EMOJI_SURPRISED", "[SURPRISED]");
+  displayMessage.replace("EMOJI_SKULL", "[SKULL]");
+  
+  displayMessage.replace(String(char(0)), "");
+  
+  display.setTextSize(2);
+  display.setTextWrap(true);
+  display.println(displayMessage);
+
+  display.display();
+}
+
+</code>
+        </pre>
+    </div>
+
+</div>
+<!-- ======================================================= -->
+<!--               END: SOURCE CODE SECTION                -->
+<!-- ======================================================= -->
+
 <div id="doc-history" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
 
     <h3 class="text-2xl font-bold flex items-center">
@@ -1586,7 +2318,39 @@ For our socials, we have created a LinkedIn account, and an Instagram account
  */
 /*
  * Manages the interactive tabs in the "History > Failure Point" section.
+
  */
+function copyArduinoCode() {
+    const codeBlock = document.getElementById('arduino-code');
+    const codeText = codeBlock.innerText; // .innerText decodes the &lt; &gt; back to < >
+
+    navigator.clipboard.writeText(codeText).then(() => {
+        // --- Success Feedback ---
+        const button = document.getElementById('copy-code-btn');
+        button.innerHTML = '<i data-feather="check" class="w-4 h-4"></i><span>Copied!</span>';
+        
+        // Re-enable feather icons
+        feather.replace(); 
+        
+        // Reset button text after 2 seconds
+        setTimeout(() => {
+            button.innerHTML = '<i data-feather="copy" class="w-4 h-4"></i><span>Copy Code</span>';
+            feather.replace();
+        }, 2000);
+
+    }).catch(err => {
+        // --- Error Feedback ---
+        console.error('Failed to copy code: ', err);
+        const button = document.getElementById('copy-code-btn');
+        button.innerHTML = '<span>Error!</span>';
+        
+        setTimeout(() => {
+            button.innerHTML = '<i data-feather="copy" class="w-4 h-4"></i><span>Copy Code</span>';
+            feather.replace();
+        }, 2000);
+    });
+}
+hljs.highlightAll();
 function showHistoryTab(tabId) {
     // Hide all tab content
     const contentTabs = document.querySelectorAll('.history-tab-content');
@@ -2337,6 +3101,7 @@ if (forgotPasswordLink) {
                         } else if (password !== null) { // Only show error if they entered something
                             alert('Incorrect password. Changes were not saved.');
                         }
+                        
                     });
                 });
             }
