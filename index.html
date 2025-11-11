@@ -350,17 +350,19 @@
                     <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 lg:gap-12">
                         
                         <!-- Sidebar Navigation -->
-                        <aside id="doc-sidebar" class="md:w-1/4 lg:w-1/5 fade-in">
-                            <nav id="doc-nav" class="sticky top-28">
-                                <ul class="space-y-2">
-                                    <li><a href="#doc-circuit-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="cpu" class="w-5 h-5"></i><span>Circuit Design</span></a></li>
-                                    <li><a href="#doc-making-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Design</span></a></li>
-                                    <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
-                                    <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
-                                    <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
-                                </ul>
-                            </nav>
-                        </aside>
+<aside id="doc-sidebar" class="md:w-1/4 lg:w-1/5 fade-in">
+    <nav id="doc-nav" class="sticky top-28">
+        <ul class="space-y-2">
+            <li><a href="#doc-circuit-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="cpu" class="w-5 h-5"></i><span>Circuit Design</span></a></li>
+            <li><a href="#doc-making-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="settings" class="w-5 h-5"></i><span>Making the Design</span></a></li>
+            <li><a href="#doc-morse-code" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="message-circle" class="w-5 h-5"></i><span>Learn Morse Code</span></a></li>
+            <li><a href="#doc-build-summary" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="list" class="w-5 h-5"></i><span>Build Summary</span></a></li>
+            <li><a href="#doc-website-design" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="layout" class="w-5 h-5"></i><span>Website Designing</span></a></li>
+            
+            <li><a href="#doc-history" class="doc-nav-link flex items-center gap-3 w-full text-left p-3 rounded-md transition duration-150 text-gray-600 hover:bg-gray-100"><i data-feather="archive" class="w-5 h-5"></i><span>History</span></a></li>
+            </ul>
+    </nav>
+</aside>
 
                         <!-- Content Area -->
                         <div class="md:w-3/4 lg:w-4/5 min-w-0">
@@ -1163,6 +1165,225 @@ For our socials, we have created a LinkedIn account, and an Instagram account
     </div>
     
 </div>
+<div id="doc-history" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
+
+    <h3 class="text-2xl font-bold flex items-center">
+        <i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>
+        History: The Lost Invention
+    </h3>
+
+    <div class="space-y-4">
+        <h4 class="text-xl font-bold text-gray-800">1. Lost Invention: The Electrical Telegraph</h4>
+        <p class="text-gray-700 leading-relaxed">
+            The challenge is simple: Imagine a world where global communication relied on magnets, simple circuits, and a code of taps. In the 19th century, the Electrical Telegraph was the pinnacle of human ingenuity, reducing distance to mere seconds.
+        </p>
+        <p class="text-gray-700 leading-relaxed">
+            However, this revolutionary technology was lost—not because it failed, but because it was too fragile and too expensive to scale.
+        </p>
+    </div>
+
+    <div class="space-y-6">
+        <h4 class="text-xl font-bold text-gray-800">The Historical Failure Point (The Gap)</h4>
+        <p class="text-gray-700 leading-relaxed">
+            The original system was brilliant in concept but suffered from three major, historical limitations. Click each to learn more:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 rounded-lg bg-gray-100 p-1">
+            <button 
+                onclick="showHistoryTab('hist-1')" 
+                id="btn-hist-1"
+                class="history-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 bg-white text-indigo-700 shadow-sm">
+                <i data-feather="hard-drive" class="w-4 h-4"></i>
+                Massive Infrastructure
+            </button>
+            <button 
+                onclick="showHistoryTab('hist-2')" 
+                id="btn-hist-2"
+                class="history-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 text-gray-600 hover:bg-white hover:shadow-sm">
+                <i data-feather="battery-charging" class="w-4 h-4"></i>
+                Power Inefficiency
+            </button>
+            <button 
+                onclick="showHistoryTab('hist-3')" 
+                id="btn-hist-3"
+                class="history-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 text-gray-600 hover:bg-white hover:shadow-sm">
+                <i data-feather="archive" class="w-4 h-4"></i>
+                Lack of Portability
+            </button>
+        </div>
+
+        <div class="p-4 rounded-b-lg">
+            <div id="hist-1" class="history-tab-content space-y-2 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong>Massive Infrastructure:</strong> Early systems required miles of dedicated, heavy copper wire and huge, bulky mechanical relays to boost the signal. This made the system immobile and extremely vulnerable to weather damage.
+                </p>
+            </div>
+            <div id="hist-2" class="history-tab-content hidden space-y-2 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong>Power Inefficiency:</strong> The system relied on constant, high-power electrical current to move physical mechanisms (the needle or the sounder). This was a significant power drain and created enormous maintenance costs.
+                </p>
+            </div>
+            <div id="hist-3" class="history-tab-content hidden space-y-2 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong>Lack of Portability:</strong> Communication was confined to dedicated, expensive stations. There was no concept of a portable or rapidly deployable telegraph unit.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="p-4 bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg">
+        <p class="font-medium text-indigo-800">Conclusion</p>
+        <p class="text-indigo-700 leading-relaxed mt-1">
+            The brilliance of the original design was its simple encoding (Morse Code), but the available materials and power systems of the 1800s were too primitive to make it truly resilient and portable.
+        </p>
+    </div>
+
+    <div class="border-t border-gray-200 pt-8 space-y-6">
+        
+        <h4 class="text-xl font-bold text-gray-800">2. The Modern Solution: LUMINI’s Technical Fix</h4>
+        
+        <div class="space-y-2">
+            <h5 class="text-lg font-semibold text-gray-800">LUMINI: Modernizing the Signal for Resilience</h5>
+            <p class="text-gray-700 leading-relaxed">
+                LUMINI revives the Telegraph's core strength—its elegant simplicity—by replacing heavy 19th-century mechanics with 21st-century micro-electronics. Our solution is scientifically sound because it translates the reliable, binary signal of Morse Code into a modern, energy-efficient digital format.
+            </p>
+        </div>
+
+        <div class="space-y-2">
+            <h5 class="text-lg font-semibold text-gray-800">Technical Application: Closing the Gap</h5>
+            <p class="text-gray-700 leading-relaxed">
+                We use modern technology (all available at a FabLab) to directly address the historical weaknesses:
+            </p>
+
+            <div class="mt-4 border border-gray-200 rounded-lg overflow-hidden">
+                
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="px-4 py-3 font-semibold text-gray-800 bg-gray-100 border-b md:border-b-0">
+                        Historical Problem (The Gap)
+                    </div>
+                    <div class="px-4 py-3 font-semibold text-gray-800 bg-gray-100 border-b md:border-l md:border-b-0">
+                        Modern Solution (LUMINI)
+                    </div>
+                    <div class="px-4 py-3 font-semibold text-gray-800 bg-gray-100 border-b md:border-l md:border-b-0">
+                        Technological Application
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3">
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-b-0">
+                        Bulky Mechanical Relays
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-l md:border-b-0">
+                        Microcontroller Core (e.g., esp32)
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 md:border-l">
+                        The esp32 reads the physical key-press, digitally encodes the signal, and eliminates the need for complex, heavy mechanical switches.
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 border-t">
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-b-0">
+                        Vulnerable Copper Wiring
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-l md:border-b-0">
+                        Wireless &amp; Low-Power Transmission (Wi-Fi)
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 md:border-l">
+                        We use low-power, Wi-Fi modules to transmit the data packet wirelessly, replacing the costly and fragile dedicated copper lines.
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 border-t">
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-b-0">
+                        Expensive, Immobile Housing
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 border-b md:border-l md:border-b-0">
+                        Precision Prototyping (3D Printing)
+                    </div>
+                    <div class="px-4 py-3 text-gray-700 md:border-l">
+                        We use Fusion 360 and 3D printing to create a compact, durable, custom-designed, and lightweight enclosure. This allows for rapid, low-cost replication of the portable unit.
+                        <br>
+                        <a href="#doc-making-design" class="doc-nav-link inline-flex items-center font-medium text-indigo-600 hover:text-indigo-800 transition-all mt-2">
+                            Learn more
+                            <i data-feather="arrow-right" class="w-4 h-4 ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="border-t border-gray-200 pt-8 space-y-6">
+
+        <h4 class="text-xl font-bold text-gray-800">3. How LUMINI Helps (Potential Applications)</h4>
+        <p class="text-gray-700 leading-relaxed">
+            LUMINI provides a robust alternative when high-tech infrastructure fails.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 rounded-lg bg-gray-100 p-1">
+            <button 
+                onclick="showHelpTab('help-1')" 
+                id="btn-help-1"
+                class="help-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 bg-white text-indigo-700 shadow-sm">
+                <i data-feather="shield" class="w-4 h-4"></i>
+                Disaster Resilience
+            </button>
+            <button 
+                onclick="showHelpTab('help-2')" 
+                id="btn-help-2"
+                class="help-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 text-gray-600 hover:bg-white hover:shadow-sm">
+                <i data-feather="globe" class="w-4 h-4"></i>
+                Low-Resource Connectivity
+            </button>
+            <button 
+                onclick="showHelpTab('help-3')" 
+                id="btn-help-3"
+                class="help-tab-btn p-3 w-full font-medium text-sm rounded-md transition-all flex items-center justify-center gap-2 text-gray-600 hover:bg-white hover:shadow-sm">
+                <i data-feather="book-open" class="w-4 h-4"></i>
+                Educational Tool
+            </button>
+        </div>
+
+        <div class="p-4 rounded-b-lg">
+            
+            <div id="help-1" class="help-tab-content space-y-3 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Use:</strong> 
+                    LUMINI is a self-contained, off-grid communication tool for disaster zones.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Benefit:</strong> 
+                    When cellular and power grids fail (e.g., after an earthquake), LUMINI's low-power system and wireless link can provide a vital, continuous text message connection where no other infrastructure works.
+                </p>
+            </div>
+            
+            <div id="help-2" class="help-tab-content hidden space-y-3 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Use:</strong> 
+                    Providing communication in remote areas.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Benefit:</strong> 
+                    In communities where laying fiber optics or installing cell towers is too expensive, LUMINI offers a stable, affordable, and easily maintainable communication link. The entire unit can be built using cheap, globally available components and FabLab resources.
+                </p>
+            </div>
+            
+            <div id="help-3" class="help-tab-content hidden space-y-3 fade-in">
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Use:</strong> 
+                    Project-based learning.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    <strong class="text-gray-800">Benefit:</strong> 
+                    It serves as a perfect educational model. Students directly learn about electromagnetism, digital logic (binary encoding), and basic circuit design by building a functional, historically relevant communication device.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
                             <!-- 
                             / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / / 
                             
@@ -1359,6 +1580,98 @@ For our socials, we have created a LinkedIn account, and an Instagram account
  * Handles showing and hiding the tabs in the "Learn Morse Code" section.
  * (Call this function 'showMorseTab')
  */
+/*
+ * Manages the interactive tabs in the "History" section.
+ 
+ */
+/*
+ * Manages the interactive tabs in the "History > Failure Point" section.
+ */
+function showHistoryTab(tabId) {
+    // Hide all tab content
+    const contentTabs = document.querySelectorAll('.history-tab-content');
+    contentTabs.forEach(tab => {
+        tab.classList.add('hidden');
+    });
+
+    // Remove 'active' style from all buttons
+    const buttons = document.querySelectorAll('.history-tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+        btn.classList.add('text-gray-60A0', 'hover:bg-white', 'hover:shadow-sm');
+    });
+
+    // Show the target tab content
+    const targetContent = document.getElementById(tabId);
+    if (targetContent) {
+        targetContent.classList.remove('hidden');
+    }
+
+    // Set the target button to 'active'
+    const targetButton = document.getElementById('btn-' + tabId);
+    if (targetButton) {
+        targetButton.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+        targetButton.classList.remove('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+    }
+}
+
+/*
+ * Manages the interactive tabs in the "History > How LUMINI Helps" section.
+ */
+function showHelpTab(tabId) {
+    // Hide all tab content
+    const contentTabs = document.querySelectorAll('.help-tab-content');
+    contentTabs.forEach(tab => {
+        tab.classList.add('hidden');
+    });
+
+    // Remove 'active' style from all buttons
+    const buttons = document.querySelectorAll('.help-tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+        btn.classList.add('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+    });
+
+    // Show the target tab content
+    const targetContent = document.getElementById(tabId);
+    if (targetContent) {
+        targetContent.classList.remove('hidden');
+    }
+
+    // Set the target button to 'active'
+    const targetButton = document.getElementById('btn-' + tabId);
+    if (targetButton) {
+        targetButton.classList.add('bg-white', 'text-indigo-7q00', 'shadow-sm');
+        targetButton.classList.remove('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+    }
+}
+function showHistoryTab(tabId) {
+    // Hide all tab content
+    const contentTabs = document.querySelectorAll('.history-tab-content');
+    contentTabs.forEach(tab => {
+        tab.classList.add('hidden');
+    });
+
+    // Remove 'active' style from all buttons
+    const buttons = document.querySelectorAll('.history-tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('bg-white', 'text-indigo-700', 'shadow-sm');
+        btn.classList.add('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+    });
+
+    // Show the target tab content
+    const targetContent = document.getElementById(tabId);
+    if (targetContent) {
+        targetContent.classList.remove('hidden');
+    }
+
+    // Set the target button to 'active'
+    const targetButton = document.getElementById('btn-' + tabId);
+    if (targetButton) {
+        targetButton.classList.add('bg-white', 'text-indigo-700', 'shadow-sm');
+        targetButton.classList.remove('text-gray-600', 'hover:bg-white', 'hover:shadow-sm');
+    }
+}
 function showMorseTab(tabId) {
     // 1. Hide all morse tab content
     // Note: We use querySelectorAll with a class to get all content panes
