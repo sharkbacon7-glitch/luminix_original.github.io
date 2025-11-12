@@ -445,7 +445,13 @@
                     <i data-feather="map-pin" class="w-4 h-4 mr-2.5"></i>
                     Pinouts
                 </button>
-
+                <button 
+                    onclick="showCircuitTab('demonstration')" 
+                    id="btn-demonstration"
+                    class="circuit-tab-btn w-full text-left p-3 rounded-md font-medium text-sm flex items-center transition-all duration-150 text-gray-600 hover:bg-gray-100 hover:text-gray-900">
+                    <i data-feather="video" class="w-4 h-4 mr-2.5"></i>
+                Demonstration
+                </button>
                 
 
             </nav>
@@ -588,6 +594,53 @@
                     <p class="text-sm font-medium text-gray-600 mb-2 pt-4">Pinout Image:</p>
                     <img src="https://i.ibb.co/3y1Y6PfM/Screenshot-2025-11-11-074827.png" alt="Final design pinout table" class="rounded-lg shadow-md w-full">
                 </div>
+                    </div>
+                <div id="tab-demonstration" class="circuit-tab-content hidden space-y-8">
+    
+    <h4 class="text-xl font-bold">Project Demonstrations</h4>
+    <p class="text-gray-700 leading-relaxed">
+        See the Smart Telegraph in action! These videos showcase the key functionalities, from the single-button Morse code input to the successful Wi-Fi transmission between the two units.
+    </p>
+
+    <div class="border-t border-gray-200 pt-6 space-y-4">
+        <h5 class="text-lg font-semibold">Demo 1: Emojies!</h5>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            This video demonstrates the core logic of the single-button input. Watch how short presses (dots), long presses (dashes), and pauses (spaces) are captured, sounded by the buzzer, and translated into letters and emojies on the OLED display.
+        </p>
+        
+        <div class="w-full overflow-hidden rounded-lg shadow-md bg-black">
+             <video 
+                class="w-full h-auto"
+                src="https://i.imgur.com/zDu2Mao.mp4" 
+                title="Demonstration of single-button Morse code entry"
+                controls
+                preload="metadata">
+                Your browser does not support the video tag.
+             </video>
+        </div>
+    </div>
+
+    <div class="border-t border-gray-200 pt-6 space-y-4">
+        <h5 class="text-lg font-semibold">Demo 2: Both Units Work</h5>
+        <p class="text-gray-700 leading-relaxed mb-4">
+            As you see here both units work and are sending messages to each other through Wi-Fi.
+        <div class="w-full overflow-hidden rounded-lg shadow-md bg-black">
+             <video 
+                class="w-full h-auto"
+                src="https://i.imgur.com/KWnCqK0.mp4" 
+                title="Demonstration of Wi-Fi message transmission between ESP32s"
+                controls
+                preload="metadata">
+                Your browser does not support the video tag.
+             </video>
+        </div>
+    </div>
+
+
+
+                
+
+                
                 
 
             </div> </div> </div> </div>
