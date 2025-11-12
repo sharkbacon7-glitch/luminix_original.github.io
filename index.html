@@ -1125,84 +1125,143 @@
                                 =================================
                                 ** FIX APPLIED: Added 'hidden' class **
                             -->
-                            <div id="doc-build-summary" class="doc-section space-y-8 hidden">
-                                <!-- Quick View -->
-                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                        <li>Two identical handheld units.</li>
-                                        <li>Morse Key (1 button) to tap dots/dashes.</li>
-                                        <li>Buzzer + LED for beep/blink feedback.</li>
-                                        <li>OLED screen that shows decoded text.</li>
-                                        <li>Units talk wirelessly (ESP-NOW on ESP32)—no router needed.</li>
-                                        <li>You can demo “old vs new”: tap Morse → receiver shows live text.</li>
-                                    </ul>
-                                </div>
+                            <div id="doc-build-summary" class="doc-section space-y-8">
+    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="zap" class="w-6 h-6 mr-3 text-indigo-600"></i>What You'll Build (Quick View)</h3>
+        <ul class="list-disc list-inside text-gray-700 space-y-2">
+            <li>Two identical handheld units.</li>
+            <li>Morse Key (1 button) to tap dots/dashes.</li>
+            <li>Buzzer for audible feedback.</li>
+            <li>OLED screen that shows decoded text.</li>
+            <li>Units talk wirelessly (ESP-WIFI on ESP32)—no router needed.</li>
+            <li>You can demo “old vs new”: tap Morse → receiver shows live text.</li>
+        </ul>
+    </div>
 
-                                <!-- Bill of Materials -->
-                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="list" class="w-6 h-6 mr-3 text-indigo-600"></i>Bill of Materials (per unit)</h3>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                        <li>ESP32 DevKit (DOIT or WROOM-32) ×1</li>
-                                        <li>0.96" I²C OLED (128×64, SSD1306) ×1</li>
-                                        <li>Momentary pushbutton (normally open) ×1</li>
-                                        <li>220 Ω resistor ×1 (for LED) Optional</li>
-                                        <li>Red LED ×1 Optional</li>
-                                        <li>Active buzzer (3.3–5 V) ×1</li>
-                                        <li>10 kΩ resistor ×1 (pull‑down for button) Optional</li>
-                                        <li>Breadboard + jumper wires</li>
-                                        <li>Power: USB power bank / 5 V phone charger</li>
-                                        <li>Optional: small slide switch (power), 3D‑printed case</li>
-                                    </ul>
-                                </div>
+    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="list" class="w-6 h-6 mr-3 text-indigo-600"></i>Bill of Materials (per unit)</h3>
+        <p class="text-gray-600 mb-10">You'll need two sets of these components to build both handheld units.</p>
 
-                                <!-- Wiring -->
-                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="git-pull-request" class="w-6 h-6 mr-3 text-indigo-600"></i>Wiring (per unit)</h3>
-                                    <p class="text-gray-500 mb-4">(You can change pins in code if needed.)</p>
-                                    <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                        <li><strong>Button:</strong> GPIO 14 (to pin) + 10 kΩ to GND; other side of button to 3V3</li>
-                                        <li><strong>LED:</strong> GPIO 26 through 220 Ω to LED anode; LED cathode to GND</li>
-                                        <li><strong>Buzzer:</strong> GPIO 27 to + buzzer; buzzer – to GND</li>
-                                        <li><strong>OLED I²C:</strong> SDA = GPIO 21, SCL = GPIO 22, VCC → 3V3, GND → GND</li>
-                                    </ul>
-                                </div>
+        <div class="space-y-12"> <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://www.espboards.dev/esp32/esp32doit-devkit-v1/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://joy-it.net/files/files/Produkte/SBC-NodeMCU-ESP32-C/SBC-NodeMCU-ESP32-C_01.png" alt="ESP32 Development Board" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">ESP32 DevKit (×1)</h4>
+                    <p class="text-gray-700">This is the microcontroller, the "brain" of our project. A <strong>DOIT or WROOM-32</strong> model is perfect. Its built-in Wi-Fi is what we use for the router-free ESP-NOW communication.</p>
+                </div>
+            </div>
 
-                                <!-- Morse Timing & Enclosure -->
-                                <div class="grid md:grid-cols-2 gap-8">
-                                    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="clock" class="w-6 h-6 mr-3 text-indigo-600"></i>Morse Timing</h3>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                            <li>Dit (•) length = 120 ms (≈10–12 WPM)</li>
-                                            <li>Dash (—) ≈ 3× dit</li>
-                                            <li>Gap between symbols = 1× dit</li>
-                                            <li>Gap between letters = 3× dit</li>
-                                            <li>Gap between words = 7× dit</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>Enclosure</h3>
-                                        <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                            <li>Top panel cutouts: OLED (28×14 mm), LED (3 mm)</li>
-                                            <li>Internal pillars (M2.5 standoffs)</li>
-                                            <li>Dimensions: 110×65×30 mm</li>
-                                            <li>Front label: “Smart Telegraph — Unit A/B”</li>
-                                        </ul>
-                                    </div>
-                                </div>
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://www.adafruit.com/product/326?srsltid=AfmBOorxicqHxyPkGnvKEZfpJxBLcXQi2oVMSl5M7CbO4fplWQI2sCvh" target="_blank" rel="noopener noreferrer">
+                        <img src="https://www.az-delivery.de/cdn/shop/products/096-zoll-oled-ssd1306-display-i2c-128-x-64-pixel-kompatibel-mit-arduino-und-raspberry-pi-562312.jpg?v=1679397959&width=1500" alt="OLED Screen" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">0.96" I²C OLED (×1)</h4>
+                    <p class="text-gray-700">This <strong>128x64 SSD1306</strong> display will show the decoded text. Make sure you get the <strong>I²C (or IIC)</strong> version, which only needs 4 pins (VCC, GND, SDA, SCL).</p>
+                </div>
+            </div>
 
-                                <!-- Build Steps -->
-                                <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
-                                    <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="tool" class="w-6 h-6 mr-3 text-indigo-600"></i>Build Steps</h3>
-                                    <ol class="list-decimal list-inside text-gray-700 space-y-2">
-                                        <li>Breadboard one unit and test the OLED, button, LED, and buzzer.</li>
-                                        <li>Flash code with ROLE = SENDER (Unit A) and again with ROLE = RECEIVER (Unit B).</li>
-                                        <li>Power both—tap on A → text appears on B; B’s buzzer/LED beep per character.</li>
-                                        <li>Make a second pass to tidy wiring, move to perfboard, or mount in a case.</li>
-                                    </ol>
-                                </div>
-                            </div>
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://www.circuits-diy.com/push-button-led-circuit-basic-electronics/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://static-01.daraz.com.np/p/b5bbe8f281cca92ff4013aac837d47d6.jpg" alt="Momentary Pushbutton" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Momentary Pushbutton (×1)</h4>
+                    <p class="text-gray-700">This will be our Morse code key. Any "normally open" (NO) momentary pushbutton will work. A 12mm button is a comfortable size.</p>
+                </div>
+            </div>
 
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://www.circuitbasics.com/what-is-a-buzzer/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://emariete.com/wp-content/uploads/2020/12/zumbador.png" alt="Active Buzzer" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Active Buzzer (×1)</h4>
+                    <p class="text-gray-700">This provides the "beep" feedback. Make sure to get an <strong>active buzzer</strong> (it usually has a sticker on top) that works with 3.3V or 5V. It will have a '+' pin and a '–' pin.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://learn.sparkfun.com/tutorials/how-to-use-a-breadboard/all" target="_blank" rel="noopener noreferrer">
+                        <img src="https://sfxpcb.com/wp-content/uploads/2023/09/Breadboard.jpg" alt="Solderless Breadboard" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Breadboard (×1)</h4>
+                    <p class="text-gray-700">A standard 400-point or 830-point solderless breadboard is perfect for prototyping the circuit without any soldering.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row-reverse items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://en.wikipedia.org/wiki/Jump_wire" target="_blank" rel="noopener noreferrer">
+                        <img src="https://electronicssecret.wordpress.com/wp-content/uploads/2022/07/image-1.png" alt="Jumper Wires" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Jumper Wires</h4>
+                    <p class="text-gray-700">A set of male-to-male (M-M) and male-to-female (M-F) jumper wires will be needed to connect everything. The M-F wires are useful for the OLED and buzzer pins.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <div class="md:w-2/5 w-full">
+                    <a href="https://ledlenser.com/en/advisor/what-is-a-power-bank/" target="_blank" rel="noopener noreferrer">
+                        <img src="https://images.philips.com/is/image/philipsconsumer/506144bc684c46e3a62fb0ce00a6d411?$pnglarge$&wid=960" alt="USB Power Bank" class="rounded-lg shadow-md w-full object-contain h-48 bg-gray-100">
+                    </a>
+                </div>
+                <div class="md:w-3/5 w-full">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Power Source (×1)</h4>
+                    <p class="text-gray-700">A USB power bank or a standard 5V phone charger with a Micro-USB cable (to match the ESP32) will be needed to power each unit.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="clock" class="w-6 h-6 mr-3 text-indigo-600"></i>Morse Timing</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>Dit (•) length = 120 ms (≈10–12 WPM)</li>
+                <li>Dash (—) ≈ 3× dit</li>
+                <li>Gap between symbols = 1× dit</li>
+                <li>Gap between letters = 3× dit</li>
+                <li>Gap between words = 7× dit</li>
+            </ul>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+            <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="archive" class="w-6 h-6 mr-3 text-indigo-600"></i>Enclosure</h3>
+            <ul class="list-disc list-inside text-gray-700 space-y-2">
+                <li>Top panel cutouts: OLED (28×14 mm)</li>
+                <li>Internal pillars (M2.5 standoffs)</li>
+                <li>Dimensions: 110×65×30 mm</li>
+                <li>Front label: “Smart Telegraph — Unit A/B”</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg shadow-lg fade-in">
+        <h3 class="text-2xl font-bold mb-4 flex items-center"><i data-feather="tool" class="w-6 h-6 mr-3 text-indigo-600"></i>Build Steps</h3>
+        <ol class="list-decimal list-inside text-gray-700 space-y-2">
+            <li>Breadboard one unit and test the OLED, button, and buzzer.</li>
+            <li>Flash code with ROLE = SENDER (Unit A) and again with ROLE = RECEIVER (Unit B).</li>
+            <li>Power both—tap on A → text appears on B; B’s buzzer should beep per character.</li>
+            <li>Make a second pass to tidy wiring, move to perfboard, or mount in a case.</li>
+        </ol>
+    </div>
+</div>
                             <!-- 
                                 =================================
                                 SECTION: Website Designing
@@ -2629,6 +2688,8 @@ function showMorseTab(tabId) {
                 console.error('Error switching design tab:', error);
             }
         }
+    // Function for 'Circuit Design' tabs
+
         
         // This line makes the function available to the "onclick" in your HTML
         window.showDesignTab = showDesignTab;
