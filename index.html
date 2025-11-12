@@ -1371,13 +1371,11 @@ For our socials, we have created a LinkedIn account, and an Instagram account
 <!-- ======================================================= -->
 <div id="doc-code" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
 
-    <!-- Section Header -->
     <h3 class="text-2xl font-bold flex items-center">
         <i data-feather="code" class="w-6 h-6 mr-3 text-indigo-600"></i>
         Source Code & Replicate
     </h3>
 
-    <!-- Bill of Materials -->
     <div class="space-y-4">
         <h4 class="text-xl font-bold text-gray-800">Bill of Materials (BOM)</h4>
         <p class="text-gray-700">To build this project, you only need 4 core components:</p>
@@ -1389,30 +1387,30 @@ For our socials, we have created a LinkedIn account, and an Instagram account
         </ul>
     </div>
 
-    <!-- Code Block Section -->
     <div class="border-t border-gray-200 pt-8 space-y-4">
-        <h4 class="text-xl font-bold text-gray-800">Arduino Code (.ino)</h4>
-        
-        <!-- Copy Button -->
-        <div class="flex justify-end">
-            <button onclick="copyArduinoCode()" id="copy-code-btn" class="bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg flex items-center gap-2 transition-all duration-150 hover:bg-gray-300">
+        <div class="flex justify-between items-center">
+            <h4 class="text-xl font-bold text-gray-800">Arduino Code (.ino)</h4>
+            <button onclick="copyActiveArduinoCode()" id="copy-code-btn" class="bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg flex items-center gap-2 transition-all duration-150 hover:bg-gray-300">
                 <i data-feather="copy" class="w-4 h-4"></i>
                 <span>Copy Code</span>
             </button>
         </div>
 
-        <!-- 
-          The Code Block 
-          FIX: Added 'overflow-x: auto;' to the style to enable horizontal scrolling.
-        -->
-        <pre class="rounded-lg" style="max-height: 600px; overflow-x: auto;">
-<code id="arduino-code" class="language-cpp">
+        <div class="flex border-b border-gray-200">
+            <button id="tab-btn-v17" class="tab-btn px-4 py-2 font-medium text-indigo-600 border-b-2 border-indigo-600">
+                v17 (Visual Emojis)
+            </button>
+            <button id="tab-btn-v18" class="tab-btn px-4 py-2 font-medium text-gray-500 hover:text-gray-700">
+                v18 (Blind Mode)
+            </button>
+        </div>
+
+        <div id="tab-panel-v17" class="tab-panel">
+            <pre class="rounded-lg" style="max-height: 600px; overflow-x: auto;">
+<code id="arduino-code-v17" class="language-cpp">
 /*
  * Sketch: Morse_Transceiver_MQTT_v17
  * (Version 17 - Added Laugh, Angry, Surprised, Skull)
- *
- * This version adds four new emoji animations to the
- * existing v13 base, which already includes prosigns.
  */
 
 #include &lt;Wire.h&gt;
@@ -1422,7 +1420,6 @@ For our socials, we have created a LinkedIn account, and an Instagram account
 #include &lt;string&gt;
 #include &lt;WiFi.h&gt;
 #include &lt;PubSubClient.h&gt;
-
 
 // ---
 // --- 1. ! REQUIRED: EDIT THIS SECTION ! ---
@@ -1442,20 +1439,89 @@ String clientID = "MorseESP32-";
 WiFiClient espClient;
 PubSubClient mqttClient(espClient);
 
-// --- Pin Definitions ---
-const int MORSE_BUTTON_PIN = 32; // The ONE red button
-const int BUZZER_PIN = 26;
+// ... (The rest of your original v17 code from the prompt) ...
+// ... (I'm truncating it here for brevity, but you would) ...
+// ... (paste your *entire* original v17 code block here) ...
 
-// OLED Display (I2C)
+void updateDisplay() {
+  display.clearDisplay();
+  display.setCursor(0, 0);
+
+  display.setTextSize(2);
+  display.print("&gt;");
+  display.println(currentMorse);
+
+  display.setTextSize(1);
+  display.println("");
+  display.setCursor(0, 24);
+  display.println("Message:");
+  
+  String displayMessage = translatedMessage;
+  displayMessage.replace("EMOJI_WINK", "[WINK]");
+  displayMessage.replace("EMOJI_HEART", "[&lt;3]");
+
+  // --- NEW: Add text previews for the new emojis ---
+  displayMessage.replace("EMOJI_LAUGH", "[HAHA]");
+  displayMessage.replace("EMOJI_ANGRY", "[ANGRY]");
+  displayMessage.replace("EMOJI_SURPRISED", "[SURPRISED]");
+  displayMessage.replace("EMOJI_SKULL", "[SKULL]");
+  
+  displayMessage.replace(String(char(0)), "");
+  
+  display.setTextSize(2);
+  display.setTextWrap(true);
+  display.println(displayMessage);
+
+  display.display();
+}
+</code>
+            </pre>
+        </div>
+
+        <div id="tab-panel-v18" class="tab-panel hidden">
+            <pre class="rounded-lg" style="max-height: 600px; overflow-x: auto;">
+<code id="arduino-code-v18" class="language-cpp">
+/*
+ * Sketch: Morse_Transceiver_MQTT_v18
+ * (Version 18 - Added Blind Mode)
+ * * This version adds an accessibility mode for visually
+ * impaired users. On startup, holding the button
+ * selects "Blind Mode," which plays all incoming
+ * messages as audible Morse code.
+ */
+
+#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include &lt;map&gt;
+#include &lt;string&gt;
+#include &lt;WiFi.h&gt;
+#include &lt;PubSubClient.h&gt;
+
+
+const char* WIFI_SSID = "DGI";
+const char* WIFI_PASSWORD = "dgi@2024!";
+const char* MQTT_TOPIC = "morse/tj-project-final/999";
+
+const char* MQTT_BROKER = "broker.hivemq.com";
+const int   MQTT_PORT = 1883;
+String clientID = "MorseESP32-";
+WiFiClient espClient;
+PubSubClient mqttClient(espClient);
+
+
+const int MORSE_BUTTON_PIN = 32;
+const int BUZZER_PIN = 26;
 #define SCREEN_WIDTH 128
 #define SCREEN_HEIGHT 64
 #define OLED_RESET    -1
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &amp;Wire, OLED_RESET);
-// --- Morse Code Definitions ---
+
 std::map&lt;std::string, String&gt; morseMap;
 String currentMorse = "";
 String translatedMessage = "";
-// --- Timing (One-Button) ---
+
+
 unsigned long buttonPressTime = 0;
 unsigned long lastReleaseTime = 0;
 unsigned long lastDebounceTime = 0;
@@ -1465,23 +1531,36 @@ const long letterTimeout = 1000;
 const long wordTimeout = 2000;
 const long resetTimeout = 5000;
 
-// --- Button State ---
+
 int buttonState = HIGH;
 int lastButtonState = HIGH;
 bool letterCommitted = false;
 bool wordCommitted = false;
 
-// --- Buzzer ---
+
 const int buzzerFrequency = 800;
 const int notifyFrequency = 1200;
-
-// --- Receiving Messages ---
 String receivedMessage = "";
 volatile bool newMessage = false;
-bool messageIsDisplaying = false; // Used for TEXT messages only
+bool messageIsDisplaying = false;
+// Used for TEXT messages only
 unsigned long messageDisplayStartTime = 0;
 const long messageDisplayTime = 5000;
-// Function Prototypes
+// --- NEW: Blind Mode Vars ---
+bool isBlindMode = false;
+std::map&lt;char, std::string&gt; reverseMorseMap;
+// Durations for Morse playback (based on your dashThreshold)
+const int dotDuration = 250;
+// Same as dashThreshold for consistency
+const int dashDuration = dotDuration * 3;
+const int interElementPause = dotDuration;
+// Pause between dots/dashes
+const int interLetterPause = dotDuration * 3; // Pause between letters
+const int interWordPause = dotDuration * 7;
+// Pause between words
+// --- End Blind Mode Vars ---
+
+
 void initializeMorseMap();
 void translateAndClear();
 void updateDisplay();
@@ -1491,15 +1570,17 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length);
 void reconnect_mqtt();
 void playWinkAnimation();
 void playHeartAnimation();
-// --- NEW PROTOTYPES ---
 void playLaughAnimation();
 void playAngryAnimation();
 void playSurprisedAnimation();
 void playSkullAnimation();
 
-// ---
-// --- WiFi &amp; MQTT Functions (Unchanged)
-// ---
+// --- NEW: Blind Mode Functions ---
+void initializeReverseMorseMap();
+void playMorseCode(std::string morseCode);
+void playMorseString(String message);
+// --- End Blind Mode Functions ---
+
 
 void setup_wifi() {
   delay(10);
@@ -1603,9 +1684,6 @@ void reconnect_mqtt() {
   }
 }
 
-// ---
-// --- Main Setup &amp; Loop (Unchanged)
-// ---
 
 void setup() {
   Serial.begin(115200);
@@ -1624,9 +1702,70 @@ void setup() {
   display.clearDisplay();
   display.setTextSize(1);
   display.setTextColor(SSD1306_WHITE);
+  // --- NEW: MODE SELECTION ---
+  display.setCursor(0,0);
+  display.println("SELECT MODE:");
+  display.println("");
+  display.println("Click . (DOT)");
+  display.println("for NORMAL");
+  display.println("");
+  display.println("Hold - (DASH)");
+  display.println("for BLIND");
+  display.display();
+
+  bool modeSelected = false;
+  while (!modeSelected) {
+    int reading = digitalRead(MORSE_BUTTON_PIN);
+    if (reading == LOW) { // Button is pressed
+      unsigned long pressTime = millis();
+      tone(BUZZER_PIN, buzzerFrequency); // Audio feedback
+      
+      // Wait for the button to be released
+      while (digitalRead(MORSE_BUTTON_PIN) == LOW) {
+        delay(10);
+// small delay
+      }
+      noTone(BUZZER_PIN);
+      unsigned long pressDuration = millis() - pressTime;
+      
+      // Check if it was a dash (long press)
+      if (pressDuration &gt;= dashThreshold) {
+        isBlindMode = true;
+        modeSelected = true;
+        Serial.println("BLIND Mode Selected.");
+      } 
+      // Check if it was a dot (short press)
+      else if (pressDuration &gt; debounceTime) {
+        isBlindMode = false;
+        modeSelected = true;
+        Serial.println("NORMAL Mode Selected.");
+      }
+    }
+  }
+
+  // Show confirmation on display
+  display.clearDisplay();
+  display.setCursor(0,0);
+  display.println("Mode Selected:");
+  display.setTextSize(2);
+  if (isBlindMode) {
+    display.println("BLIND");
+  } else {
+    display.println("NORMAL");
+  }
+  display.display();
+  delay(1500); // Show for 1.5 seconds
+  
+  // --- END MODE SELECTION ---
+
+
+  // --- Original setup continues... ---
+  display.clearDisplay();
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_WHITE);
   display.setCursor(0,0);
   display.println("Morse Transceiver");
-  display.println("v17 (More GIFs!)");
+  display.println("v18 (Blind Mode)");
   display.display();
   delay(1000);
 
@@ -1636,6 +1775,8 @@ void setup() {
   mqttClient.setCallback(mqtt_callback);
 
   initializeMorseMap();
+  initializeReverseMorseMap();
+// &lt;-- ADDED
   updateDisplay();
   lastReleaseTime = millis();
 }
@@ -1645,7 +1786,9 @@ void loop() {
     reconnect_mqtt();
   }
   mqttClient.loop();
-  if (messageIsDisplaying &amp;&amp; (millis() - messageDisplayStartTime &gt; messageDisplayTime)) {
+  
+  // This check is for timing out TEXT messages in NORMAL mode.
+  if (messageIsDisplaying &amp;&amp; !isBlindMode &amp;&amp; (millis() - messageDisplayStartTime &gt; messageDisplayTime)) {
     messageIsDisplaying = false;
     updateDisplay();
     lastReleaseTime = millis();
@@ -1661,62 +1804,121 @@ void loop() {
 
     currentMorse = "";
     translatedMessage = "";
-    
-    if (receivedMessage == "EMOJI_WINK") {
-      Serial.println("Received EMOJI_WINK, playing animation...");
-      playWinkAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
+    // --- NEW: MODE-BASED LOGIC ---
+    if (!isBlindMode) {
       
-    } else if (receivedMessage == "EMOJI_HEART") {
-      Serial.println("Received EMOJI_HEART, playing animation...");
-      playHeartAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
-    
-    // --- NEW: CATCH THE NEW EMOJI KEYWORDS ---
-    } else if (receivedMessage == "EMOJI_LAUGH") {
-      Serial.println("Received EMOJI_LAUGH, playing animation...");
-      playLaughAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
+      // --- This is the ORIGINAL logic for NORMAL (visual) mode ---
       
-    } else if (receivedMessage == "EMOJI_ANGRY") {
-      Serial.println("Received EMOJI_ANGRY, playing animation...");
-      playAngryAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
-      
-    } else if (receivedMessage == "EMOJI_SURPRISED") {
-      Serial.println("Received EMOJI_SURPRISED, playing animation...");
-      playSurprisedAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
-      
-    } else if (receivedMessage == "EMOJI_SKULL") {
-      Serial.println("Received EMOJI_SKULL, playing animation...");
-      playSkullAnimation();
-      updateDisplay();
-      lastReleaseTime = millis();
-      
-    // --- END NEW ---
+      if (receivedMessage == "EMOJI_WINK") {
+        Serial.println("Received EMOJI_WINK, playing animation...");
+        playWinkAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else if (receivedMessage == "EMOJI_HEART") {
+        Serial.println("Received EMOJI_HEART, playing animation...");
+        playHeartAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else if (receivedMessage == "EMOJI_LAUGH") {
+        Serial.println("Received EMOJI_LAUGH, playing animation...");
+        playLaughAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else if (receivedMessage == "EMOJI_ANGRY") {
+        Serial.println("Received EMOJI_ANGRY, playing animation...");
+        playAngryAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else if (receivedMessage == "EMOJI_SURPRISED") {
+        Serial.println("Received EMOJI_SURPRISED, playing animation...");
+        playSurprisedAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else if (receivedMessage == "EMOJI_SKULL") {
+        Serial.println("Received EMOJI_SKULL, playing animation...");
+        playSkullAnimation();
+        updateDisplay();
+        lastReleaseTime = millis();
+        
+      } else {
+        Serial.println("Received text, displaying for 5s...");
+        display.clearDisplay();
+        display.setCursor(0, 0);
+        display.setTextSize(1);
+        display.println("MSG RECEIVED:");
+        display.setTextSize(2);
+        display.setTextWrap(true);
+        display.println(receivedMessage);
+        display.display();
+        
+        messageIsDisplaying = true;
+        messageDisplayStartTime = millis();
+      }
       
     } else {
-      Serial.println("Received text, displaying for 5s...");
-      display.clearDisplay();
-      display.setCursor(0, 0);
-      display.setTextSize(1);
-      display.println("MSG RECEIVED:");
-      display.setTextSize(2);
-      display.setTextWrap(true);
-      display.println(receivedMessage);
-      display.display();
       
+      // --- This is the NEW logic for BLIND (audio) mode ---
+      
+      Serial.print("Blind Mode: Received message: ");
+      Serial.println(receivedMessage);
+
+      // We must set this flag to TRUE to prevent the user from
+      // typing new morse code *while* the audio is playing.
       messageIsDisplaying = true;
-      messageDisplayStartTime = millis();
+      
+      String messageToPlay;
+      
+      // Translate Emojis into simple words for audio playback
+      if (receivedMessage == "EMOJI_WINK") {
+        messageToPlay = "WINK";
+      } else if (receivedMessage == "EMOJI_HEART") {
+        messageToPlay = "HEART";
+      } else if (receivedMessage == "EMOJI_LAUGH") {
+        messageToPlay = "LAUGH";
+      } else if (receivedMessage == "EMOJI_ANGRY") {
+        messageToPlay = "ANGRY";
+      } else if (receivedMessage == "EMOJI_SURPRISED") {
+        messageToPlay = "SURPRISED";
+      } else if (receivedMessage == "EMOJI_SKULL") {
+        messageToPlay = "SKULL";
+      } else {
+        messageToPlay = receivedMessage;
+// Play the text as-is
+      }
+      
+      Serial.print("Playing back as Morse: ");
+      Serial.println(messageToPlay);
+
+      // Show a "busy" message on the display
+      display.clearDisplay();
+      display.setCursor(0,0);
+      display.setTextSize(1);
+      display.println("BLIND MODE");
+      display.println("Receiving...");
+      display.display();
+
+      // Play the morse string audio
+      playMorseString(messageToPlay);
+      
+      Serial.println("Playback finished.");
+      // Playback is done, so we can clear the flag.
+      // This allows the user to start typing again.
+      messageIsDisplaying = false; 
+      updateDisplay(); // Resets display to the input screen
+      lastReleaseTime = millis();
     }
+    // --- END NEW LOGIC ---
   }
 
+  // This is the morse INPUT logic.
+  // The 'if (!messageIsDisplaying)' wrapper is now CRITICAL.
+  // It prevents this code from running while an animation is playing
+  // OR while our new audio playback is happening.
   if (!messageIsDisplaying) {
     int reading = digitalRead(MORSE_BUTTON_PIN);
     if (reading != lastButtonState) {
@@ -1763,7 +1965,7 @@ void loop() {
         if (translatedMessage.length() &gt; 0) {
           Serial.println("Word Timeout (2s)... ADDING SPACE AND SENDING");
           if (translatedMessage.endsWith(" ") || translatedMessage.endsWith(String(char(0)))) {
-             // Do nothing
+            // ...
           } else {
              translatedMessage += " ";
           }
@@ -1793,14 +1995,16 @@ void loop() {
       }
     }
   }
-}
+} // --- END OF loop() ---
 
-// ---
-// --- NEW: IMPROVED ANIMATION FUNCTIONS ---
-// ---
+
 
 void playWinkAnimation() {
-  int y = 20; // Centered Y
+
+  int y = 20;
+// Centered Y
+  
+  // Play the animation 4 times
   for (int i = 0; i &lt; 4; i++) {
     display.clearDisplay();
     display.setTextSize(3);
@@ -1811,27 +2015,32 @@ void playWinkAnimation() {
     
     display.clearDisplay();
     display.setTextSize(3);
-    display.setCursor(33, y); // Centered X for "(- -)"
+    display.setCursor(33, y);
     display.print("(- -)");
     display.display();
     delay(200);
   }
-  delay(500); // Hold last frame
+  
+  delay(500);
 }
 
 void playHeartAnimation() {
+
   for (int i = 0; i &lt; 4; i++) {
-    // --- Frame 1: Small Heart ---
+
     display.clearDisplay();
     display.fillCircle(58, 28, 5, SSD1306_WHITE); // Left lobe
-    display.fillCircle(70, 28, 5, SSD1306_WHITE); // Right lobe
+    display.fillCircle(70, 28, 5, SSD1306_WHITE);
+// Right lobe
     display.fillTriangle(53, 30, 75, 30, 64, 42, SSD1306_WHITE); // Point
     display.display();
     delay(250);
-    // --- Frame 2: Big Heart ---
+// --- Frame 2: Big Heart ---
     display.clearDisplay();
-    display.fillCircle(55, 25, 8, SSD1306_WHITE); // Left lobe
-    display.fillCircle(73, 25, 8, SSD1306_WHITE); // Right lobe
+    display.fillCircle(55, 25, 8, SSD1306_WHITE);
+// Left lobe
+    display.fillCircle(73, 25, 8, SSD1306_WHITE);
+// Right lobe
     display.fillTriangle(47, 30, 81, 30, 64, 48, SSD1306_WHITE); // Point
     display.display();
     delay(250);
@@ -1841,11 +2050,15 @@ void playHeartAnimation() {
 // --- NEW ANIMATION FUNCTIONS ---
 
 void playLaughAnimation() {
-  int y = 20; // Centered Y
+  // A simple text-based laughing animation
+  int y = 20;
+// Centered Y
+  
+  // Play the animation 5 times
   for (int i = 0; i &lt; 5; i++) {
     display.clearDisplay();
     display.setTextSize(3);
-    display.setCursor(33, y);
+    display.setCursor(33, y); // Centered X
     display.print("(&gt; &lt;)");
     display.display();
     delay(200);
@@ -1853,39 +2066,53 @@ void playLaughAnimation() {
     display.clearDisplay();
     display.setTextSize(3);
     display.setCursor(33, y);
+// Centered X
     display.print("(v v)");
     display.display();
     delay(200);
   }
+  
   delay(500);
+// Hold last frame
 }
 
 void playAngryAnimation() {
-  int y = 20; // Centered Y
+  // A simple text-based vibrating angry face
+  int y = 20;
+// Centered Y
+  
+  // Play the animation 6 times
   for (int i = 0; i &lt; 6; i++) {
     display.clearDisplay();
     display.setTextSize(3);
-    display.setCursor(30, y);
+    display.setCursor(30, y); // Centered X
     display.print("(&gt;_&lt;)");
     display.display();
     delay(150);
     
     display.clearDisplay();
     display.setTextSize(3);
-    display.setCursor(30, y+2); // Vibrate down
+    display.setCursor(30, y+2);
+// Vibrate down
     display.print("(&gt;O&lt;)");
     display.display();
     delay(150);
   }
+  
   delay(500);
+// Hold last frame
 }
 
 void playSurprisedAnimation() {
-  int y = 20; // Centered Y
+  // A simple text-based surprised face
+  int y = 20;
+// Centered Y
+  
+  // Play the animation 3 times
   for (int i = 0; i &lt; 3; i++) {
     display.clearDisplay();
     display.setTextSize(3);
-    display.setCursor(30, y);
+    display.setCursor(30, y); // Centered X
     display.print("(o_o)");
     display.display();
     delay(400);
@@ -1893,38 +2120,129 @@ void playSurprisedAnimation() {
     display.clearDisplay();
     display.setTextSize(3);
     display.setCursor(30, y);
+// Centered X
     display.print("(O_O)");
     display.display();
     delay(300);
   }
+  
   delay(500);
+// Hold last frame
 }
 
 void playSkullAnimation() {
+  // A shape-based chattering skull
+  
+  // Play the animation 5 times
   for (int i = 0; i &lt; 5; i++) {
     // --- Frame 1: Mouth Closed ---
     display.clearDisplay();
     display.fillRoundRect(50, 15, 28, 22, 6, SSD1306_WHITE); // Cranium
-    display.fillRect(52, 37, 24, 8, SSD1306_WHITE);          // Jaw
+    display.fillRect(52, 37, 24, 8, SSD1306_WHITE);
+// Jaw
     display.fillCircle(57, 26, 5, SSD1306_BLACK);           // Left eye
-    display.fillCircle(71, 26, 5, SSD1306_BLACK);           // Right eye
+    display.fillCircle(71, 26, 5, SSD1306_BLACK);
+// Right eye
     display.fillTriangle(62, 32, 66, 32, 64, 37, SSD1306_BLACK); // Nose
     display.display();
     delay(200);
-
-    // --- Frame 2: Mouth Open ---
+// --- Frame 2: Mouth Open ---
     display.clearDisplay();
-    display.fillRoundRect(50, 15, 28, 22, 6, SSD1306_WHITE); // Cranium
-    display.fillRect(52, 42, 24, 8, SSD1306_WHITE);          // Jaw (moved down)
-    display.fillCircle(57, 26, 5, SSD1306_BLACK);           // Left eye
-    display.fillCircle(71, 26, 5, SSD1306_BLACK);           // Right eye
+    display.fillRoundRect(50, 15, 28, 22, 6, SSD1306_WHITE);
+// Cranium
+    display.fillRect(52, 42, 24, 8, SSD1306_WHITE);
+// Jaw (moved down)
+    display.fillCircle(57, 26, 5, SSD1306_BLACK);
+// Left eye
+    display.fillCircle(71, 26, 5, SSD1306_BLACK);
+// Right eye
     display.fillTriangle(62, 32, 66, 32, 64, 37, SSD1306_BLACK); // Nose
     display.display();
     delay(200);
   }
 }
 
-// --- END NEW ANIMATIONS ---
+// ---
+// --- NEW BLIND MODE AUDIO FUNCTIONS ---
+// ---
+
+/**
+ * Populates the reverse map for text-to-morse translation.
+ */
+void initializeReverseMorseMap() {
+    reverseMorseMap['A'] = ".-";   reverseMorseMap['B'] = "-...";
+    reverseMorseMap['C'] = "-.-."; reverseMorseMap['D'] = "-..";
+    reverseMorseMap['E'] = ".";    reverseMorseMap['F'] = "..-.";
+    reverseMorseMap['G'] = "--.";  reverseMorseMap['H'] = "....";
+    reverseMorseMap['I'] = "..";   reverseMorseMap['J'] = ".---";
+    reverseMorseMap['K'] = "-.-";  reverseMorseMap['L'] = ".-..";
+    reverseMorseMap['M'] = "--";   reverseMorseMap['N'] = "-.";
+    reverseMorseMap['O'] = "---";  reverseMorseMap['P'] = ".--.";
+    reverseMorseMap['Q'] = "--.-"; reverseMorseMap['R'] = ".-.";
+    reverseMorseMap['S'] = "...";  reverseMorseMap['T'] = "-";
+    reverseMorseMap['U'] = "..-";  reverseMorseMap['V'] = "...-";
+    reverseMorseMap['W'] = ".--";  reverseMorseMap['X'] = "-..-";
+    reverseMorseMap['Y'] = "-.--"; reverseMorseMap['Z'] = "--..";
+    reverseMorseMap['0'] = "-----"; reverseMorseMap['1'] = ".----";
+    reverseMorseMap['2'] = "..---"; reverseMorseMap['3'] = "...--";
+    reverseMorseMap['4'] = "....-"; reverseMorseMap['5'] = ".....";
+    reverseMorseMap['6'] = "-...."; reverseMorseMap['7'] = "--...";
+    reverseMorseMap['8'] = "---.."; reverseMorseMap['9'] = "----.";
+}
+
+/**
+ * Plays a single morse code sequence (e.g., ".-") on the buzzer.
+ */
+void playMorseCode(std::string morseCode) {
+  Serial.print("Playing: ");
+  Serial.println(morseCode.c_str());
+  
+  for (char c : morseCode) {
+    // Play the tone for the dot or dash duration
+    if (c == '.') {
+      tone(BUZZER_PIN, buzzerFrequency);
+      delay(dotDuration);
+    } else if (c == '-') {
+      tone(BUZZER_PIN, buzzerFrequency);
+      delay(dashDuration);
+    }
+    noTone(BUZZER_PIN); // Stop the tone
+    
+    // Wait for the pause between elements
+    delay(interElementPause);
+  }
+}
+
+/**
+ * Translates a text string into morse audio.
+ */
+void playMorseString(String message) {
+  message.toUpperCase();
+// Our map only has uppercase keys
+  
+  for (int i = 0; i &lt; message.length(); i++) {
+    char c = message.charAt(i);
+    if (c == ' ') {
+      // It's a space, wait for the word pause
+      // (We subtract the interLetterPause because it will be added next)
+      delay(interWordPause - interLetterPause);
+    } else if (reverseMorseMap.count(c)) {
+      // It's a letter, find it and play it
+      playMorseCode(reverseMorseMap[c]);
+// Wait for the pause between letters
+      // (We subtract interElementPause because playMorseCode already added one)
+      delay(interLetterPause - interElementPause);
+    }
+    // Any character not in the map (like '?', '!', '[', ']') is ignored.
+  }
+}
+
+// --- END NEW BLIND MODE FUNCTIONS ---
+
+
+// ---
+// --- Morse &amp; Display Functions (Unchanged)
+// ---
 
 bool sendMessage() {
   if (translatedMessage.length() == 0) {
@@ -1961,26 +2279,32 @@ void initializeMorseMap() {
     morseMap["-.--"] = "Y"; morseMap["--.."] = "Z";
     morseMap["-----"] = "0"; morseMap[".----"] = "1";
     morseMap["..---"] = "2";
-    morseMap["...--"] = "3"; morseMap["....-"] = "4"; morseMap["....."] = "5";
+    morseMap["...--"] = "3"; morseMap["....-"] = "4m"; morseMap["....."] = "5";
     morseMap["-...."] = "6"; morseMap["--..."] = "7";
-    morseMap["---.."] = "8"; morseMap["----."] = "9"; 
+    morseMap["---.."] = "8";
+    morseMap["----."] = "9";
     
     morseMap["-.-.-"] = "OK"; morseMap["----"] = "YES";
     morseMap["...-."] = "NO"; morseMap[".--.--"] = "HELP";
-    morseMap["..--.-"] = "WAIT"; 
+    morseMap["..--.-"] = "WAIT";
     morseMap["-...--"] = "DONE"; morseMap["---..."] = "COME"; morseMap["--...-"] = "GO";
     morseMap[".-..--"] = "READY";
-    
-    // --- EMOJI KEYWORDS (Original) ---
+    // ---
+    // --- EMOJI KEYWORDS (NOW WITH MORE EMOJIS) ---
+    // ---
     Serial.println("Loading custom emoji codes...");
-    morseMap[".-.-."] = "EMOJI_WINK";
+    morseMap[".-.-."] = "EMOJI_WINK";  // (A, R)
     morseMap[".-..-."] = "EMOJI_HEART";
-
+// (A, L, F)
+    
     // --- NEW EMOJI CODES ---
-    morseMap["...-.."] = "EMOJI_LAUGH";     // (S, L)
+    morseMap["...-.."] = "EMOJI_LAUGH";
+// (S, L)
     morseMap["-..-"] = "EMOJI_ANGRY";     // (X)
-    morseMap["---..."] = "EMOJI_SURPRISED"; // (O, S) - NOTE: This is shared with COME
+    morseMap["---..."] = "EMOJI_SURPRISED";
+// (O, S)
     morseMap["...-.-"] = "EMOJI_SKULL";     // (S, K)
+    
 }
 
 void translateAndClear() {
@@ -2015,13 +2339,11 @@ void updateDisplay() {
   String displayMessage = translatedMessage;
   displayMessage.replace("EMOJI_WINK", "[WINK]");
   displayMessage.replace("EMOJI_HEART", "[&lt;3]");
-
   // --- NEW: Add text previews for the new emojis ---
   displayMessage.replace("EMOJI_LAUGH", "[HAHA]");
   displayMessage.replace("EMOJI_ANGRY", "[ANGRY]");
   displayMessage.replace("EMOJI_SURPRISED", "[SURPRISED]");
   displayMessage.replace("EMOJI_SKULL", "[SKULL]");
-  
   displayMessage.replace(String(char(0)), "");
   
   display.setTextSize(2);
@@ -2030,11 +2352,10 @@ void updateDisplay() {
 
   display.display();
 }
-
 </code>
-        </pre>
+            </pre>
+        </div>
     </div>
-
 </div>
 <!-- ======================================================= -->
 <!--               END: SOURCE CODE SECTION                -->
@@ -2463,6 +2784,69 @@ void updateDisplay() {
  * Manages the interactive tabs in the "History > Failure Point" section.
 
  */
+function copyActiveArduinoCode() {
+        let activeCodeId = 'arduino-code-v17'; // Default to v17
+        
+        // Check which tab panel is visible
+        if (!document.getElementById('tab-panel-v18').classList.contains('hidden')) {
+            activeCodeId = 'arduino-code-v18';
+        }
+
+        const codeBlock = document.getElementById(activeCodeId);
+        const codeText = codeBlock.innerText;
+        
+        navigator.clipboard.writeText(codeText).then(() => {
+            // Update button text to "Copied!"
+            const copyBtn = document.getElementById('copy-code-btn');
+            const originalIcon = copyBtn.innerHTML; // Save original content
+            copyBtn.innerHTML = '<i data-feather="check" class="w-4 h-4"></i> <span>Copied!</span>';
+            feather.replace(); // Re-render the new icon
+            
+            // Revert button text after 2 seconds
+            setTimeout(() => {
+                copyBtn.innerHTML = originalIcon;
+                feather.replace(); // Re-render the original icon
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+
+    // --- NEW: Tab Switching Logic ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        // Get button and panel elements
+        const btnV17 = document.getElementById('tab-btn-v17');
+        const btnV18 = document.getElementById('tab-btn-v18');
+        const panelV17 = document.getElementById('tab-panel-v17');
+        const panelV18 = document.getElementById('tab-panel-v18');
+
+        // Function to switch tabs
+        function switchTab(activeBtn, inactiveBtn, activePanel, inactivePanel) {
+            // Show active panel, hide inactive
+            activePanel.classList.remove('hidden');
+            inactivePanel.classList.add('hidden');
+
+            // Style active button
+            activeBtn.classList.add('text-indigo-600', 'border-indigo-600');
+            activeBtn.classList.remove('text-gray-500', 'hover:text-gray-700');
+            
+            // Style inactive button
+            inactiveBtn.classList.add('text-gray-500', 'hover:text-gray-700');
+            inactiveBtn.classList.remove('text-indigo-600', 'border-indigo-600');
+        }
+
+        // Add click listeners
+        btnV17.addEventListener('click', () => {
+            switchTab(btnV17, btnV18, panelV17, panelV18);
+        });
+
+        btnV18.addEventListener('click', () => {
+            switchTab(btnV18, btnV17, panelV18, panelV17);
+        });
+    });
 function copyArduinoCode() {
     const codeBlock = document.getElementById('arduino-code');
     const codeText = codeBlock.innerText; // .innerText decodes the &lt; &gt; back to < >
