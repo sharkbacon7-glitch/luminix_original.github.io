@@ -651,45 +651,37 @@
                                 =================================
                             -->
                         <div id="doc-making-design" class="doc-section hidden bg-white p-8 rounded-lg shadow-lg fade-in space-y-8">
-    
-<h3 class="text-2xl font-bold flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
 
-<div class="space-y-6">
-    <p class="text-gray-700">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
-        
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-            
-        <div>
-            <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
-                <li>ESP32</li>
-                <li>OLED Display</li>
-                <li>Buttons x3</li>
-                <li>Buzzer</li>
-            </ul>
-            <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
+    <h3 class="text-2xl font-bold flex items-center"><i data-feather="settings" class="w-6 h-6 mr-3 text-indigo-600"></i>Making the Design</h3>
+
+    <div class="space-y-6">
+        <p class="text-gray-700">I will be sharing how me and my team have made our circuit for our Modern Telegraph using Wokwi. These are the components used in the circuit:</p>
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <ul class="list-disc list-inside text-gray-700 space-y-2 mb-6">
+                    <li>ESP32</li>
+                    <li>OLED Display</li>
+                    <li>Buttons x3</li>
+                    <li>Buzzer</li>
+                </ul>
+                <p class="text-gray-700">It was the first time I would experience designing a circuit. We decided to use ESP32 as our microcontroller so our project can work through Wi-Fi and Bluetooth. Firstly, we had to understand each component's functions and pinouts. We used google search to find each component’s function and pinouts. To make our progress faster, we referred to connections between ESP32, buttons, and OLED display.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <a href="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" data-lightbox="design-gallery" data-title="Wokwi Circuit">
+                    <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
+                </a>
+                <a href="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" data-lightbox="design-gallery" data-title="Physical Breadboard Circuit">
+                    <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
+                </a>
+                <a href="https://i.ibb.co/HTZ13QkY/IMG-20251111-170055-1.jpg" data-lightbox="design-gallery" data-title="Physical Circuit Prototype">
+                    <img src="https://i.ibb.co/HTZ13QkY/IMG-20251111-170055-1.jpg" alt="Physical Circuit Prototype" class="rounded-lg shadow-md w-full">
+                </a>
+                <a href="https://i.ibb.co/N2hqZKGn/IMG-20251111-170047.jpg" data-lightbox="design-gallery" data-title="Physical Circuit Close-up">
+                    <img src="https://i.ibb.co/N2hqZKGn/IMG-20251111-170047.jpg" alt="Physical Circuit Close-up" class="rounded-lg shadow-md w-full">
+                </a>
+            </div>
         </div>
-            
-        <div class="grid grid-cols-2 gap-6">
-
-    <a href="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" data-lightbox="design-gallery" data-title="Wokwi Circuit">
-        <img src="https://i.ibb.co/3yvXPqwL/Screenshot-2025-08-20-at-9-18-33-PM.png" alt="Wokwi Circuit" class="rounded-lg shadow-md w-full">
-    </a>
-        
-    <a href="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" data-lightbox="design-gallery" data-title="Physical Breadboard Circuit">
-        <img src="https://i.ibb.co/7MmyNnF/IMG20250818213747.jpg" alt="Physical Breadboard Circuit" class="rounded-lg shadow-md w-full">
-    </a>
-        
-    <a href="https://i.ibb.co/HTZ13QkY/IMG-20251111-170055-1.jpg" data-lightbox="design-gallery" data-title="Physical Circuit Prototype">
-        <img src="https://i.ibb.co/HTZ13QkY/IMG-20251111-170055-1.jpg" alt="Physical Circuit Prototype" class="rounded-lg shadow-md w-full">
-    </a>
-        
-    <a href="https://i.ibb.co/N2hqZKGn/IMG-20251111-170047.jpg" data-lightbox="design-gallery" data-title="Physical Circuit Close-up">
-        <img src="https://i.ibb.co/N2hqZKGn/IMG-20251111-170047.jpg" alt="Physical Circuit Close-up" class="rounded-lg shadow-md w-full">
-    </a>
-            
-</div>
     </div>
-</div>
 
     <div class="flex flex-col md:flex-row gap-6 md:gap-8 border-t border-gray-200 pt-8">
 
@@ -712,43 +704,45 @@
                     Process
                 </button>
 
+                <button 
+                    onclick="showDesignTab('Updates')" 
+                    id="btn-updates"
+                    class="design-tab-btn w-full text-left p-3 rounded-md font-medium text-sm flex items-center transition-all duration-150 text-gray-600 hover:bg-gray-100 hover:text-gray-900">
+                    <i data-feather="zap" class="w-4 h-4 mr-2.5"></i>
+                    Updates
+                </button>
             </nav>
         </div>
 
         <div class="flex-grow md:w-3/4 lg:w-4/5 min-w-0">
             
-<div id="tab-physical-layout" class="design-tab-content space-y-6 fade-in">
-    <h4 class="text-xl font-bold">Physical Layout Planning</h4>
-    <p class="text-gray-700 leading-relaxed">
-        With the Wokwi simulation proving successful, our attention shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
-    </p>
-    
-    <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" 
-         alt="Physical layout of components on breadboard" 
-         class="rounded-lg shadow-md w-full mb-2 cursor-pointer" 
-         onclick="showDesignTab('process')">
-    
-    <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
-</div>
+            <div id="tab-physical-layout" class="design-tab-content space-y-6 fade-in">
+                <h4 class="text-xl font-bold">Physical Layout Planning</h4>
+                <p class="text-gray-700 leading-relaxed">
+                    With the Wokwi simulation proving successful, our attention shifted to the physical design and enclosure. We began prototyping a case and arranging the components—the ESP32, OLED screen, and button—for optimal usability and a clean, compact final product.
+                </p>
+                <img src="https://i.ibb.co/Q3cJPgXD/Screenshot-2025-11-10-153602.png" 
+                     alt="Physical layout of components on breadboard" 
+                     class="rounded-lg shadow-md w-full mb-2 cursor-pointer" 
+                     onclick="showDesignTab('process')">
+                <p class="text-sm text-gray-600 italic text-center">Planning the physical component layout on the breadboard for the final enclosure.</p>
+            </div>
 
             <div id="tab-process" class="design-tab-content hidden space-y-8 fade-in">
                 <h4 class="text-xl font-bold">Process</h4>
                 <div class="space-y-6">
-                    
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">1. First we create a sketch of the box.</p>
                         <a href="https://i.ibb.co/1tLqs85J/Screenshot-2025-11-10-175412.png" data-lightbox="process-gallery" data-title="1. First we create a sketch of the box.">
                             <img src="https://i.ibb.co/1tLqs85J/Screenshot-2025-11-10-175412.png" alt="Process step 1" class="rounded-lg shadow-md w-full">
                         </a>
                     </div>
-
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">2. Size</p>
                         <a href="https://i.ibb.co/3mnvnkG0/Screen-Shot-2025-11-10-at-12-17-22-PM.png" data-lightbox="process-gallery" data-title="2. Size">
                             <img src="https://i.ibb.co/3mnvnkG0/Screen-Shot-2025-11-10-at-12-17-22-PM.png" alt="Process step 2" class="rounded-lg shadow-md w-full">
                         </a>
                     </div>
-
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">3. Then we extrude it using the extrude tool, and extrude it to 40 mm.</p>
                         <p class="text-sm text-gray-600 mb-2 italic">Extrude means to make a shape (a material such as metal or plastic) by forcing it through a die.</p>
@@ -761,7 +755,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">4. Next we need to create a hole in the box, so we create a sketch on the box and extrude it downwards.</p>
                         <div class="grid grid-cols-2 gap-4">
@@ -773,14 +766,12 @@
                             </a>
                         </div>
                     </div>
-
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">5. It should look like this after extrusion.</p>
                         <a href="https://i.ibb.co/4wyTHCFX/Screen-Shot-2025-11-10-at-6-08-51-PM.png" data-lightbox="process-gallery" data-title="5. After extrusion">
                             <img src="https://i.ibb.co/4wyTHCFX/Screen-Shot-2025-11-10-at-6-08-51-PM.png" alt="Process step 5" class="rounded-lg shadow-md w-full">
                         </a>
                     </div>
-
                     <div>
                         <p class="font-semibold text-gray-800 mb-2">6. Next we need to create a top to hold the oled and button so create another sketch with the same measurements as the first box and also Extrude it.</p>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -795,55 +786,91 @@
                             </a>
                         </div>
                     </div>
-
-<div>
-    <p class="font-semibold text-gray-800 mb-2">8. We create a hole on the lid for the oled, do the same thing to make a hole extrude it inward.</p>
-    <div class="grid grid-cols-2 gap-4">
-        <a href="https://i.ibb.co/7tjPzXdY/Screen-Shot-2025-11-10-at-6-26-25-PM.png" data-lightbox="process-gallery" data-title="8. Create sketch for OLED hole">
-            <img src="https://i.ibb.co/7tjPzXdY/Screen-Shot-2025-11-10-at-6-26-25-PM.png" alt="Process step 8a" class="rounded-lg shadow-md w-full">
-        </a>
-        <a href="https://i.ibb.co/8ngQxT7M/Screen-Shot-2025-11-10-at-6-26-58-PM.png" data-lightbox="process-gallery" data-title="8. Extrude OLED hole inward">
-            <img src="httpss://i.ibb.co/8ngQxT7M/Screen-Shot-2025-11-10-at-6-26-58-PM.png" alt="Process step 8b" class="rounded-lg shadow-md w-full">
-        </a>
-    </div>
-</div>
-
-<div>
-    <p class="font-semibold text-gray-800 mb-2">9. It should look like this, next we create a hole for the button.</p>
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <a href="https.ibb.co/0H2HHMk/Screen-Shot-2025-11-10-at-6-29-02-PM.png" data-lightbox="process-gallery" data-title="9. Lid after OLED hole">
-            <img src="https://i.ibb.co/0H2HHMk/Screen-Shot-2025-11-10-at-6-29-02-PM.png" alt="Process step 9a" class="rounded-lg shadow-md w-full">
-        </a>
-        <a href="https.ibb.co/QFvdRTGT/Screen-Shot-2025-11-10-at-6-29-43-PM.png" data-lightbox="process-gallery" data-title="9. Create hole for button">
-            <img src="https://i.ibb.co/QFvdRTGT/Screen-Shot-2025-11-10-at-6-29-43-PM.png" alt="Process step 9b" class="rounded-lg shadow-md w-full">
-        </a>
-        <a href="https://i.ibb.co/4ZL2hvb4/Screen-Shot-2025-11-10-at-6-31-05-PM.png" data-lightbox="process-gallery" data-title="9. Button hole after extrusion">
-            <img src="https://i.ibb.co/4ZL2hvb4/Screen-Shot-2025-11-10-at-6-31-05-PM.png" alt="Process step 9c" class="rounded-lg shadow-md w-full">
-        </a>
-    </div>
-</div>
-
-<div>
-    <p class="font-semibold text-gray-800 mb-2">10. Next we create a hole for a buzzer. So we use the hole tool.</p>
-    <div class="grid grid-cols-2 gap-4">
-        <a href="https://i.ibb.co/1fH56xHX/Screen-Shot-2025-11-10-at-6-34-48-PM.png" data-lightbox="process-gallery" data-title="10. Use hole tool for buzzer">
-            <img src="https://i.ibb.co/1fH56xHX/Screen-Shot-2025-11-10-at-6-34-48-PM.png" alt="Process step 10a" class="rounded-lg shadow-md w-full">
-        </a>
-        <a href="https://i.ibb.co/3mM8w0Q4/Screen-Shot-2025-11-10-at-6-35-16-PM.png" data-lightbox="process-gallery" data-title="10. Buzzer hole complete">
-            <img src="https://i.ibb.co/3mM8w0Q4/Screen-Shot-2025-11-10-at-6-35-16-PM.png" alt="Process step 10b" class="rounded-lg shadow-md w-full">
-        </a>
-    </div>
-</div>
-
-<div>
-    <p class="font-semibold text-gray-800 mb-2">11. End product!!!</p>
-    <a href="https://i.ibb.co/VWSkp4Zj/Screen-Shot-2025-11-10-at-6-36-51-PM.png" data-lightbox="process-gallery" data-title="11. End product!!!">
-        <img src="https://i.ibb.co/VWSkp4Zj/Screen-Shot-2025-11-10-at-6-36-51-PM.png" alt="Process step 11" class="rounded-lg shadow-md w-full">
-    </a>
-</div>
-
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">8. We create a hole on the lid for the oled, do the same thing to make a hole extrude it inward.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="https://i.ibb.co/7tjPzXdY/Screen-Shot-2025-11-10-at-6-26-25-PM.png" data-lightbox="process-gallery" data-title="8. Create sketch for OLED hole">
+                                <img src="https://i.ibb.co/7tjPzXdY/Screen-Shot-2025-11-10-at-6-26-25-PM.png" alt="Process step 8a" class="rounded-lg shadow-md w-full">
+                            </a>
+                            <a href="https://i.ibb.co/8ngQxT7M/Screen-Shot-2025-11-10-at-6-26-58-PM.png" data-lightbox="process-gallery" data-title="8. Extrude OLED hole inward">
+                                <img src="httpss://i.ibb.co/8ngQxT7M/Screen-Shot-2025-11-10-at-6-26-58-PM.png" alt="Process step 8b" class="rounded-lg shadow-md w-full">
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">9. It should look like this, next we create a hole for the button.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                            <a href="https.ibb.co/0H2HHMk/Screen-Shot-2025-11-10-at-6-29-02-PM.png" data-lightbox="process-gallery" data-title="9. Lid after OLED hole">
+                                <img src="https://i.ibb.co/0H2HHMk/Screen-Shot-2025-11-10-at-6-29-02-PM.png" alt="Process step 9a" class="rounded-lg shadow-md w-full">
+                            </a>
+                            <a href="https.ibb.co/QFvdRTGT/Screen-Shot-2025-11-10-at-6-29-43-PM.png" data-lightbox="process-gallery" data-title="9. Create hole for button">
+                                <img src="https://i.ibb.co/QFvdRTGT/Screen-Shot-2025-11-10-at-6-29-43-PM.png" alt="Process step 9b" class="rounded-lg shadow-md w-full">
+                            </a>
+                            <a href="https://i.ibb.co/4ZL2hvb4/Screen-Shot-2025-11-10-at-6-31-05-PM.png" data-lightbox="process-gallery" data-title="9. Button hole after extrusion">
+                                <img src="https://i.ibb.co/4ZL2hvb4/Screen-Shot-2025-11-10-at-6-31-05-PM.png" alt="Process step 9c" class="rounded-lg shadow-md w-full">
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">10. Next we create a hole for a buzzer. So we use the hole tool.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="https://i.ibb.co/1fH56xHX/Screen-Shot-2025-11-10-at-6-34-48-PM.png" data-lightbox="process-gallery" data-title="10. Use hole tool for buzzer">
+                                <img src="https://i.ibb.co/1fH56xHX/Screen-Shot-2025-11-10-at-6-34-48-PM.png" alt="Process step 10a" class="rounded-lg shadow-md w-full">
+                            </a>
+                            <a href="https://i.ibb.co/3mM8w0Q4/Screen-Shot-2025-11-10-at-6-35-16-PM.png" data-lightbox="process-gallery" data-title="10. Buzzer hole complete">
+                                <img src="https://i.ibb.co/3mM8w0Q4/Screen-Shot-2025-11-10-at-6-35-16-PM.png" alt="Process step 10b" class="rounded-lg shadow-md w-full">
+                            </a>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800 mb-2">11. End product!!!</p>
+                        <a href="https://i.ibb.co/VWSkp4Zj/Screen-Shot-2025-11-10-at-6-36-51-PM.png" data-lightbox="process-gallery" data-title="11. End product!!!">
+                            <img src="https://i.ibb.co/VWSkp4Zj/Screen-Shot-2025-11-10-at-6-36-51-PM.png" alt="Process step 11" class="rounded-lg shadow-md w-full">
+                        </a>
+                    </div>
+                </div> </div> <div id="tab-Updates" class="design-tab-content hidden space-y-8 fade-in">
+                <h4 class="text-xl font-bold">Design Updates & Prototyping</h4>
+                
+                <div class="space-y-4">
+                    <h5 class="text-lg font-semibold text-gray-800">1. First Prototype: 3D Print</h5>
+                    <p class="text-gray-700 leading-relaxed">
+                        After printing our first prototype, we found it didn’t work quite well, as you can see below.
+                    </p>
+                    <a href="https://i.ibb.co/wNqx2DBD/Screenshot-2025-11-12-124520.png" data-lightbox="updates-gallery" data-title="First 3D print prototype - incorrect hole sizes.">
+                        <img src="https://i.ibb.co/wNqx2DBD/Screenshot-2025-11-12-124520.png" alt="First 3D print prototype failure" class="rounded-lg shadow-md w-full max-w-lg mx-auto">
+                    </a>
+                    <p class="text-gray-700 leading-relaxed">
+                        The holes we designed for the cable and button were too small. This failure was a valuable learning experience, helping us assess the correct measurements for the next design.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed font-medium">
+                        Since the 3D printing took hours to complete, we decided to switch to laser cutting, which helped us save a lot of time and iterate faster.
+                    </p>
                 </div>
-            </div> </div> </div> </div>
+
+                <div class="border-t border-gray-200 pt-6 space-y-4">
+                    <h5 class="text-lg font-semibold text-gray-800">2. Pivot to Laser Cutting</h5>
+                    <p class="text-gray-700 leading-relaxed">
+                        We created a new `.svg` file (left) for the laser cutter. After cutting the design, we got the physical prototype (right).
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                        <div>
+                            <a href="https://i.ibb.co/mVmtsrjw/Screenshot-2025-11-12-124742.png" data-lightbox="updates-gallery" data-title="The .svg file for the laser cutter.">
+                                <img src="https://i.ibb.co/mVmtsrjw/Screenshot-2025-11-12-124742.png" alt="SVG file for laser cutting" class="rounded-lg shadow-md w-full h-full object-contain border border-gray-100">
+                            </a>
+                            <p class="text-sm text-gray-600 italic text-center mt-2">The `.svg` design file.</p>
+                        </div>
+                        <div>
+                            <a href="https://i.ibb.co/35wDydjm/IMG-20251112-124857.jpg" data-lightbox="updates-gallery" data-title="Laser-cut prototype with fixed holes.">
+                                <img src="https://i.ibb.co/35wDydjm/IMG-20251112-124857.jpg" alt="Laser-cut prototype result" class="rounded-lg shadow-md w-full h-full object-cover">
+                            </a>
+                            <p class="text-sm text-gray-600 italic text-center mt-2">The physical laser-cut result.</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        This is the product from the laser-cutting machine. The holes are now fixed and the correct size. The top piece for the enclosure is still in progress.
+                    </p>
+                </div>
+            </div> </div> </div> </div> 
                             
                             <!-- 
                                 =================================
